@@ -1,0 +1,3 @@
+RewriteEngine on
+RewriteCond %{REQUEST_URI} !^.*(.css|.js|.gif|.png|.jpg|.jpeg|.ico|.woff|.eot|.svg|.swf|.html)$
+RewriteRule ^(.*)$ index.php

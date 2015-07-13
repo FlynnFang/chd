@@ -1,0 +1,1128 @@
+2015/07/06 10:06:44 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/rotate/index
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 04:07:06 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/report/index
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Pub.php (14)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 04:07:06 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/ReportController.php (16)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 04:07:33 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/report/index
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Pub.php (14)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 04:07:33 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/ReportController.php (16)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 04:07:37 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/report/index
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Pub.php (14)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 04:07:37 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/ReportController.php (16)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 04:07:37 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/report/index
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Pub.php (14)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 04:07:37 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/ReportController.php (16)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 04:07:38 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/report/index
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Pub.php (14)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 04:07:38 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/ReportController.php (16)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 04:09:04 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/report/index
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Pub.php (14)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 04:09:04 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/ReportController.php (16)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 04:10:07 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/report/index
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Pub.php (14)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 04:10:07 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/ReportController.php (16)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 04:11:37 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/report/index
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Pub.php (14)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 04:11:37 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/ReportController.php (16)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 04:11:48 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/report/index
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Pub.php (14)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 04:11:48 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/ReportController.php (16)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 04:11:48 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/report/index
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Pub.php (14)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 04:11:48 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/ReportController.php (16)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 10:18:58 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/report/index
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Pub.php (14)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 10:18:58 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/ReportController.php (17)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 04:27:32 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/report/index
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Pub.php (14)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 10:28:50 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/report/index
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Pub.php (14)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 10:28:50 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/ReportController.php (18)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 10:30:04 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/report/index
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Pub.php (14)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 10:30:04 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/ReportController.php (18)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 10:32:06 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/report/index
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Pub.php (14)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 10:32:06 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/ReportController.php (18)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 10:32:16 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/report/index
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Pub.php (14)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 10:32:16 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/ReportController.php (18)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 10:37:46 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/report/index
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Pub.php (14)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 10:37:47 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/ReportController.php (18)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 10:38:16 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/report/index
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Pub.php (14)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 10:38:16 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/ReportController.php (18)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 11:18:38 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/report/index
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Pub.php (14)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 11:18:38 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/ReportController.php (18)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 11:26:40 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/report/index
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Pub.php (14)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 11:26:40 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/ReportController.php (18)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 11:30:13 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/report/index
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Pub.php (14)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 11:30:13 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/ReportController.php (18)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 11:30:49 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/report/index
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Pub.php (14)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 11:30:49 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/ReportController.php (18)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 12:47:53 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/rotate/index
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 12:47:57 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/rotate/rotate?_=1436158074293
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 12:47:57 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/RotateController.php (17)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 12:47:57 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/RotateController.php (57)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 12:48:00 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/rotate/rotate?_=1436158074294
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 12:48:00 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/RotateController.php (17)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 12:48:00 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/RotateController.php (57)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 12:48:00 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/rotate/rotate?_=1436158074295
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 12:48:00 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/RotateController.php (17)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 12:48:00 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/RotateController.php (57)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 12:48:02 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/rotate/rotate?_=1436158074296
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 12:48:02 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/RotateController.php (17)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 12:48:02 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/RotateController.php (57)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 12:48:05 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/rotate/rotate?_=1436158074297
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 12:48:05 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/RotateController.php (17)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 12:48:05 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/RotateController.php (57)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 12:48:06 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/rotate/rotate?_=1436158074298
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 12:48:06 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/RotateController.php (17)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 12:48:06 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/RotateController.php (57)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 12:48:09 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/rotate/rotate?_=1436158074299
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 12:48:09 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/RotateController.php (17)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 12:48:09 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/RotateController.php (57)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 12:48:14 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/rotate/index
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 12:48:22 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/rotate/rotate?_=1436158095085
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 12:48:22 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/RotateController.php (17)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 12:48:22 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/RotateController.php (57)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 12:49:35 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/rotate/rotate?_=1436158095086
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 12:49:35 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/RotateController.php (17)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 12:49:35 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/RotateController.php (57)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 12:49:35 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/RotateController.php (252)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 12:49:48 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/rotate/rotate?_=1436158095087
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 12:49:48 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/RotateController.php (17)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 12:49:48 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/RotateController.php (57)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 12:50:06 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/rotate/rotate?_=1436158095088
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 12:50:06 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/RotateController.php (17)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 12:50:06 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/RotateController.php (57)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 12:50:06 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/RotateController.php (252)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 12:56:02 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/rotate/index
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 14:57:47 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/report/index
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Pub.php (14)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 14:57:47 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/ReportController.php (18)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 14:57:59 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/report/index
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Pub.php (14)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 14:57:59 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/ReportController.php (18)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 14:58:03 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/rotate/index
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 14:58:05 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/rotate/rotate?_=1436165883970
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 14:58:05 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/RotateController.php (17)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 14:58:05 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/RotateController.php (57)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 14:58:20 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/rotate/rotate?_=1436165883971
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 14:58:20 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/RotateController.php (17)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 14:58:20 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/RotateController.php (57)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 14:58:20 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/RotateController.php (252)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 14:59:09 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/rotate/rotate?_=1436165883972
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 14:59:09 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/RotateController.php (17)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 14:59:09 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/RotateController.php (57)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 15:04:51 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/rotate/rotate?_=1436165883973
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 15:04:51 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/RotateController.php (17)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 15:04:51 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/RotateController.php (57)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 15:04:51 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/RotateController.php (307)
+in /data/php/projects/xiongdi/protected/controllers/pub/RotateController.php (112)
+2015/07/06 15:04:51 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/RotateController.php (252)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 15:05:07 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/rotate/profile
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 15:05:07 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/RotateController.php (277)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 15:05:11 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/RotateController.php (341)
+in /data/php/projects/xiongdi/protected/controllers/pub/RotateController.php (285)
+2015/07/06 15:05:52 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/report/index
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Pub.php (14)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 15:05:52 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/ReportController.php (18)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 15:06:58 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/report/index
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Pub.php (14)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/06 15:06:58 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/ReportController.php (18)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 09:24:07 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/report/index?date=20150707
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Pub.php (14)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 09:24:07 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/ReportController.php (18)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 09:24:23 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/report/index?date=20150707
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Pub.php (14)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 09:24:23 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/ReportController.php (18)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 09:25:11 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/report/index?date=20150707
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Pub.php (14)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 09:25:11 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/ReportController.php (18)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 09:25:37 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/report/index?date=20150707
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Pub.php (14)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 09:25:37 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/ReportController.php (18)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 09:27:10 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/report/index?date=20150706
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Pub.php (14)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 09:27:10 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/ReportController.php (18)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 09:28:24 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/report/index?date=20150706
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Pub.php (14)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 09:28:25 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/ReportController.php (18)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 09:28:29 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/report/index?date=20150706
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Pub.php (14)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 09:28:29 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/ReportController.php (18)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 09:30:19 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/report/index?date=20150706
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Pub.php (14)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 09:30:19 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/ReportController.php (18)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 09:31:59 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/report/index?date=20150706
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Pub.php (14)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 09:31:59 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/ReportController.php (18)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 09:46:07 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/report/index?date=20150706
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Pub.php (14)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 09:46:07 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/ReportController.php (18)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 09:46:14 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/report/index?date=20150707
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Pub.php (14)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 09:46:14 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/ReportController.php (18)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 09:47:38 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/report/index?date=20150707
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Pub.php (14)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 09:47:38 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/ReportController.php (18)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 10:10:00 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/rotate/index
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 10:10:53 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/rotate/index
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 10:10:56 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/rotate/rotate?_=1436321454035
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 10:10:56 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/RotateController.php (17)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 10:10:56 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/RotateController.php (57)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 10:10:59 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/rotate/rotate?_=1436321454036
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 10:10:59 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/RotateController.php (17)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 10:10:59 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/RotateController.php (57)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 10:25:32 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/rotate/index
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 10:26:07 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/rotate/index
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 10:27:44 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/rotate/index
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 10:27:49 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/rotate/rotate?_=1436322464916
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 10:27:49 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/RotateController.php (17)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 10:27:49 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/RotateController.php (57)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 10:27:50 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/rotate/rotate?_=1436322464917
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 10:27:50 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/RotateController.php (17)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 10:27:50 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/RotateController.php (57)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 10:27:51 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/rotate/rotate?_=1436322464918
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 10:27:51 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/RotateController.php (17)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 10:27:51 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/RotateController.php (57)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 10:30:44 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/rotate/index
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 11:15:46 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/rotate/index
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 11:17:24 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 11:17:47 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 11:18:05 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 11:18:09 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 11:30:35 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/rotate/index
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 11:30:46 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/rotate/index
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 11:30:55 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/rotate/index
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 11:31:25 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/rotate/index
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 11:32:13 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/rotate/index
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 11:54:27 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/rotate/index
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 11:55:42 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/rotate/rotate?_=1436327667388
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 11:55:42 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/RotateController.php (17)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 11:55:42 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/RotateController.php (57)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 11:55:44 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/rotate/index
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 12:35:02 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/rotate/index
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 12:36:06 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/rotate/index
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 12:36:15 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/rotate/index
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 12:36:16 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/rotate/index
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 12:36:23 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/rotate/rotate?_=1436330176733
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 12:36:23 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/RotateController.php (17)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 12:36:23 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/RotateController.php (57)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 12:36:24 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/rotate/rotate?_=1436330176734
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 12:36:24 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/RotateController.php (17)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 12:36:24 [info] [application.controller.*] BaseModel __construct ......
+in /data/php/projects/xiongdi/protected/models/BaseModel.php (13)
+in /data/php/projects/xiongdi/protected/controllers/pub/RotateController.php (57)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 12:36:42 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/rotate/index
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 12:37:15 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/rotate/index
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 12:39:40 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/rotate/index
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 12:40:29 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/rotate/index
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 14:08:26 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/rotate/index
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 14:09:56 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/rotate/index
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
+2015/07/08 14:10:05 [info] [application.controller.*] 
+
+
+############Req url from Controller############:
+ /pub/rotate/index
+in /data/php/projects/xiongdi/protected/components/Controller.php (26)
+in /data/php/projects/xiongdi/protected/components/Fans.php (21)
+in /data/php/projects/xiongdi/index.php (14)
