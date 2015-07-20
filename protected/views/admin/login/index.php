@@ -1,51 +1,35 @@
-<!-- top -->
-<!-- <div class="top">
-    <div class="wrap clearfix">
-
-        <a href="/" class="fr">登录</a>
-        <a href="https://mp.weixin.qq.com/" class="fr">微信公众平台</a>
-        <span class="fl banner"><?php $this->launch(Yii::app()->name); ?></span>
-    </div>
-</div>  -->
-<!-- top end -->
 
 <!-- content -->
-<div class="content">
-    <div class="wrap login">
-        <form id="loginform" class="loginform" method="POST" action="<?php echo Yii::app()->request->baseUrl; ?>/admin/login/login" success="<?php echo Yii::app()->request->baseUrl; ?>/admin/article/" autocomplete="off">
-            <h1 style="margin-bottom:48px"><?php $this->launch(Yii::app()->name); ?></h1>
-            <p style="font-size:14px;margin-bottom:15px">请联系系统管理员分配管理员帐号登录</p>
-            <p class="errortip"></p>
+<div class="container">
 
-            <div class="item">
-                <i class="icon icon-name"></i>
-                <input type="text" class="ipt" value="" autocomplete="off" name="username" tabindex="1" placeholder="用户名" />
-            </div>
+  <form id="loginform" class="form-signin" method="POST" action="<?php echo Yii::app()->request->baseUrl; ?>/admin/login/login" success="<?php echo Yii::app()->request->baseUrl; ?>/admin/dashboard/" autocomplete="off">
+    <h2 class="form-signin-heading"><?php $this->launch(Yii::app()->name); ?></h2>
+    <label for="username" class="sr-only">用户名</label>
+    <input type="text" class="form-control" value="" autocomplete="off" id="username" name="username" tabindex="1" placeholder="用户名" required autofocus/>
+    <label for="password" class="sr-only">密  码</label>
+    <input type="password" class="form-control"  tabindex="2" id="password" name="password" placeholder="密码" autocomplete="off" required/>
 
-            <div class="item">
-                <i class="icon icon-password"></i>
-                <input type="password" class="ipt"  tabindex="2" id="password" name="password" placeholder="密码" autocomplete="off" />
-            </div>
-
-            <div class="item">
-                <i class="icon icon-vcode"></i>
-                <input type="text" class="ipt" tabindex="3" name="captcha" placeholder="验证码" style="width:124px" />
-                <p class="item-vcode"><img id="vcode" style="vertical-align:middle" src="<?php echo Yii::app()->request->baseUrl; ?>/admin/login/captcha?r=<?php echo rand(1000, 9999); ?>" alt="验证码" /><a id="vcodeTip"  href="javascript:void(0)">看不清？换一张</a></p>
-            </div>
-
-            <div class="item item-sub">
-                <input type="submit" class="subbtn" value="登录" />
-            </div>
-        </form>
+    <label for="captcha" class="sr-only">验证码</label>
+    <div class="row" style="margin-bottom:10px;">
+      <div class="col-md-3">
+        <input type="text" class="form-control" tabindex="3" id="captcha" name="captcha" placeholder="验证码" style="width:124px" required/>
+      </div>
+      <div class="col-md-6" >
+        <img id="vcode" style="vertical-align:middle;margin:5px;" src="<?php echo Yii::app()->request->baseUrl; ?>/admin/login/captcha?r=<?php echo rand(1000, 9999); ?>" alt="验证码" />
+        <a id="vcodeTip"  href="javascript:void(0)">看不清？换一张</a>
+      </div>
     </div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" style="max-width:330px;">登 录</button>
+
+  </form>
 </div>
 <!-- content end -->
 
 <!-- footer -->
-<div class="footer">
-技术支持：腾讯大渝网 Copyright &copy; 2014-2020
-</div>
+<?php include(Yii::app()->basePath."/views/layouts/footer.php");?>
 <!-- footer end -->
+
+<script src="js/bootstrap/bootstrap.min.js"></script>
 
 <script type="text/javascript">
 <!--
@@ -61,7 +45,39 @@ $().ready(function(){
 	$("#vcode, #vcodeTip").click(function(){
 		refreshCaptcha($("#vcode"));
 	});
+
+  $('form').on('submit',function(){
+    var username = $('#username').val();
+    var password = $('#password').val();
+    password = $.md5(password);
+    var captcha = $('#captcha').val();
+    $(this).ajaxSubmit({
+      data : {
+        'username' : username,
+        'password' : password,
+        'captcha' : captcha
+      },
+      success : function(R){
+
+          if (R.errcode === 0) {
+              // alert(R.errmsg);
+              location.href = $('form').attr('success');
+          }else{
+            $('#password').val('');
+            $('#captcha').val('');
+            refreshCaptcha($("#vcode"));//刷新验证码
+            alert(R.errmsg);
+
+          }
+
+      }
+    });
+    return false;
+  });
+
 });
+
+
 
 //-->
 </script>

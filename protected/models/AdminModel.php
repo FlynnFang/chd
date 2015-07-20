@@ -23,4 +23,22 @@ class AdminModel extends BaseModel
 		$criteria->addCondition("username='{$username}'");
 		return $this->getRow($criteria);
 	}
+
+	/**
+	 *	根据用户ID查询用户信息
+	 */
+	public function getInfoByUid($uid)
+	{
+		$criteria = new CDbCriteria();
+		$criteria->addCondition("id={$uid}");
+		return $this->getRow($criteria);
+	}
+
+	// 查询所有用户 但不包括admin
+	public function getAllAdmin()
+	{
+		$criteria = new CDbCriteria();
+		$criteria->addCondition("username<>'admin'");
+		return $this->getRows($criteria);
+	}
 }

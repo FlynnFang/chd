@@ -3,7 +3,6 @@ class Controller extends CController
 {
 	public $layout='';
 	public $version = '1.0';
-  public $pageTitle = "";
 
 
 	protected $_timestamp = null;
@@ -16,7 +15,8 @@ class Controller extends CController
   		date_default_timezone_set('PRC');
 			$this->_timestamp = time();
 			$this->_pagesize = Yii::app()->params['pagination']['pagesize'];
-    	$this->pageTitle = Yii::app()->name;
+    	// $this->pageTitle = Yii::app()->name;
+			$this->setPageTitle(Yii::app()->name);
 			Yii::app()->params['front'] = Yii::app()->request->hostInfo . Yii::app()->baseUrl; //形如、http://http://202.98.63.163/cqpay
 
 			//log input

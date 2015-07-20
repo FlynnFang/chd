@@ -3,7 +3,7 @@ define('CONFIG_PATH', dirname(__FILE__));
 
 return array(
 	'basePath'=>CONFIG_PATH.DIRECTORY_SEPARATOR.'..',
-	'name'=>'先心病',
+	'name'=>'先心病患者出院管理系统',
 
 	//preloading 'log' component
 	'preload'=>array('log'),
@@ -29,7 +29,7 @@ return array(
 		//日志组件
 		'log'=>require(CONFIG_PATH.'/log.php'),
 		//memcache
-		"cache"=>require(CONFIG_PATH.'/memcache.php'),
+		// "cache"=>require(CONFIG_PATH.'/memcache.php'),
 		//redis
 		//'redis'=>require(CONFIG_PATH.'/redis.php'),
     //数据库组件

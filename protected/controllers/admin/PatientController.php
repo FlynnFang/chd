@@ -1,0 +1,462 @@
+<?php
+/**
+ *
+ * 病人
+ * @author flynn
+ *
+ */
+class PatientController extends Admin
+{
+
+	public function init()
+	{
+			parent::init();
+			$this->currentMenu = '1001';
+	}
+
+	public function actionIndex()
+	{
+		$this->actionList();
+
+	}
+
+	public function actionList()
+	{
+		//参数
+		$name = Yii::app()->request->getParam("name", '');
+		$hospital = Yii::app()->request->getParam("hospital", '');
+		$page = Yii::app()->request->getParam("page", 1);
+
+
+		//分页
+		$start = ($page - 1) * $this->_pagesize;
+
+		//查询
+		$c =  new CDbCriteria();
+		if ($name) {
+			$c->addSearchCondition('name',$name);
+		}
+		if ($hospital) {
+			$c->addCondition('hospital='.$hospital);
+		}
+
+		$hospitalModel = new ConfigModel();
+		$hospitals = $hospitalModel->getSetByType(Yii::app()->params['configType']['hospital']);
+
+		$patientModel = new PatientModel();
+		//总数
+		$total = $patientModel->count($c);
+
+		//分页
+		$pages = new CPagination($total);
+		$pages->pageSize = Yii::app()->params['paginavtion']['pagesize'];
+		$pages->route = '/admin/patient/list';
+		$pages->applyLimit($c);
+		$c->order = "create_time desc";
+
+
+		$list = $patientModel->getRows($c);
+
+
+		// var_dump($list, $total);exit;
+		$this->setPageTitle('病历列表');
+		$this->render('list', array('list'=>$list, 'pages'=>$pages, 'hospitals' =>$hospitals));
+	}
+
+	public function actionAdd()
+	{
+		$configModel = new ConfigModel();
+		$bw = $configModel->getSetByType(Yii::app()->params['configType']['xztz_bw']);
+		$sq = $configModel->getSetByType(Yii::app()->params['configType']['xztz_sq']);
+		$qtjx = $configModel->getSetByType(Yii::app()->params['configType']['qtjx']);
+		$xlsc = $configModel->getSetByType(Yii::app()->params['configType']['xlsc']);
+		$hospitals = $configModel->getSetByType(Yii::app()->params['configType']['hospital']);
+
+
+		$this->setPageTitle('新增病历');
+		$this->currentMenu = '1002';
+		$this->render('edit',array(
+			'nationality' => Yii::app()->params['nationality'],
+			'have' => Yii::app()->params['have'],
+			'boolean' => Yii::app()->params['boolean'],
+			'notquite' => Yii::app()->params['notquite'],
+			'bw' => $bw,
+			'sq' => $sq,
+			'qtjx' => $qtjx,
+			'xlsc' => $xlsc,
+			'hospitals' => $hospitals,
+			'op' => 'add',
+			));
+	}
+
+	public function actionEdit()
+	{
+		$patient_code = Yii::app()->request->getParam("code", '');
+		$op = Yii::app()->request->getParam("op", '');
+		if (!$patient_code) {
+			// ID不存在
+
+			exit;
+		}
+
+		$patientModel = new PatientModel();
+		$patient = $patientModel->getRowByCode($patient_code);
+
+		$diagModel = new DiagnosticModel();
+		$diagnostic = $diagModel->getRowByCode($patient_code);
+		if ($diagnostic) {
+			$diagnostic['xztz_bw'] = explode(',',$diagnostic['xztz_bw']);
+			$diagnostic['xztz_sq'] = explode(',',$diagnostic['xztz_sq']);
+			$diagnostic['qtjx_ext'] = explode(',',$diagnostic['qtjx_ext']);
+
+		}
+		$operationModel = new OperationModel();
+		$operation = $operationModel->getRowByCode($patient_code);
+
+
+		$configModel = new ConfigModel();
+		$bw = $configModel->getSetByType(Yii::app()->params['configType']['xztz_bw']);
+		$sq = $configModel->getSetByType(Yii::app()->params['configType']['xztz_sq']);
+		$qtjx = $configModel->getSetByType(Yii::app()->params['configType']['qtjx']);
+		$xlsc = $configModel->getSetByType(Yii::app()->params['configType']['xlsc']);
+		$hospitals = $configModel->getSetByType(Yii::app()->params['configType']['hospital']);
+
+
+		$this->setPageTitle($op=='view'? '查看病历':'编辑病历');
+		$this->render('edit',array(
+			'patient' => $patient,
+			'diagnostic' => $diagnostic,
+			'operation' => $operation,
+			'nationality' => Yii::app()->params['nationality'],
+			'have' => Yii::app()->params['have'],
+			'boolean' => Yii::app()->params['boolean'],
+			'notquite' => Yii::app()->params['notquite'],
+			'bw' => $bw,
+			'sq'=> $sq,
+			'qtjx'=> $qtjx,
+			'xlsc'=> $xlsc,
+			'hospitals' => $hospitals,
+			'op' => $op,
+			));
+	}
+
+	public function actionUpdate()
+	{
+		$op = Yii::app()->request->getParam('op', '');
+		$code = Yii::app()->request->getPost('code', '');
+
+		$name= Yii::app()->request->getPost("name", '');
+		$sex = Yii::app()->request->getPost("sex", 2);
+		$born = Yii::app()->request->getPost("born",'');
+		$nationality = Yii::app()->request->getPost("nationality", '');
+		$place = Yii::app()->request->getPost("place", '');
+		$phone = Yii::app()->request->getPost("phone", '');
+		$address = Yii::app()->request->getPost("address", '');
+		$has_history = Yii::app()->request->getPost('$has_history',0);
+		$height = Yii::app()->request->getPost('height', '');
+		$weight = Yii::app()->request->getPost('weight', '');
+		$BMI = Yii::app()->request->getPost('BMI', 0.0);
+		$hospital_no = Yii::app()->request->getPost('hospital_no', '');
+
+
+
+		$xztz_zy = Yii::app()->request->getPost('xztz_zy', 0);
+		$xztz_bw = Yii::app()->request->getPost('xztz_bw', ''); //数组
+		$xztz_sq = Yii::app()->request->getPost('xztz_sq'); //数组
+		$kyzx_wykn = Yii::app()->request->getPost('kyzx_wykn', 0);
+		$kyzx_ffgm = Yii::app()->request->getPost('kyzx_ffgm', 0);
+		$kyzx_tsmr = Yii::app()->request->getPost('kyzx_tsmr', 0);
+		$kyzx_hdnlc = Yii::app()->request->getPost('kyzx_hdnlc', 0);
+		$kyzx_xxqlq = Yii::app()->request->getPost('kyzx_xxqlq', 0);
+		$kyzx_fg = Yii::app()->request->getPost('kyzx_fg', 0);
+		$kyzx_szfych = Yii::app()->request->getPost('kyzx_szfych', 0);
+		$kyzx_hxjc = Yii::app()->request->getPost('kyzx_hxjc', 0);
+		$kyzx_hxjc_ext = Yii::app()->request->getPost('kyzx_hxjc_ext', 0);
+		$kyzx_xdj = Yii::app()->request->getPost('kyzx_xdj', 0);
+		$jpcysz_shou_1 = Yii::app()->request->getPost('jpcysz_shou_1', 0.0);
+		$jpcysz_yz_1 = Yii::app()->request->getPost('jpcysz_yz_1', 0.0);
+		$jpcysz_shou_2 = Yii::app()->request->getPost('jpcysz_shou_2', 0.0);
+		$jpcysz_yz_2 = Yii::app()->request->getPost('jpcysz_yz_2', 0.0);
+		$jpcysz_shou_3 = Yii::app()->request->getPost('jpcysz_shou_3', 0.0);
+		$jpcysz_yz_3 = Yii::app()->request->getPost('jpcysz_yz_3', 0.0);
+		$fmwycqblsj_yzqgr = Yii::app()->request->getPost('fmwycqblsj_yzqgr', 0);
+		$fmwycqblsj_xy = Yii::app()->request->getPost('fmwycqblsj_xy', 0);
+		$fmwycqblsj_dwjc = Yii::app()->request->getPost('fmwycqblsj_dwjc', 0);
+		$fmwycqblsj_xj = Yii::app()->request->getPost('fmwycqblsj_xj', 0);
+		$fmwycqblsj_sxjc = Yii::app()->request->getPost('fmwycqblsj_sxjc', 0);
+		$xzcc_PDA = Yii::app()->request->getPost('xzcc_PDA', 0);
+		$xzcc_VSD = Yii::app()->request->getPost('xzcc_VSD', 0);
+		$xzcc_ASD = Yii::app()->request->getPost('xzcc_ASD', 0);
+		$xzcc_TFO = Yii::app()->request->getPost('xzcc_TFO', 0);
+		$xzcc_PS = Yii::app()->request->getPost('xzcc_PS', 0);
+		$xzcc_Ebstein = Yii::app()->request->getPost('xzcc_Ebstein', 0);
+		$xzcc_qt = Yii::app()->request->getPost('xzcc_qt', 0);
+		$xzcc_qt_ext = Yii::app()->request->getPost('xzcc_qt_ext', '');
+		$qtjx = Yii::app()->request->getPost('qtjx', 0);
+		$qtjx_ext = Yii::app()->request->getPost('qtjx_ext', '');
+
+
+
+		$ssbh = Yii::app()->request->getPost('ssbh', '');
+		$sssj = Yii::app()->request->getPost('sssj', 0);
+		$ssfs_jrfd = Yii::app()->request->getPost('ssfs_jrfd', 0);
+		$ssfs_jrfd_qxmc = Yii::app()->request->getPost('ssfs_jrfd_qxmc', '');
+		$ssfs_jrfd_size = Yii::app()->request->getPost('ssfs_jrfd_size', '');
+		$ssfs_wkkx = Yii::app()->request->getPost('ssfs_wkkx', 0);
+		$ssfs_wxqkfd = Yii::app()->request->getPost('ssfs_wxqkfd', 0);
+		$ssbfz_rx = Yii::app()->request->getPost('ssbfz_rx', 0);
+		$ssbfz_cyl = Yii::app()->request->getPost('ssbfz_cyl', 0);
+		$ssbfz_xlsc = Yii::app()->request->getPost('ssbfz_xlsc', 0);
+		$ssbfz_xlsc_sxzb = Yii::app()->request->getPost('ssbfz_xlsc_sxzb', '');
+		$ssbfz_xlsc_fscdzz = Yii::app()->request->getPost('ssbfz_xlsc_fscdzz', '');
+		$ssbfz_szcdzz = Yii::app()->request->getPost('ssbfz_szcdzz', 0);
+		$ssbfz_fc = Yii::app()->request->getPost('ssbfz_fc', 0);
+		$ssbfz_Erosion = Yii::app()->request->getPost('ssbfz_Erosion', 0);
+		$ssbfz_fdqtl = Yii::app()->request->getPost('ssbfz_fdqtl', 0);
+		$ssbfz_qt = Yii::app()->request->getPost('ssbfz_qt', '');
+		$shcs_image = Yii::app()->request->getPost('shcs_image', '');
+		$shcs_text = Yii::app()->request->getPost('shcs_text', '');
+		$shsf_date = Yii::app()->request->getPost('shsf_date', 0);
+		$shsf_rx = Yii::app()->request->getPost('shsf_rx', 0);
+		$shsf_cyl = Yii::app()->request->getPost('shsf_cyl', 0);
+		$shsf_xlsc = Yii::app()->request->getPost('shsf_xlsc', 0);
+		$shsf_xlsc_sxzb = Yii::app()->request->getPost('shsf_xlsc_sxzb', '');
+		$shsf_xlsc_fscdzz = Yii::app()->request->getPost('shsf_xlsc_fscdzz', '');
+		$shsf_szcdzz = Yii::app()->request->getPost('shsf_szcdzz', 0);
+		$shsf_fc = Yii::app()->request->getPost('shsf_fc', 0);
+		$shsf_Erosion = Yii::app()->request->getPost('shsf_Erosion', 0);
+		$shsf_fdqtl = Yii::app()->request->getPost('shsf_fdqtl', 0);
+		$shsf_qt = Yii::app()->request->getPost('shsf_qt', '');
+		$shsf_cs_image = Yii::app()->request->getPost('shsf_cs_image', '');
+		$shsf_cs_text = Yii::app()->request->getPost('shsf_cs_text', '');
+
+
+		// echo '$name'.!$name;
+		// echo '$sex'.!$sex;
+		// echo '$born'.!$born;
+		// echo '$nationality'.!$nationality;
+		// echo '$place'.!$place;
+		// echo '$phone'.!$phone;
+		// echo '$address'.!$address;
+		// echo '$has_history'.!$has_history;
+		// exit;
+		if (!$name || !$born || !$nationality || !$place || !$phone || !$address  ) {
+			$this->_output(-1, '参数错误');
+		}
+
+
+
+		$patientModel = new PatientModel();
+		$patientModel['name'] = $name;
+		$patientModel['sex'] = $sex;
+		$patientModel['born'] = strtotime($born);
+		$patientModel['nationality'] = $nationality;
+		$patientModel['place'] = $place;
+		$patientModel['phone'] = $phone;
+		$patientModel['address'] = $address;
+		$patientModel['has_history'] = $has_history;
+		$patientModel['height'] = $height;
+		$patientModel['weight'] = $weight;
+		$patientModel['BMI'] = $height > 0 ? $weight/pow($height/100,2) : 0;//体重(公斤) / 身高2(米2)
+		$patientModel['hospital'] = $this->_userInfo['hospital'];
+		$patientModel['hospital_no'] = $hospital_no;
+		$patientModel['create_time'] = time();
+
+		$diagnosticModel = new DiagnosticModel();
+		$diagnosticModel['xztz_zy'] = $xztz_zy;
+		$diagnosticModel['xztz_bw'] = $xztz_bw ? join(',',$xztz_bw) : '';
+		$diagnosticModel['xztz_sq'] = $xztz_sq ? join(',',$xztz_sq) : '';
+		$diagnosticModel['kyzx_wykn'] = $kyzx_wykn;
+		$diagnosticModel['kyzx_ffgm'] = $kyzx_ffgm;
+		$diagnosticModel['kyzx_tsmr'] = $kyzx_tsmr;
+		$diagnosticModel['kyzx_hdnlc'] = $kyzx_hdnlc;
+		$diagnosticModel['kyzx_xxqlq'] = $kyzx_xxqlq;
+		$diagnosticModel['kyzx_fg'] = $kyzx_fg;
+		$diagnosticModel['kyzx_szfych'] = $kyzx_szfych;
+		$diagnosticModel['kyzx_hxjc'] = $kyzx_hxjc;
+		$diagnosticModel['kyzx_hxjc_ext'] = $kyzx_hxjc_ext;
+		$diagnosticModel['kyzx_xdj'] = $kyzx_xdj;
+		$diagnosticModel['jpcysz_shou_1'] = $jpcysz_shou_1;
+		$diagnosticModel['jpcysz_yz_1'] = $jpcysz_yz_1;
+		$diagnosticModel['jpcysz_shou_2'] = $jpcysz_shou_2;
+		$diagnosticModel['jpcysz_yz_2'] = $jpcysz_yz_2;
+		$diagnosticModel['jpcysz_shou_3'] = $jpcysz_shou_3;
+		$diagnosticModel['jpcysz_yz_3'] = $jpcysz_yz_3;
+		$diagnosticModel['fmwycqblsj_yzqgr'] = $fmwycqblsj_yzqgr;
+		$diagnosticModel['fmwycqblsj_xy'] = $fmwycqblsj_xy;
+		$diagnosticModel['fmwycqblsj_dwjc'] = $fmwycqblsj_dwjc;
+		$diagnosticModel['fmwycqblsj_xj'] = $fmwycqblsj_xj;
+		$diagnosticModel['fmwycqblsj_sxjc'] = $fmwycqblsj_sxjc;
+		$diagnosticModel['xzcc_PDA'] = $xzcc_PDA;
+		$diagnosticModel['xzcc_VSD'] = $xzcc_VSD;
+		$diagnosticModel['xzcc_ASD'] = $xzcc_ASD;
+		$diagnosticModel['xzcc_TFO'] = $xzcc_TFO;
+		$diagnosticModel['xzcc_PS'] = $xzcc_PS;
+		$diagnosticModel['xzcc_Ebstein'] = $xzcc_Ebstein;
+		$diagnosticModel['xzcc_qt'] = $xzcc_qt;
+		$diagnosticModel['xzcc_qt_ext'] = $xzcc_qt_ext;
+		$diagnosticModel['qtjx'] = $qtjx;
+		$diagnosticModel['qtjx_ext'] = $qtjx_ext ? join(',',$qtjx_ext) : '';
+
+
+		$operationModel = new OperationModel();
+		$operationModel['ssbh'] = $ssbh;
+		$operationModel['sssj'] = strtotime($sssj);
+		$operationModel['ssfs_jrfd'] = $ssfs_jrfd;
+		$operationModel['ssfs_jrfd_qxmc'] = $ssfs_jrfd_qxmc;
+		$operationModel['ssfs_jrfd_size'] = $ssfs_jrfd_size;
+		$operationModel['ssfs_wkkx'] = $ssfs_wkkx;
+		$operationModel['ssfs_wxqkfd'] = $ssfs_wxqkfd;
+		$operationModel['ssbfz_rx'] = $ssbfz_rx;
+		$operationModel['ssbfz_cyl'] = $ssbfz_cyl;
+		$operationModel['ssbfz_xlsc'] = $ssbfz_xlsc;
+		$operationModel['ssbfz_xlsc_sxzb'] = $ssbfz_xlsc_sxzb;
+		$operationModel['ssbfz_xlsc_fscdzz'] = $ssbfz_xlsc_fscdzz;
+		$operationModel['ssbfz_szcdzz'] = $ssbfz_szcdzz;
+		$operationModel['ssbfz_fc'] = $ssbfz_fc;
+		$operationModel['ssbfz_Erosion'] = $ssbfz_Erosion;
+		$operationModel['ssbfz_fdqtl'] = $ssbfz_fdqtl;
+		$operationModel['ssbfz_qt'] = $ssbfz_qt;
+		$operationModel['shcs_image'] = $shcs_image;
+		$operationModel['shcs_text'] = $shcs_text;
+		$operationModel['shsf_date'] = strtotime($shsf_date);
+		$operationModel['shsf_rx'] = $shsf_rx;
+		$operationModel['shsf_cyl'] = $shsf_cyl;
+		$operationModel['shsf_xlsc'] = $shsf_xlsc;
+		$operationModel['shsf_xlsc_sxzb'] = $shsf_xlsc_sxzb;
+		$operationModel['shsf_xlsc_fscdzz'] = $shsf_xlsc_fscdzz;
+		$operationModel['shsf_szcdzz'] = $shsf_szcdzz;
+		$operationModel['shsf_fc'] = $shsf_fc;
+		$operationModel['shsf_Erosion'] = $shsf_Erosion;
+		$operationModel['shsf_fdqtl'] = $shsf_fdqtl;
+		$operationModel['shsf_qt'] = $shsf_qt;
+		$operationModel['shsf_cs_image'] = $shsf_cs_image;
+		$operationModel['shsf_cs_text'] = $shsf_cs_text;
+
+
+
+		//更新
+		if ($op == 'edit' && $code && $patient = $patientModel->getRowByCode($code)) {
+
+			$patientModel['id'] = $patient['id'];
+			$patientModel['patient_code'] = $patient['patient_code'];
+			$patientModel['hospital'] = $patient['hospital'];
+			$patientModel->update();
+
+			if ($diagnostic = $diagnosticModel->getRowByCode($code))
+			{
+				$diagnosticModel['id'] = $diagnostic['id'];
+				$diagnosticModel['patient_code'] = $patient['patient_code'];
+				$diagnosticModel->update();
+			}else {
+				$diagnosticModel['patient_code'] = $patient['patient_code'];
+				$diagnosticModel->setIsNewRecord(1);
+				$diagnosticModel->save();
+			}
+			if ($operation = $operationModel->getRowByCode($code)) {
+				$operationModel['id'] = $operation['id'];
+				$operationModel['patient_code'] = $patient['patient_code'];
+				$operationModel->update();
+			}else {
+				$operationModel['patient_code'] = $patient['patient_code'];
+				$operationModel->setIsNewRecord(1);
+				$operationModel->save();
+			}
+
+		}
+		// 新增
+		if($op == 'add')
+		{
+
+			$patientModel['patient_code'] = $this->getPatientCode();
+			$patientModel->setIsNewRecord(1);
+
+			$flag = $patientModel->save();
+
+			$diagnosticModel['patient_code'] = $patientModel['patient_code'];
+			$diagnosticModel->setIsNewRecord(1);
+			$diagnosticModel->save();
+			$operationModel['patient_code'] = $patientModel['patient_code'];
+			$operationModel->setIsNewRecord(1);
+			$operationModel->save();
+
+		}
+
+		$this->redirect(Yii::app()->getBaseUrl()."/admin/patient/list");
+
+	}
+
+	/**
+	 * 删除
+	 *
+	 */
+	public function actionDel()
+	{
+		$id = Yii::app()->request->getParam("id", 0);
+		$articleModel = new ArticleModel();
+		$articleModel->del($id);
+		$this->_output(0, '操作成功');
+	}
+
+
+	//上传图片
+	public function actionUpload()
+	{
+		$uploadHandler = CUploadedFile::getInstanceByName('image');
+		$path = Yii::app()->BasePath."/../assets/filestore/image/";
+		$realname = Yii::app()->filestore->createRealName($path, $uploadHandler->name);
+		if (!$uploadHandler->saveAs($realname))
+		{
+			$errmsg = $uploadHandler->getErrorMessage();
+			echo json_encode(array('code' => -1,'error' => $errmsg));exit;
+		}
+
+		// //图片文件大小(最大宽度为720px)
+		// $imageHandler = new Zebra_Image();
+		// $imageHandler->source_path = $imageHandler->target_path = $realname;
+		// if(!$imageHandler->resize(720, 0, ZEBRA_IMAGE_CROP_CENTER))
+		// {
+		// 	$errmsg = $imageHandler->getErrorMessage($imageHandler->error, $imageHandler->source_path, $imageHandler->target_path);
+		// 	echo json_encode(array('error' => -6, 'message' => $errmsg));exit;
+		// }
+
+		//图片保存访问地址
+		$url = Yii::app()->filestore->getUrl($realname);
+
+		echo json_encode(array('code' => 0,'url' => $url));
+		Yii::app()->end();
+	}
+	//
+	// //保存文章封面图到本地(360*200 200*200 200*150)
+	// private function uploadCoverPic($tag)
+	// {
+	// 	$face = "";
+	// 	$file = CUploadedFile::getInstanceByName($tag);
+	// 	if ($file)
+	// 	{
+	// 		$path = Yii::app()->BasePath."/../assets/filestore/article/";
+	// 		$realname = Yii::app()->filestore->createRealName($path, $file->getName());
+	// 		if(!$file->saveAs($realname))
+	// 		{
+	// 			$errmsg = $file->getErrorMessage();
+	// 			$this->_output(-5, $errmsg);
+	// 		}
+	//
+	// 		$face = Yii::app()->filestore->getUrl($realname);
+	// 	}
+	//
+	// 	return $face;
+	// }
+
+	public function actionUploadDel()
+	{
+
+	}
+
+	// 生成病人编号
+	private function getPatientCode()
+	{
+		return date('YmdHis',time()).rand(10001,99999);
+	}
+
+}

@@ -14,5 +14,11 @@ class OperationModel extends BaseModel
 			parent::__construct($this->TABLE_NAME, __CLASS__);
 	}
 
+	public function getRowByCode($code)
+	{
+		$c =  new CDbCriteria();
+		$c->addCondition("patient_code='".$code."'");
+		return $this->getRow($c);
+	}
 
 }

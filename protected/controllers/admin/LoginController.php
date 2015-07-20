@@ -34,6 +34,7 @@ class LoginController extends Admin
 		$captcha = new Captcha();
 		if (!$captcha->validCaptcha()) {
 			$this->_output(-1, "验证码错误");
+			//$this->render('index',array('code'=>'-1','message'=>'验证码错误',));
 		}
 
 		$username = Yii::app()->request->getPost("username", '');
@@ -41,8 +42,8 @@ class LoginController extends Admin
 
 		$adminModel = new AdminModel();
 		$info = $adminModel->getInfoByUsername($username);
-		var_dump($info);
-		exit;
+		// var_dump($info);
+		// exit;
 
 		if ($info && ($password == $info['password']))
 		{
