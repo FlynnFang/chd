@@ -9,6 +9,7 @@ class Admin extends Controller
 {
 	public $layout='admin';
 	public $username;
+	public $hospital;
 	public $currentMenu = '1000'; //首先打开Home
 	public $menuGroup = array();
 	public $menus = array(); //当前用户可见的菜单项(权限控制)
@@ -47,6 +48,7 @@ class Admin extends Controller
 		$adminModel = new AdminModel();
 		$this->_userInfo = $adminModel->getInfoByUid($uid);
 		$this->username = $this->_userInfo['username'];
+		$this->hospital = $this->_userInfo['hospital'];
 		//账号错误
 		if (!$this->_userInfo)
 		{

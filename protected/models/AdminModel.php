@@ -41,4 +41,10 @@ class AdminModel extends BaseModel
 		$criteria->addCondition("username<>'admin'");
 		return $this->getRows($criteria);
 	}
+
+	public function deleteById($uid)
+	{
+		$sql = 'delete from '.$this->TABLE_NAME.' where id='.$uid;
+		return $this->queryBySql($sql);
+	}
 }

@@ -26,14 +26,9 @@
 
 
     <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/common/jquery/jquery.cookie.js?<?php echo $this->version;?>" charset="gb2312"></script>
-    <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/common/jquery/jquery.slimscroll.min.js?<?php echo $this->version;?>" charset="gb2312"></script>
-    <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/common/jquery/jquery.form.js?<?php echo $this->version;?>" charset="gb2312"></script>
-    <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/common/jquery/jquery.validate.min.js?<?php echo $this->version;?>" charset="gb2312"></script>
-    <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/common/jquery/jquery.fancybox.pack.js?<?php echo $this->version;?>"></script>
-	  <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/common/jquery/jquery.qrcode.min.js?<?php echo $this->version;?>"></script>
-    <!--<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/admin/bootstrap.v3.0.2.min.js?<?php echo $this->version;?>"></script>
-    <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/admin/bootstrap-datetimepicker.js?<?php echo $this->version;?>" charset="gb2312"></script>
-    <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/admin/flaty.js?<?php echo $this->version;?>"></script>-->
+    <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/common/jquery/jquery.form.js" charset="gb2312"></script>
+    <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/common/jquery/jquery.validate.min.js" charset="gb2312"></script>
+    <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/common/jquery/jQuery.md5.js"></script>
     <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/bootstrap/bootstrap.min.js?<?php echo $this->version;?>"></script>
     <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/bootstrap/datepicker/bootstrap-datepicker.js?<?php echo $this->version;?>"></script>
     <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/bootstrap/locales/bootstrap-datepicker.zh-CN.min.js?<?php echo $this->version;?>" charset="UTF-8"></script>
@@ -85,12 +80,5 @@
 </body>
 </html>
 <script type="text/javascript">
-// $('#left-nav li').each(function(){
-//   $(this).click(function(){
-//     $('#left-nav li').each(function(){
-//       $(this).removeClass('active');
-//     });
-//     $(this).addClass('active');
-//   });
-// });
+
 </script>

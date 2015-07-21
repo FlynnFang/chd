@@ -12,13 +12,13 @@
         <div class="panel panel-default">
           <div class="panel-body">
             <div class="form-group">
-              <label for="name" class="col-sm-1 control-label">姓名</label>
+              <label for="name" class="col-sm-2 control-label">姓名</label>
               <div class="col-sm-2">
                 <input type="text" class="form-control" name="name" placeholder="姓名" value="<?php echo $patient['name'];?>" required autofocus>
               </div>
             </div>
             <div class="form-group">
-              <label for="sex" class="col-sm-1 control-label">性别</label>
+              <label for="sex" class="col-sm-2 control-label">性别</label>
               <div class="col-sm-2">
                 <?php foreach (Yii::app()->params['sex'] as $key => $value) { ?>
                 <label class="radio-inline">
@@ -28,7 +28,7 @@
               </div>
             </div>
             <div class="form-group ">
-              <label for="born" class="col-sm-1 control-label">出生日期</label>
+              <label for="born" class="col-sm-2 control-label">出生日期</label>
               <div class="col-sm-3">
                 <div class="input-group date">
                   <input class="form-control" type="text"  name="born" id="born" value="<?php echo $patient['born'] ? date('Y-m-d',$patient['born']) :'';?>" required >
@@ -37,7 +37,7 @@
               </div>
             </div>
             <div class="form-group ">
-              <label for="nationality" class="col-sm-1 control-label">名族</label>
+              <label for="nationality" class="col-sm-2 control-label">民族</label>
               <div class="col-sm-2">
                 <select class="form-control" id="nationality" name="nationality" required>
                   <?php foreach ($nationality as $key => $value) { ?>
@@ -47,25 +47,25 @@
               </div>
             </div>
             <div class="form-group ">
-              <label for="place" class="col-sm-1 control-label">籍贯</label>
+              <label for="place" class="col-sm-2 control-label">籍贯</label>
               <div class="col-sm-2">
                 <input type="text" class="form-control" name="place" placeholder="籍贯" value="<?php echo $patient['place'];?>" required>
               </div>
             </div>
             <div class="form-group ">
-              <label for="phone" class="col-sm-1 control-label">联系电话</label>
+              <label for="phone" class="col-sm-2 control-label">联系电话</label>
               <div class="col-sm-2">
                 <input type="text" class="form-control" name="phone" placeholder="联系电话" value="<?php echo $patient['phone'];?>" required>
               </div>
             </div>
             <div class="form-group ">
-              <label for="address" class="col-sm-1 control-label">详细地址</label>
+              <label for="address" class="col-sm-2 control-label">详细地址</label>
               <div class="col-sm-4">
                 <input type="text" class="form-control" name="address" placeholder="详细地址" value="<?php echo $patient['address'];?>" required>
               </div>
             </div>
             <div class="form-group">
-              <label for="sex" class="col-sm-1 control-label">家族病史</label>
+              <label for="sex" class="col-sm-2 control-label">家族病史</label>
               <div class="col-sm-1">
                 <select class="form-control" id="has_history" name="has_history">
                   <?php foreach ($have as $key => $value) { ?>
@@ -76,7 +76,7 @@
               <div class="col-sm-6"></div>
             </div>
             <div class="form-group ">
-              <label for="height" class="col-sm-1 control-label">身高</label>
+              <label for="height" class="col-sm-2 control-label">身高</label>
               <div class="col-sm-2">
                 <div class="input-group">
                   <input type="number" class="form-control" name="height" placeholder="身高" aria-describedby="basic-addon-height" value="<?php echo $patient['height'];?>">
@@ -85,7 +85,7 @@
               </div>
             </div>
             <div class="form-group ">
-              <label for="weight" class="col-sm-1 control-label">体重</label>
+              <label for="weight" class="col-sm-2 control-label">体重</label>
               <div class="col-sm-2">
                 <div class="input-group">
                   <input type="number" class="form-control" name="weight" placeholder="体重" aria-describedby="basic-addon-weight" value="<?php echo $patient['weight'];?>">
@@ -94,19 +94,23 @@
               </div>
             </div>
             <div class="form-group" style="<?php if( $op == 'add' || $op == 'edit') echo 'display:none;';?>">
-              <label for="BMI" class="col-sm-1 control-label">BMI</label>
+              <label for="BMI" class="col-sm-2 control-label">BMI</label>
               <div class="col-sm-2">
                 <input type="number" class="form-control" name="BMI" placeholder="BMI" value="<?php echo $patient['BMI'];?>" readonly>
               </div>
             </div>
-            <div class="form-group " style="<?php if($op=='add') echo 'display:none;';?>">
-              <label for="BMI" class="col-sm-1 control-label">所属医院</label>
+            <div class="form-group ">
+              <label for="follow_hospital" class="col-sm-2 control-label">随访医院</label>
               <div class="col-sm-4">
-                <input type="text" class="form-control" name="hospital" placeholder="" value="<?php echo $hospitals[$patient['hospital']];?>" readonly>
+                <select class="form-control" id="follow_hospital" name="follow_hospital">
+                  <?php foreach ($hospitals as $key => $value) { ?>
+                  <option value="<?php echo $key;?>" <?php echo $patient['follow_hospital'] == $key || (!$patient['follow_hospital'] && $this->hospital == $key) ? 'selected' : "";?>><?php echo $value;?></option>
+                  <?php } ?>
+                </select>
               </div>
             </div>
             <div class="form-group ">
-              <label for="hospital_no" class="col-sm-1 control-label">住院号</label>
+              <label for="hospital_no" class="col-sm-2 control-label">住院号</label>
               <div class="col-sm-2">
                 <input type="text" class="form-control" name="hospital_no" placeholder="住院号" value="<?php echo $patient['hospital_no'];?>">
               </div>
@@ -130,7 +134,7 @@
                 <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                   <div class="panel-body">
                     <div class="form-group">
-                      <label for="xztz_zy" class="col-sm-1 control-label">杂音</label>
+                      <label for="xztz_zy" class="col-sm-2 control-label">杂音</label>
                       <div class="col-sm-1">
                         <select class="form-control" id="xztz_zy" name="xztz_zy">
                           <?php foreach ($have as $key => $value) { ?>
@@ -140,7 +144,7 @@
                       </div>
                     </div>
                     <div class="form-group">
-                      <label for="xztz_bw" class="col-sm-1 control-label">部位</label>
+                      <label for="xztz_bw" class="col-sm-2 control-label">部位</label>
                       <div class="col-sm-6">
                         <?php foreach ($bw as $key => $value) { ?>
                         <label class="checkbox-inline">
@@ -150,7 +154,7 @@
                       </div>
                     </div>
                     <div class="form-group">
-                      <label for="xztz_sq" class="col-sm-1 control-label">时期</label>
+                      <label for="xztz_sq" class="col-sm-2 control-label">时期</label>
                       <div class="col-sm-6">
                         <?php foreach ($sq as $key => $value) { ?>
                         <label class="checkbox-inline">
@@ -174,7 +178,7 @@
                 <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                   <div class="panel-body">
                     <div class="form-group">
-                      <label for="kyzx_wykn" class="col-sm-1 control-label">喂养困难</label>
+                      <label for="kyzx_wykn" class="col-sm-2 control-label">喂养困难</label>
                       <div class="col-sm-2">
                         <?php foreach ($boolean as $key => $value) { ?>
                         <label class="radio-inline">
@@ -185,7 +189,7 @@
                     </div>
 
                     <div class="form-group">
-                      <label for="kyzx_ffgm" class="col-sm-1 control-label">反复感冒、肺炎</label>
+                      <label for="kyzx_ffgm" class="col-sm-2 control-label">反复感冒、肺炎</label>
                       <div class="col-sm-2">
                         <?php foreach ($boolean as $key => $value) { ?>
                         <label class="radio-inline">
@@ -196,7 +200,7 @@
                     </div>
 
                     <div class="form-group">
-                      <label for="kyzx_tsmr" class="col-sm-1 control-label">特殊面容</label>
+                      <label for="kyzx_tsmr" class="col-sm-2 control-label">特殊面容</label>
                       <div class="col-sm-2">
                         <?php foreach ($boolean as $key => $value) { ?>
                         <label class="radio-inline">
@@ -207,7 +211,7 @@
                     </div>
 
                     <div class="form-group">
-                      <label for="kyzx_hdnlc" class="col-sm-1 control-label">活动耐力差</label>
+                      <label for="kyzx_hdnlc" class="col-sm-2 control-label">活动耐力差</label>
                       <div class="col-sm-2">
                         <?php foreach ($boolean as $key => $value) { ?>
                         <label class="radio-inline">
@@ -218,7 +222,7 @@
                     </div>
 
                     <div class="form-group">
-                      <label for="kyzx_xxqlq" class="col-sm-1 control-label">心胸区隆起</label>
+                      <label for="kyzx_xxqlq" class="col-sm-2 control-label">心胸区隆起</label>
                       <div class="col-sm-2">
                         <?php foreach ($boolean as $key => $value) { ?>
                         <label class="radio-inline">
@@ -229,7 +233,7 @@
                     </div>
 
                     <div class="form-group">
-                      <label for="kyzx_fg" class="col-sm-1 control-label">发绀</label>
+                      <label for="kyzx_fg" class="col-sm-2 control-label">发绀</label>
                       <div class="col-sm-2">
                         <?php foreach ($boolean as $key => $value) { ?>
                         <label class="radio-inline">
@@ -240,7 +244,7 @@
                     </div>
 
                     <div class="form-group">
-                      <label for="kyzx_szfych" class="col-sm-1 control-label">生长发育迟缓</label>
+                      <label for="kyzx_szfych" class="col-sm-2 control-label">生长发育迟缓</label>
                       <div class="col-sm-2">
                         <?php foreach ($boolean as $key => $value) { ?>
                         <label class="radio-inline">
@@ -251,7 +255,7 @@
                     </div>
 
                     <div class="form-group">
-                      <label for="kyzx_hxjc" class="col-sm-1 control-label">呼吸急促</label>
+                      <label for="kyzx_hxjc" class="col-sm-2 control-label">呼吸急促</label>
                       <div class="col-sm-2">
                         <?php foreach ($boolean as $key => $value) { ?>
                         <label class="radio-inline">
@@ -271,7 +275,7 @@
                     </div>
 
                     <div class="form-group">
-                      <label for="kyzx_xdj" class="col-sm-1 control-label">喜蹲踞</label>
+                      <label for="kyzx_xdj" class="col-sm-2 control-label">喜蹲踞</label>
                       <div class="col-sm-2">
                         <?php foreach ($boolean as $key => $value) { ?>
                         <label class="radio-inline">
@@ -288,34 +292,34 @@
                 <div class="panel-heading" role="tab" id="headingThree">
                   <h4 class="panel-title">
                     <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                      经皮测氧数值
+                      经皮测氧数值 <span class="label label-primary">必填</span>
                     </a>
                   </h4>
                 </div>
                 <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
                   <div class="panel-body">
                     <div class="form-group ">
-                      <label for="jpcysz_shou_1" class="col-sm-1 control-label">手(1)</label>
+                      <label for="jpcysz_shou_1" class="col-sm-2 control-label">手(1)</label>
                       <div class="col-sm-2">
                         <div class="input-group">
-                          <input type="number" class="form-control" name="jpcysz_shou_1" placeholder="" aria-describedby="basic-addon-shou1" value="<?php echo $diagnostic['jpcysz_shou_1'];?>">
+                          <input type="number" class="form-control" name="jpcysz_shou_1" placeholder="" aria-describedby="basic-addon-shou1" value="<?php echo $diagnostic['jpcysz_shou_1'];?>" required>
                           <span class="input-group-addon" id="basic-addon-shou1">%</span>
                         </div>
                       </div>
                     </div>
 
                     <div class="form-group ">
-                      <label for="jpcysz_shou_1" class="col-sm-1 control-label">右足(1)</label>
+                      <label for="jpcysz_shou_1" class="col-sm-2 control-label">右足(1)</label>
                       <div class="col-sm-2">
                         <div class="input-group">
-                          <input type="number" class="form-control" name="jpcysz_yz_1" placeholder="" aria-describedby="basic-addon-yz1" value="<?php echo $diagnostic['jpcysz_yz_1'];?>">
+                          <input type="number" class="form-control" name="jpcysz_yz_1" placeholder="" aria-describedby="basic-addon-yz1" value="<?php echo $diagnostic['jpcysz_yz_1'];?>" required>
                           <span class="input-group-addon" id="basic-addon-yz1">%</span>
                         </div>
                       </div>
                     </div>
 
                     <div class="form-group ">
-                      <label for="jpcysz_shou_2" class="col-sm-1 control-label">手(2)</label>
+                      <label for="jpcysz_shou_2" class="col-sm-2 control-label">手(2)</label>
                       <div class="col-sm-2">
                         <div class="input-group">
                           <input type="number" class="form-control" name="jpcysz_shou_2" placeholder="" aria-describedby="basic-addon-shou2" value="<?php echo $diagnostic['jpcysz_shou_2'];?>">
@@ -325,7 +329,7 @@
                     </div>
 
                     <div class="form-group ">
-                      <label for="jpcysz_shou_2" class="col-sm-1 control-label">右足(2)</label>
+                      <label for="jpcysz_shou_2" class="col-sm-2 control-label">右足(2)</label>
                       <div class="col-sm-2">
                         <div class="input-group">
                           <input type="number" class="form-control" name="jpcysz_yz_2" placeholder="" aria-describedby="basic-addon-yz2" value="<?php echo $diagnostic['jpcysz_yz_2'];?>">
@@ -335,7 +339,7 @@
                     </div>
 
                     <div class="form-group ">
-                      <label for="jpcysz_shou_3" class="col-sm-1 control-label">手(3)</label>
+                      <label for="jpcysz_shou_3" class="col-sm-2 control-label">手(3)</label>
                       <div class="col-sm-2">
                         <div class="input-group">
                           <input type="number" class="form-control" name="jpcysz_shou_3" placeholder="" aria-describedby="basic-addon-shou3" value="<?php echo $diagnostic['jpcysz_shou_3'];?>">
@@ -345,7 +349,7 @@
                     </div>
 
                     <div class="form-group ">
-                      <label for="jpcysz_shou_1" class="col-sm-1 control-label">右足(3)</label>
+                      <label for="jpcysz_shou_1" class="col-sm-2 control-label">右足(3)</label>
                       <div class="col-sm-2">
                         <div class="input-group">
                           <input type="number" class="form-control" name="jpcysz_yz_3" placeholder="" aria-describedby="basic-addon-yz3" value="<?php echo $diagnostic['jpcysz_yz_3'];?>">
@@ -361,14 +365,14 @@
                 <div class="panel-heading" role="tab" id="headingFour">
                   <h4 class="panel-title">
                     <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                      父母围孕产期不良事件
+                      父母围孕产期不良事件 <span class="label label-primary">必填</span>
                     </a>
                   </h4>
                 </div>
                 <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
                   <div class="panel-body">
                     <div class="form-group">
-                      <label for="fmwycqblsj_yzqgr" class="col-sm-1 control-label">孕早期感染</label>
+                      <label for="fmwycqblsj_yzqgr" class="col-sm-2 control-label">孕早期感染</label>
                       <div class="col-sm-4">
                         <?php foreach ($notquite as $key => $value) { ?>
                         <label class="radio-inline">
@@ -379,7 +383,7 @@
                     </div>
 
                     <div class="form-group">
-                      <label for="fmwycqblsj_xy" class="col-sm-1 control-label">吸烟</label>
+                      <label for="fmwycqblsj_xy" class="col-sm-2 control-label">吸烟</label>
                       <div class="col-sm-2">
                         <?php foreach ($boolean as $key => $value) { ?>
                         <label class="radio-inline">
@@ -390,7 +394,7 @@
                     </div>
 
                     <div class="form-group">
-                      <label for="fmwycqblsj_dwjc" class="col-sm-1 control-label">毒物接触</label>
+                      <label for="fmwycqblsj_dwjc" class="col-sm-2 control-label">毒物接触</label>
                       <div class="col-sm-4">
                         <?php foreach ($notquite as $key => $value) { ?>
                         <label class="radio-inline">
@@ -401,7 +405,7 @@
                     </div>
 
                     <div class="form-group">
-                      <label for="fmwycqblsj_xj" class="col-sm-1 control-label">酗酒</label>
+                      <label for="fmwycqblsj_xj" class="col-sm-2 control-label">酗酒</label>
                       <div class="col-sm-2">
                         <?php foreach ($boolean as $key => $value) { ?>
                         <label class="radio-inline">
@@ -412,7 +416,7 @@
                     </div>
 
                     <div class="form-group">
-                      <label for="fmwycqblsj_sxjc" class="col-sm-1 control-label">射线接触</label>
+                      <label for="fmwycqblsj_sxjc" class="col-sm-2 control-label">射线接触</label>
                       <div class="col-sm-4">
                         <?php foreach ($notquite as $key => $value) { ?>
                         <label class="radio-inline">
@@ -429,7 +433,7 @@
                 <div class="panel-heading" role="tab" id="headingFive">
                   <h4 class="panel-title">
                     <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                      心脏彩超
+                      心脏彩超 <span class="label label-primary">必填</span>
                     </a>
                   </h4>
                 </div>
@@ -437,7 +441,7 @@
                   <div class="panel-body">
 
                     <div class="form-group">
-                      <label for="xzcc_PDA" class="col-sm-1 control-label">PDA</label>
+                      <label for="xzcc_PDA" class="col-sm-2 control-label">PDA</label>
                       <div class="col-sm-2">
                         <?php foreach ($boolean as $key => $value) { ?>
                         <label class="radio-inline">
@@ -448,7 +452,7 @@
                     </div>
 
                     <div class="form-group">
-                      <label for="xzcc_VSD" class="col-sm-1 control-label">VSD</label>
+                      <label for="xzcc_VSD" class="col-sm-2 control-label">VSD</label>
                       <div class="col-sm-2">
                         <?php foreach ($boolean as $key => $value) { ?>
                         <label class="radio-inline">
@@ -459,7 +463,7 @@
                     </div>
 
                     <div class="form-group">
-                      <label for="xzcc_ASD" class="col-sm-1 control-label">ASD</label>
+                      <label for="xzcc_ASD" class="col-sm-2 control-label">ASD</label>
                       <div class="col-sm-2">
                         <?php foreach ($boolean as $key => $value) { ?>
                         <label class="radio-inline">
@@ -470,7 +474,7 @@
                     </div>
 
                     <div class="form-group">
-                      <label for="xzcc_TFO" class="col-sm-1 control-label">TFO</label>
+                      <label for="xzcc_TFO" class="col-sm-2 control-label">TFO</label>
                       <div class="col-sm-2">
                         <?php foreach ($boolean as $key => $value) { ?>
                         <label class="radio-inline">
@@ -481,7 +485,7 @@
                     </div>
 
                     <div class="form-group">
-                      <label for="xzcc_PS" class="col-sm-1 control-label">PS</label>
+                      <label for="xzcc_PS" class="col-sm-2 control-label">PS</label>
                       <div class="col-sm-2">
                         <?php foreach ($boolean as $key => $value) { ?>
                         <label class="radio-inline">
@@ -492,7 +496,7 @@
                     </div>
 
                     <div class="form-group">
-                      <label for="xzcc_Ebstein" class="col-sm-1 control-label">Ebstein畸形</label>
+                      <label for="xzcc_Ebstein" class="col-sm-2 control-label">Ebstein畸形</label>
                       <div class="col-sm-2">
                         <?php foreach ($boolean as $key => $value) { ?>
                         <label class="radio-inline">
@@ -503,7 +507,7 @@
                     </div>
 
                     <div class="form-group">
-                      <label for="xzcc_qt" class="col-sm-1 control-label">其他</label>
+                      <label for="xzcc_qt" class="col-sm-2 control-label">其他</label>
                       <div class="col-sm-2">
                         <?php foreach ($boolean as $key => $value) { ?>
                         <label class="radio-inline">
@@ -526,14 +530,14 @@
                 <div class="panel-heading" role="tab" id="headingSix">
                   <h4 class="panel-title">
                     <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                      其他畸形
+                      其他畸形 <span class="label label-primary">必填</span>
                     </a>
                   </h4>
                 </div>
                 <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
                   <div class="panel-body">
                     <div class="form-group">
-                      <label for="qtjx" class="col-sm-1 control-label">其他畸形</label>
+                      <label for="qtjx" class="col-sm-2 control-label">其他畸形</label>
                       <div class="col-sm-2">
                         <?php foreach ($have as $key => $value) { ?>
                         <label class="radio-inline">
@@ -567,6 +571,30 @@
           <div class="panel-body">
             <div class="panel-group" id="accordionOperation" role="tablist" aria-multiselectable="true">
               <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="operationHeadingZero">
+                  <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#accordionOperation" href="#operationCollapseZero" aria-expanded="true" aria-controls="operationCollapseZero">
+                      手术
+                    </a>
+                  </h4>
+                </div>
+                <div id="operationCollapseZero" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="operationHeadingZero">
+                  <div class="panel-body">
+                    <div class="form-group">
+                      <label for="ssbh" class="col-sm-2 control-label">先心病介入手术</label>
+                      <div class="col-sm-1">
+                        <select class="form-control" id="xxbjrss" name="xxbjrss">
+                          <?php foreach ($boolean as $key => $value) { ?>
+                          <option value="<?php echo $key;?>" <?php echo $operation['xxbjrss'] == $key ? 'selected' : '';?> ><?php echo $value;?></option>
+                          <?php } ?>
+                        </select>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="operationHeadingOne">
                   <h4 class="panel-title">
                     <a role="button" data-toggle="collapse" data-parent="#accordionOperation" href="#operationCollapseOne" aria-expanded="true" aria-controls="operationCollapseOne">
@@ -574,17 +602,17 @@
                     </a>
                   </h4>
                 </div>
-                <div id="operationCollapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="operationHeadingOne">
+                <div id="operationCollapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="operationHeadingOne">
                   <div class="panel-body">
                     <div class="form-group">
-                      <label for="ssbh" class="col-sm-1 control-label">手术编号</label>
+                      <label for="ssbh" class="col-sm-2 control-label">手术编号</label>
                       <div class="col-sm-2">
                         <input type="text" class="form-control" name="ssbh" placeholder="手术编号" value="<?php echo $operation['ssbh'];?>">
                       </div>
                     </div>
 
                     <div class="form-group">
-                      <label for="sssj" class="col-sm-1 control-label">手术时间</label>
+                      <label for="sssj" class="col-sm-2 control-label">手术时间</label>
                       <div class="col-sm-3">
                         <div class="input-group date">
                           <input type="text" class="form-control" name="sssj" id="sssj" value="<?php echo $operation['sssj'] ? date('Y-m-d',$operation['sssj']) : '';?>">
@@ -608,7 +636,7 @@
                   <div class="panel-body">
 
                     <div class="form-group">
-                      <label for="ssfs_jrfd" class="col-sm-1 control-label">介入封堵</label>
+                      <label for="ssfs_jrfd" class="col-sm-2 control-label">介入封堵</label>
                       <div class="col-sm-2">
                         <?php foreach ($boolean as $key => $value) { ?>
                         <label class="radio-inline">
@@ -619,21 +647,21 @@
                     </div>
 
                     <div class="form-group">
-                      <label for="ssfs_jrfd_qxmc" class="col-sm-1 control-label">器械名称</label>
+                      <label for="ssfs_jrfd_qxmc" class="col-sm-2 control-label">器械名称</label>
                       <div class="col-sm-2">
                         <input type="text" class="form-control" name="ssfs_jrfd_qxmc" placeholder="器械名称" value="<?php echo $operation['ssfs_jrfd_qxmc'];?>">
                       </div>
                     </div>
 
                     <div class="form-group">
-                      <label for="ssfs_jrfd_size" class="col-sm-1 control-label">size</label>
+                      <label for="ssfs_jrfd_size" class="col-sm-2 control-label">size</label>
                       <div class="col-sm-2">
                         <input type="text" class="form-control" name="ssfs_jrfd_size" placeholder="size" value="<?php echo $operation['ssfs_jrfd_size'];?>">
                       </div>
                     </div>
 
                     <div class="form-group">
-                      <label for="ssfs_wkkx" class="col-sm-1 control-label">外科开胸（根治手术、分次手术）</label>
+                      <label for="ssfs_wkkx" class="col-sm-2 control-label">外科开胸（根治手术、分次手术）</label>
                       <div class="col-sm-2">
                         <?php foreach ($boolean as $key => $value) { ?>
                         <label class="radio-inline">
@@ -644,7 +672,7 @@
                     </div>
 
                     <div class="form-group">
-                      <label for="ssfs_wxqkfd" class="col-sm-1 control-label">微笑切口封堵</label>
+                      <label for="ssfs_wxqkfd" class="col-sm-2 control-label">微笑切口封堵</label>
                       <div class="col-sm-2">
                         <?php foreach ($boolean as $key => $value) { ?>
                         <label class="radio-inline">
@@ -671,7 +699,7 @@
                   <div class="panel-body">
 
                     <div class="form-group">
-                      <label for="ssbfz_rx" class="col-sm-1 control-label">溶血</label>
+                      <label for="ssbfz_rx" class="col-sm-2 control-label">溶血</label>
                       <div class="col-sm-2">
                         <?php foreach ($boolean as $key => $value) { ?>
                         <label class="radio-inline">
@@ -682,7 +710,7 @@
                     </div>
 
                     <div class="form-group">
-                      <label for="ssbfz_cyl" class="col-sm-1 control-label">残余漏</label>
+                      <label for="ssbfz_cyl" class="col-sm-2 control-label">残余漏</label>
                       <div class="col-sm-2">
                         <?php foreach ($boolean as $key => $value) { ?>
                         <label class="radio-inline">
@@ -693,7 +721,7 @@
                     </div>
 
                     <div class="form-group">
-                      <label for="ssbfz_xlsc" class="col-sm-1 control-label">心律失常</label>
+                      <label for="ssbfz_xlsc" class="col-sm-2 control-label">心律失常</label>
                       <div class="col-sm-2">
                         <?php foreach ($boolean as $key => $value) { ?>
                         <label class="radio-inline">
@@ -704,14 +732,14 @@
                     </div>
 
                     <div class="form-group">
-                      <label for="ssbfz_xlsc_sxzb" class="col-sm-1 control-label">室性早搏</label>
+                      <label for="ssbfz_xlsc_sxzb" class="col-sm-2 control-label">室性早搏</label>
                       <div class="col-sm-2">
                         <input type="text" class="form-control" name="ssbfz_xlsc_sxzb" placeholder="室性早搏" value="<?php echo $operation['ssbfz_xlsc_sxzb'];?>">
                       </div>
                     </div>
 
                     <div class="form-group">
-                      <label for="ssbfz_xlsc_fscdzz" class="col-sm-1 control-label">房室传导阻滞</label>
+                      <label for="ssbfz_xlsc_fscdzz" class="col-sm-2 control-label">房室传导阻滞</label>
                       <div class="col-sm-8">
                         <?php foreach ($xlsc as $key => $value) { ?>
                         <label class="radio-inline">
@@ -722,7 +750,7 @@
                     </div>
 
                     <div class="form-group">
-                      <label for="ssbfz_szcdzz" class="col-sm-1 control-label">束支传导阻滞</label>
+                      <label for="ssbfz_szcdzz" class="col-sm-2 control-label">束支传导阻滞</label>
                       <div class="col-sm-2">
                         <?php foreach ($boolean as $key => $value) { ?>
                         <label class="radio-inline">
@@ -733,7 +761,7 @@
                     </div>
 
                     <div class="form-group">
-                      <label for="ssbfz_fc" class="col-sm-1 control-label">房颤</label>
+                      <label for="ssbfz_fc" class="col-sm-2 control-label">房颤</label>
                       <div class="col-sm-2">
                         <?php foreach ($boolean as $key => $value) { ?>
                         <label class="radio-inline">
@@ -744,7 +772,7 @@
                     </div>
 
                     <div class="form-group">
-                      <label for="ssbfz_Erosion" class="col-sm-1 control-label">Erosion</label>
+                      <label for="ssbfz_Erosion" class="col-sm-2 control-label">Erosion</label>
                       <div class="col-sm-2">
                         <?php foreach ($boolean as $key => $value) { ?>
                         <label class="radio-inline">
@@ -755,7 +783,7 @@
                     </div>
 
                     <div class="form-group">
-                      <label for="ssbfz_fdqtl" class="col-sm-1 control-label">封堵器脱落</label>
+                      <label for="ssbfz_fdqtl" class="col-sm-2 control-label">封堵器脱落</label>
                       <div class="col-sm-2">
                         <?php foreach ($boolean as $key => $value) { ?>
                         <label class="radio-inline">
@@ -766,7 +794,7 @@
                     </div>
 
                     <div class="form-group">
-                      <label for="ssbfz_qt" class="col-sm-1 control-label">其他</label>
+                      <label for="ssbfz_qt" class="col-sm-2 control-label">其他</label>
                       <div class="col-sm-2">
                         <input type="text" class="form-control" name="ssbfz_qt" placeholder="其他" value="<?php echo $operation['ssbfz_qt'];?>">
                       </div>
@@ -788,7 +816,7 @@
                   <div class="panel-body">
 
                     <div class="form-group">
-                      <label for="shcs_image" class="col-sm-1 control-label">影像上传</label>
+                      <label for="shcs_image" class="col-sm-2 control-label">影像上传</label>
                       <div class="col-sm-10">
                         <input type="file" class="file-loading" name="image" id="shcs_image">
                         <input type="hidden" value="<?php echo $operation['shcs_image'];?> " name="shcs_image" id="shcs_image_value">
@@ -796,7 +824,7 @@
                     </div>
 
                     <div class="form-group">
-                      <label for="shcs_text" class="col-sm-1 control-label">文字描述</label>
+                      <label for="shcs_text" class="col-sm-2 control-label">文字描述</label>
                       <div class="col-sm-2">
                         <input type="text" class="form-control" name="shcs_text" placeholder="其他" value="<?php echo $operation['shcs_text'];?>">
                       </div>
@@ -818,7 +846,7 @@
                   <div class="panel-body">
 
                     <div class="form-group">
-                      <label for="shsf_date" class="col-sm-1 control-label">随访时间</label>
+                      <label for="shsf_date" class="col-sm-2 control-label">随访时间</label>
                       <div class="col-sm-3">
                         <div class="input-group date">
                           <input type="text" class="form-control" name="shsf_date" id="shsf_date" value="<?php echo $operation['shsf_date'] ? date('Y-m-d',$operation['shsf_date']) : '';?>">
@@ -828,7 +856,7 @@
                     </div>
 
                     <div class="form-group">
-                      <label for="shsf_rx" class="col-sm-1 control-label">溶血</label>
+                      <label for="shsf_rx" class="col-sm-2 control-label">溶血</label>
                       <div class="col-sm-2">
                         <?php foreach ($boolean as $key => $value) { ?>
                         <label class="radio-inline">
@@ -839,7 +867,7 @@
                     </div>
 
                     <div class="form-group">
-                      <label for="shsf_cyl" class="col-sm-1 control-label">残余漏</label>
+                      <label for="shsf_cyl" class="col-sm-2 control-label">残余漏</label>
                       <div class="col-sm-2">
                         <?php foreach ($boolean as $key => $value) { ?>
                         <label class="radio-inline">
@@ -850,7 +878,7 @@
                     </div>
 
                     <div class="form-group">
-                      <label for="shsf_xlsc" class="col-sm-1 control-label">心律失常</label>
+                      <label for="shsf_xlsc" class="col-sm-2 control-label">心律失常</label>
                       <div class="col-sm-2">
                         <?php foreach ($boolean as $key => $value) { ?>
                         <label class="radio-inline">
@@ -861,14 +889,14 @@
                     </div>
 
                     <div class="form-group">
-                      <label for="shsf_xlsc_sxzb" class="col-sm-1 control-label">室性早搏</label>
+                      <label for="shsf_xlsc_sxzb" class="col-sm-2 control-label">室性早搏</label>
                       <div class="col-sm-2">
                         <input type="text" class="form-control" name="shsf_xlsc_sxzb" placeholder="室性早搏" value="<?php echo $operation['shsf_xlsc_sxzb'];?>">
                       </div>
                     </div>
 
                     <div class="form-group">
-                      <label for="shsf_xlsc_fscdzz" class="col-sm-1 control-label">房室传导阻滞</label>
+                      <label for="shsf_xlsc_fscdzz" class="col-sm-2 control-label">房室传导阻滞</label>
                       <div class="col-sm-8">
                         <?php foreach ($xlsc as $key => $value) { ?>
                         <label class="radio-inline">
@@ -879,7 +907,7 @@
                     </div>
 
                     <div class="form-group">
-                      <label for="shsf_szcdzz" class="col-sm-1 control-label">束支传导阻滞</label>
+                      <label for="shsf_szcdzz" class="col-sm-2 control-label">束支传导阻滞</label>
                       <div class="col-sm-2">
                         <?php foreach ($boolean as $key => $value) { ?>
                         <label class="radio-inline">
@@ -890,7 +918,7 @@
                     </div>
 
                     <div class="form-group">
-                      <label for="shsf_fc" class="col-sm-1 control-label">房颤</label>
+                      <label for="shsf_fc" class="col-sm-2 control-label">房颤</label>
                       <div class="col-sm-2">
                         <?php foreach ($boolean as $key => $value) { ?>
                         <label class="radio-inline">
@@ -901,7 +929,7 @@
                     </div>
 
                     <div class="form-group">
-                      <label for="shsf_Erosion" class="col-sm-1 control-label">Erosion</label>
+                      <label for="shsf_Erosion" class="col-sm-2 control-label">Erosion</label>
                       <div class="col-sm-2">
                         <?php foreach ($boolean as $key => $value) { ?>
                         <label class="radio-inline">
@@ -912,7 +940,7 @@
                     </div>
 
                     <div class="form-group">
-                      <label for="shsf_fdqtl" class="col-sm-1 control-label">封堵器脱落</label>
+                      <label for="shsf_fdqtl" class="col-sm-2 control-label">封堵器脱落</label>
                       <div class="col-sm-2">
                         <?php foreach ($boolean as $key => $value) { ?>
                         <label class="radio-inline">
@@ -923,14 +951,14 @@
                     </div>
 
                     <div class="form-group">
-                      <label for="shsf_qt" class="col-sm-1 control-label">其他</label>
+                      <label for="shsf_qt" class="col-sm-2 control-label">其他</label>
                       <div class="col-sm-2">
                         <input type="text" class="form-control" name="shsf_qt" placeholder="其他" value="<?php echo $operation['shsf_qt'];?>">
                       </div>
                     </div>
 
                     <div class="form-group">
-                      <label for="shsf_cs_image" class="col-sm-1 control-label">超声影像</label>
+                      <label for="shsf_cs_image" class="col-sm-2 control-label">超声影像</label>
                       <div class="col-sm-10">
                         <input type="file" class="file-loading" name="image" id="shsf_cs_image">
                         <input type="hidden" value="<?php echo $operation['shsf_cs_image'];?> " name="shsf_cs_image" id="shsf_cs_image_value">
@@ -938,7 +966,7 @@
                     </div>
 
                     <div class="form-group">
-                      <label for="shsf_cs_text" class="col-sm-1 control-label">超声文字</label>
+                      <label for="shsf_cs_text" class="col-sm-2 control-label">超声文字</label>
                       <div class="col-sm-2">
                         <input type="text" class="form-control" name="shsf_cs_text" placeholder="其他" value="<?php echo $operation['shsf_cs_text'];?>">
                       </div>
@@ -961,7 +989,7 @@
 
 <input name="code" type="hidden" value="<?php echo $patient['patient_code']; ?>">
 
-<button id="submit" type="submit" class="btn btn-default">提交</button>
+<button id="submit" type="button" class="btn btn-default">下一步</button>
 </form>
 <button id="back" class="btn btn-default" onclick="javascript:history.back(-1);">返回</button>
 
@@ -1045,8 +1073,39 @@
 
   });
 
+  $('#submit').click(function(){
+    var href = $('#main-tablist li[class="active"] a').attr('href');
+    if (href == '#patient') {
+      $('#submit').text('下一步');
+      $('#submit').attr('type','button');
+      $('#main-tablist a[href="#diagnostic"]').tab('show');
+      return false;
+    }
+    if (href == '#diagnostic') {
+
+      $('#main-tablist a[href="#operation"]').tab('show');
+      $('#submit').text('提交');
+      $('#submit').attr('type','submit');
+      return false;
+    }
+  });
+
   $('#main-tablist a').click(function (e) {
-    e.preventDefault()
-    $(this).tab('show')
+    e.preventDefault();
+    $(this).tab('show');
+    var href = $(this).attr('href');
+    if (href == '#patient') {
+      $('#submit').text('下一步');
+      $('#submit').attr('type','button');
+    }
+    if (href == '#diagnostic') {
+      $('#submit').text('下一步');
+      $('#submit').attr('type','button');
+    }
+    if (href == '#operation') {
+      $('#submit').text('提交');
+      $('#submit').attr('type','submit');
+    }
+
   });
 </script>

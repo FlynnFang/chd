@@ -63,7 +63,7 @@ class BaseModel extends CActiveRecord
      */
     public function queryBySql($sql, $binds=null, $select='execute') {
         if(!$sql) return null;
-        $db = Mod::app()->db;
+        $db = Yii::app()->db;
         //查询方式
         $option = 'execute';
         //参数绑定
