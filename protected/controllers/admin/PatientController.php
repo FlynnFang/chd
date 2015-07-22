@@ -66,14 +66,13 @@ class PatientController extends Admin
 		$pages->pageSize = Yii::app()->params['paginavtion']['pagesize'];
 		$pages->route = '/admin/patient/list';
 		$pages->applyLimit($c);
-		$c->select = "`t`.*, `operation`.`xxbjrss`";
-		$c->join = "left outer join `operation` `operation` ON (`operation`.`patient_code`=`t`.`patient_code`)";
+
 		$c->order = "create_time desc";
 
 
-		$list = $patientModel->findAll($c);
-		var_dump($list);
-		exit;
+		$list = $patientModel->getRows($c);
+		// var_dump($list);
+		// exit;
 
 		// var_dump($list, $total);exit;
 		$this->setPageTitle('病历列表');
@@ -173,8 +172,9 @@ class PatientController extends Admin
 		$height = Yii::app()->request->getPost('height', '');
 		$weight = Yii::app()->request->getPost('weight', '');
 		$BMI = Yii::app()->request->getPost('BMI', 0.0);
-		$hospital_no = Yii::app()->request->getPost('hospital_no', '');
+		$xxbjrss = Yii::app()->request->getPost('xxbjrss', 0);
 		$follow_hospital = Yii::app()->request->getPost('follow_hospital', '');
+
 
 
 		$xztz_zy = Yii::app()->request->getPost('xztz_zy', 0);
@@ -213,7 +213,6 @@ class PatientController extends Admin
 		$qtjx_ext = Yii::app()->request->getPost('qtjx_ext', '');
 
 
-		$xxbjrss = Yii::app()->request->getPost('xxbjrss', 0);
 		$ssbh = Yii::app()->request->getPost('ssbh', '');
 		$sssj = Yii::app()->request->getPost('sssj', 0);
 		$ssfs_jrfd = Yii::app()->request->getPost('ssfs_jrfd', 0);
@@ -276,8 +275,8 @@ class PatientController extends Admin
 		$patientModel['weight'] = $weight;
 		$patientModel['BMI'] = $height > 0 ? $weight/pow($height/100,2) : 0;//体重(公斤) / 身高2(米2)
 		$patientModel['hospital'] = $this->_userInfo['hospital'];
-		$patientModel['hospital_no'] = $hospital_no;
 		$patientModel['follow_hospital'] = $follow_hospital;
+		$patientModel['xxbjrss'] = $xxbjrss;
 		$patientModel['create_time'] = time();
 
 		$diagnosticModel = new DiagnosticModel();
@@ -318,7 +317,7 @@ class PatientController extends Admin
 
 
 		$operationModel = new OperationModel();
-		$operationModel['xxbjrss'] = $xxbjrss;
+
 		$operationModel['ssbh'] = $ssbh;
 		$operationModel['sssj'] = strtotime($sssj);
 		$operationModel['ssfs_jrfd'] = $ssfs_jrfd;

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: 2015-07-22 12:04:25
+-- Generation Time: 2015-07-22 15:13:09
 -- 服务器版本： 5.6.24
 -- PHP Version: 5.6.8
 
@@ -203,7 +203,6 @@ INSERT INTO `menu` (`id`, `code`, `group`, `name`, `url`) VALUES
 CREATE TABLE IF NOT EXISTS `operation` (
   `id` int(11) NOT NULL COMMENT '主键ID',
   `patient_code` varchar(32) NOT NULL COMMENT '病人ID',
-  `xxbjrss` bit(1) NOT NULL COMMENT '先心病介入手术 是 否',
   `ssbh` varchar(200) NOT NULL COMMENT '手术编号',
   `sssj` int(11) NOT NULL COMMENT '手术时间',
   `ssfs_jrfd` bit(1) NOT NULL COMMENT '手术方式 介入封堵 是 否',
@@ -242,17 +241,17 @@ CREATE TABLE IF NOT EXISTS `operation` (
 -- 转存表中的数据 `operation`
 --
 
-INSERT INTO `operation` (`id`, `patient_code`, `xxbjrss`, `ssbh`, `sssj`, `ssfs_jrfd`, `ssfs_jrfd_qxmc`, `ssfs_jrfd_size`, `ssfs_wkkx`, `ssfs_wxqkfd`, `ssbfz_rx`, `ssbfz_cyl`, `ssbfz_xlsc`, `ssbfz_xlsc_sxzb`, `ssbfz_xlsc_fscdzz`, `ssbfz_szcdzz`, `ssbfz_fc`, `ssbfz_Erosion`, `ssbfz_fdqtl`, `ssbfz_qt`, `shcs_image`, `shcs_text`, `shsf_date`, `shsf_rx`, `shsf_cyl`, `shsf_xlsc`, `shsf_xlsc_sxzb`, `shsf_xlsc_fscdzz`, `shsf_szcdzz`, `shsf_fc`, `shsf_Erosion`, `shsf_fdqtl`, `shsf_qt`, `shsf_cs_image`, `shsf_cs_text`) VALUES
-(3, '2015071816110472464', b'0', '3423423', 626544000, b'1', '', '', b'1', b'0', b'0', b'0', b'0', '', '1002', b'1', b'0', b'0', b'0', '', '', '', 1437494400, b'0', b'0', b'0', '', '1003', b'1', b'1', b'0', b'0', '', 'http://localhost:9999/assets/filestore/image/2015-07-19/14372760797330.jpg', ''),
-(4, '2015071400002', b'0', '', 0, b'0', '', '', b'0', b'0', b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', 'http://localhost:9999/assets/filestore/image/2015-07-19/14372878494122.jpg', '', 0, b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', 'http://localhost:9999/assets/filestore/image/2015-07-19/14372845827059.jpg   ', ''),
-(5, '2015071400001', b'0', '', 0, b'0', '', '', b'0', b'0', b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', '  ', '', 0, b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', '  ', ''),
-(6, '201507220001', b'0', '', 0, b'0', '', '', b'0', b'0', b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', ' ', '', 0, b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', ' ', ''),
-(7, '201507222', b'0', '', 0, b'0', '', '', b'0', b'0', b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', ' ', '', 0, b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', ' ', ''),
-(8, '201507220001', b'0', '', 0, b'0', '', '', b'0', b'0', b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', ' ', '', 0, b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', ' ', ''),
-(9, '2015072200002', b'0', '', 0, b'0', '', '', b'0', b'0', b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', ' ', '', 0, b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', ' ', ''),
-(10, '201507220002', b'0', '', 0, b'0', '', '', b'0', b'0', b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', ' ', '', 0, b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', ' ', ''),
-(11, '201507220003', b'0', '', 0, b'0', '', '', b'0', b'0', b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', ' ', '', 0, b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', ' ', ''),
-(12, '201507220004', b'0', '', 0, b'0', '', '', b'0', b'0', b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', ' ', '', 0, b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', ' ', '');
+INSERT INTO `operation` (`id`, `patient_code`, `ssbh`, `sssj`, `ssfs_jrfd`, `ssfs_jrfd_qxmc`, `ssfs_jrfd_size`, `ssfs_wkkx`, `ssfs_wxqkfd`, `ssbfz_rx`, `ssbfz_cyl`, `ssbfz_xlsc`, `ssbfz_xlsc_sxzb`, `ssbfz_xlsc_fscdzz`, `ssbfz_szcdzz`, `ssbfz_fc`, `ssbfz_Erosion`, `ssbfz_fdqtl`, `ssbfz_qt`, `shcs_image`, `shcs_text`, `shsf_date`, `shsf_rx`, `shsf_cyl`, `shsf_xlsc`, `shsf_xlsc_sxzb`, `shsf_xlsc_fscdzz`, `shsf_szcdzz`, `shsf_fc`, `shsf_Erosion`, `shsf_fdqtl`, `shsf_qt`, `shsf_cs_image`, `shsf_cs_text`) VALUES
+(3, '2015071816110472464', '3423423', 626544000, b'1', '', '', b'1', b'0', b'0', b'0', b'0', '', '1002', b'1', b'0', b'0', b'0', '', '', '', 1437494400, b'0', b'0', b'0', '', '1003', b'1', b'1', b'0', b'0', '', 'http://localhost:9999/assets/filestore/image/2015-07-19/14372760797330.jpg', ''),
+(4, '2015071400002', '', 0, b'0', '', '', b'0', b'0', b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', 'http://localhost:9999/assets/filestore/image/2015-07-19/14372878494122.jpg', '', 0, b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', 'http://localhost:9999/assets/filestore/image/2015-07-19/14372845827059.jpg   ', ''),
+(5, '2015071400001', '', 0, b'0', '', '', b'0', b'0', b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', '  ', '', 0, b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', '  ', ''),
+(6, '201507220001', '', 0, b'0', '', '', b'0', b'0', b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', ' ', '', 0, b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', ' ', ''),
+(7, '201507222', '', 0, b'0', '', '', b'0', b'0', b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', ' ', '', 0, b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', ' ', ''),
+(8, '201507220001', '', 0, b'0', '', '', b'0', b'0', b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', ' ', '', 0, b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', ' ', ''),
+(9, '2015072200002', '', 0, b'0', '', '', b'0', b'0', b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', ' ', '', 0, b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', ' ', ''),
+(10, '201507220002', '', 0, b'0', '', '', b'0', b'0', b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', ' ', '', 0, b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', ' ', ''),
+(11, '201507220003', '', 0, b'0', '', '', b'0', b'0', b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', ' ', '', 0, b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', ' ', ''),
+(12, '201507220004', '', 0, b'0', '', '', b'0', b'0', b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', '  ', '', 0, b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', '  ', '');
 
 -- --------------------------------------------------------
 
@@ -275,8 +274,8 @@ CREATE TABLE IF NOT EXISTS `patient` (
   `weight` varchar(10) NOT NULL COMMENT '体重 kg',
   `BMI` float NOT NULL COMMENT '自动计算 体重(公斤) / 身高2(米2)',
   `hospital` varchar(4) NOT NULL COMMENT '建档医院',
-  `hospital_no` varchar(32) NOT NULL COMMENT '住院号',
   `follow_hospital` varchar(4) NOT NULL COMMENT '随访医院',
+  `xxbjrss` bit(1) NOT NULL COMMENT '先心病介入手术 是-否',
   `create_time` int(11) NOT NULL COMMENT '建档时间'
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COMMENT='病人 基础信息表';
 
@@ -284,13 +283,12 @@ CREATE TABLE IF NOT EXISTS `patient` (
 -- 转存表中的数据 `patient`
 --
 
-INSERT INTO `patient` (`id`, `patient_code`, `name`, `sex`, `born`, `nationality`, `place`, `phone`, `address`, `has_history`, `height`, `weight`, `BMI`, `hospital`, `hospital_no`, `follow_hospital`, `create_time`) VALUES
-(1, '2015071400001', '张大炮', 2, 1436976000, '汉族', '重庆', '18985254874', '重庆市渝北区 ', b'0', '100', '30', 30, '1000', '', '1000', 1437526376),
-(2, '2015071400002', '周杰伦', 2, 1716998400, '汉族', '重庆', '18985254874', '重庆市渝北区 ', b'0', '110', '50', 41.3223, '1000', '0', '', 1437287859),
-(4, '2015071816110472464', '测试', 2, 1435766400, '汉族', '重庆市渝北区', '13425652435', '的简欧风机房几公分的价格', b'0', '150', '30', 13.3333, '1002', '', '', 1437209554),
-(7, '201507220001', 'afasd', 2, 1435593600, '汉族', 'dfasd', '4871111111', 'sdfsdfsd', b'0', '', '', 0, '1001', '', '1001', 1437555970),
-(10, '201507220003', 'dfs', 2, 1436284800, '汉族', '重启过', 'sdf', 'sdfsd', b'0', '', '', 0, '1001', '', '1001', 1437556097),
-(11, '201507220004', 'xcvzxv', 1, 1436284800, '汉族', 'zcxv', 'xcvzx', 'xcvxc', b'0', '', '', 0, '1001', '', '1001', 1437556139);
+INSERT INTO `patient` (`id`, `patient_code`, `name`, `sex`, `born`, `nationality`, `place`, `phone`, `address`, `has_history`, `height`, `weight`, `BMI`, `hospital`, `follow_hospital`, `xxbjrss`, `create_time`) VALUES
+(1, '2015071400001', '张大炮', 2, 1436976000, '汉族', '重庆', '18985254874', '重庆市渝北区 ', b'0', '100', '30', 30, '1000', '1000', b'0', 1437526376),
+(2, '2015071400002', '周杰伦', 2, 1716998400, '汉族', '重庆', '18985254874', '重庆市渝北区 ', b'0', '110', '50', 41.3223, '1000', '', b'0', 1437287859),
+(7, '201507220001', 'afasd', 2, 1435593600, '汉族', 'dfasd', '4871111111', 'sdfsdfsd', b'0', '', '', 0, '1001', '1001', b'0', 1437555970),
+(10, '201507220003', 'dfs', 2, 1436284800, '汉族', '重启过', 'sdf', 'sdfsd', b'0', '', '', 0, '1001', '1001', b'0', 1437556097),
+(11, '201507220004', 'xcvzxv', 1, 1436284800, '汉族', 'zcxv', '13245673232', 'xcvxc', b'0', '', '', 0, '1001', '1001', b'1', 1437569664);
 
 -- --------------------------------------------------------
 

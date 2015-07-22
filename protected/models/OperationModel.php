@@ -14,12 +14,12 @@ class OperationModel extends BaseModel
 			parent::__construct($this->TABLE_NAME, __CLASS__);
 	}
 
-	public function relations()
-	{
-		return array(
-			'patient'=>array(self::BELONGS_TO, 'Patient', 'patient_code',),
-		);
-	}
+	// public function relations()
+	// {
+	// 	return array(
+	// 		'patient'=>array(self::BELONGS_TO, 'Patient', 'patient_code',),
+	// 	);
+	// }
 
 	public function getRowByCode($code)
 	{

@@ -73,7 +73,7 @@
                   <?php } ?>
                 </select>
               </div>
-              <div class="col-sm-6"></div>
+              <p class="form-control-static">说明：先心病家族史，指三代以内直系亲属有先心病患者</p>
             </div>
             <div class="form-group ">
               <label for="height" class="col-sm-2 control-label">身高</label>
@@ -306,6 +306,7 @@
                           <span class="input-group-addon" id="basic-addon-shou1">%</span>
                         </div>
                       </div>
+                      <p class="form-control-static">说明：新生儿出生24小时后测一次，如不正常（小于95%或上下肢差值大于3%），则应该还有有两次测量（每隔1小时测一次，一共3次都不正常做超声）</p>
                     </div>
 
                     <div class="form-group ">
@@ -574,7 +575,7 @@
                 <div class="panel-heading" role="tab" id="operationHeadingZero">
                   <h4 class="panel-title">
                     <a role="button" data-toggle="collapse" data-parent="#accordionOperation" href="#operationCollapseZero" aria-expanded="true" aria-controls="operationCollapseZero">
-                      手术
+                      手术 <span class="label label-primary">必填</span>
                     </a>
                   </h4>
                 </div>
@@ -582,12 +583,12 @@
                   <div class="panel-body">
                     <div class="form-group">
                       <label for="ssbh" class="col-sm-2 control-label">先心病介入手术</label>
-                      <div class="col-sm-1">
-                        <select class="form-control" id="xxbjrss" name="xxbjrss">
-                          <?php foreach ($boolean as $key => $value) { ?>
-                          <option value="<?php echo $key;?>" <?php echo $operation['xxbjrss'] == $key ? 'selected' : '';?> ><?php echo $value;?></option>
-                          <?php } ?>
-                        </select>
+                      <div class="col-sm-2">
+                        <?php foreach ($boolean as $key => $value) { ?>
+                        <label class="radio-inline">
+                          <input type="radio" name="xxbjrss" value="<?php echo $key;?>" <?php echo ($patient['xxbjrss'] == $key) || (!$patient['xxbjrss'] && $key=='0')   ? 'checked' : '';?>> <?php echo $value;?>
+                        </label>
+                        <?php } ?>
                       </div>
                     </div>
 
@@ -605,10 +606,11 @@
                 <div id="operationCollapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="operationHeadingOne">
                   <div class="panel-body">
                     <div class="form-group">
-                      <label for="ssbh" class="col-sm-2 control-label">手术编号</label>
+                      <label for="ssbh" class="col-sm-2 control-label">His手术编号</label>
                       <div class="col-sm-2">
                         <input type="text" class="form-control" name="ssbh" placeholder="手术编号" value="<?php echo $operation['ssbh'];?>">
                       </div>
+
                     </div>
 
                     <div class="form-group">

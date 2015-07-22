@@ -34,6 +34,7 @@
         <th>性别</th>
         <th>出生日期</th>
         <th>联系电话</th>
+        <th>先心病介入手术</th>
         <th>建档医院</th>
         <th>建档日期</th>
         <th>随访医院</th>
@@ -48,6 +49,7 @@
         <th><?php echo Yii::app()->params['sex'][$item['sex']];?></th>
         <th><?php echo  date('Y-m-d',$item['born']);?></th>
         <th><?php echo $item['phone'];?></th>
+        <th><?php echo Yii::app()->params['boolean'][$item['xxbjrss']];?></th>
         <th><?php echo $hospitals[$item['hospital']];?></th>
         <th><?php echo date('Y-m-d',$item['create_time']);?></th>
         <th><?php echo $hospitals[$item['follow_hospital']];?></th>

@@ -2,7 +2,7 @@
 <?php include(Yii::app()->basePath."/views/layouts/top.php");?>
 <form class="form-horizontal" action="<?php echo Yii::app()->request->baseUrl; ?>/admin/hospital/update?op=<?php echo $op;?>" method="post">
   <div class="form-group">
-    <label for="username" class="col-sm-1 control-label">医院代码</label>
+    <label for="username" class="col-sm-2 control-label">医院代码</label>
     <div class="col-sm-2">
       <input type="text" class="form-control" id="code" name="code" placeholder="医院代码"s value="<?php echo $hospital['c_key'];?>" readonly required autofocus>
     </div>
@@ -11,7 +11,7 @@
     </div>
   </div>
   <div class="form-group ">
-    <label for="hospital" class="col-sm-1 control-label">医院名称</label>
+    <label for="hospital" class="col-sm-2 control-label">医院名称</label>
     <div class="col-sm-4">
       <input type="text" class="form-control" name="name" placeholder="医院名称"s value="<?php echo $hospital['c_value'];?>" required>
     </div>
