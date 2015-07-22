@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: 2015-07-20 16:20:15
+-- Generation Time: 2015-07-22 12:04:25
 -- 服务器版本： 5.6.24
 -- PHP Version: 5.6.8
 
@@ -33,18 +33,16 @@ CREATE TABLE IF NOT EXISTS `admin` (
   `hospital` varchar(4) NOT NULL COMMENT '所属医院',
   `role` varchar(4) NOT NULL COMMENT '角色',
   `create_time` int(11) NOT NULL COMMENT '创建时间',
-  `parent_id` int(11) NOT NULL COMMENT '创建者ID',
-  `last_login_time` int(11) NOT NULL COMMENT '最近登录时间',
-  `last_login_ip` text NOT NULL COMMENT '最近登录IP'
+  `parent_id` int(11) NOT NULL COMMENT '创建者ID'
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='管理员表';
 
 --
 -- 转存表中的数据 `admin`
 --
 
-INSERT INTO `admin` (`id`, `username`, `password`, `hospital`, `role`, `create_time`, `parent_id`, `last_login_time`, `last_login_ip`) VALUES
-(1, 'admin', 'e10adc3949ba59abbe56e057f20f883e', '1000', '0', 0, 0, 0, ''),
-(4, 'herbre', 'e10adc3949ba59abbe56e057f20f883e', '1001', '1', 1437401873, 0, 0, '');
+INSERT INTO `admin` (`id`, `username`, `password`, `hospital`, `role`, `create_time`, `parent_id`) VALUES
+(1, 'admin', 'e10adc3949ba59abbe56e057f20f883e', '1000', '0', 0, 0),
+(4, 'herbre', 'e10adc3949ba59abbe56e057f20f883e', '1001', '1', 1437401873, 0);
 
 -- --------------------------------------------------------
 
@@ -57,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `config` (
   `type` varchar(50) NOT NULL COMMENT '类型',
   `c_key` varchar(4) NOT NULL COMMENT '配置项关键字',
   `c_value` text NOT NULL COMMENT '配置项值'
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COMMENT='配置信息表 ';
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8 COMMENT='配置信息表 ';
 
 --
 -- 转存表中的数据 `config`
@@ -86,7 +84,9 @@ INSERT INTO `config` (`id`, `type`, `c_key`, `c_value`) VALUES
 (21, 'xlsc', '1001', 'I度'),
 (22, 'xlsc', '1002', 'II度一型'),
 (23, 'xlsc', '1003', 'III度二型'),
-(24, 'hospital', '1001', '重庆西南医院');
+(24, 'hospital', '1001', '重庆西南医院'),
+(25, 'hospital', '1002', '第三军医大学第一附属医院'),
+(26, 'hospital', '1003', '玉龙县人民医院');
 
 -- --------------------------------------------------------
 
@@ -131,7 +131,7 @@ CREATE TABLE IF NOT EXISTS `diagnostic` (
   `xzcc_qt_ext` text NOT NULL COMMENT '心脏彩超 其他 扩展内容',
   `qtjx` int(1) NOT NULL COMMENT '其他畸形  有-无   ',
   `qtjx_ext` text NOT NULL COMMENT '其他畸形 有 扩展内容：耳聋 先天性白内障 兔唇 21三体 溶血 贫血 骨关节畸形 内脏发育异常   '
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='诊断信息表';
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COMMENT='诊断信息表';
 
 --
 -- 转存表中的数据 `diagnostic`
@@ -140,7 +140,14 @@ CREATE TABLE IF NOT EXISTS `diagnostic` (
 INSERT INTO `diagnostic` (`id`, `patient_code`, `xztz_zy`, `xztz_bw`, `xztz_sq`, `kyzx_wykn`, `kyzx_ffgm`, `kyzx_tsmr`, `kyzx_hdnlc`, `kyzx_xxqlq`, `kyzx_fg`, `kyzx_szfych`, `kyzx_hxjc`, `kyzx_hxjc_ext`, `kyzx_xdj`, `jpcysz_shou_1`, `jpcysz_yz_1`, `jpcysz_shou_2`, `jpcysz_yz_2`, `jpcysz_shou_3`, `jpcysz_yz_3`, `fmwycqblsj_yzqgr`, `fmwycqblsj_xy`, `fmwycqblsj_dwjc`, `fmwycqblsj_xj`, `fmwycqblsj_sxjc`, `xzcc_PDA`, `xzcc_VSD`, `xzcc_ASD`, `xzcc_TFO`, `xzcc_PS`, `xzcc_Ebstein`, `xzcc_qt`, `xzcc_qt_ext`, `qtjx`, `qtjx_ext`) VALUES
 (3, '2015071816110472464', b'1', '1002,1003', '1002,1003', b'1', b'1', b'1', b'0', b'0', b'0', b'0', b'0', 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, '1001,1002,1003,1004,1007,1008'),
 (4, '2015071400002', b'0', '', '', b'0', b'0', b'0', b'0', b'0', b'0', b'0', b'0', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, ''),
-(5, '2015071400001', b'0', '', '', b'0', b'0', b'0', b'0', b'0', b'0', b'0', b'0', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, '');
+(5, '2015071400001', b'0', '', '', b'0', b'0', b'0', b'0', b'0', b'0', b'0', b'0', 0, 0, 21, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, ''),
+(6, '201507220001', b'1', '', '', b'0', b'0', b'0', b'0', b'0', b'0', b'0', b'0', 0, 0, 232, 232, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, ''),
+(7, '201507222', b'0', '', '', b'0', b'0', b'0', b'0', b'0', b'0', b'0', b'0', 0, 0, -4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, ''),
+(8, '201507220001', b'0', '', '', b'0', b'0', b'0', b'0', b'0', b'0', b'0', b'0', 0, 0, -4, -5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, ''),
+(9, '2015072200002', b'0', '', '', b'0', b'0', b'0', b'0', b'0', b'0', b'0', b'0', 0, 0, -4, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, ''),
+(10, '201507220002', b'0', '', '', b'0', b'0', b'0', b'0', b'0', b'0', b'0', b'0', 0, 0, -5, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, ''),
+(11, '201507220003', b'0', '', '', b'0', b'0', b'0', b'0', b'0', b'0', b'0', b'0', 0, 0, -4, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, ''),
+(12, '201507220004', b'0', '', '', b'0', b'0', b'0', b'0', b'0', b'0', b'0', b'0', 0, 0, -5, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, '');
 
 -- --------------------------------------------------------
 
@@ -169,7 +176,7 @@ CREATE TABLE IF NOT EXISTS `menu` (
   `group` varchar(4) NOT NULL COMMENT '父级菜单code',
   `name` varchar(50) NOT NULL COMMENT '菜单显示名称',
   `url` text NOT NULL COMMENT '菜单链接'
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 --
 -- 转存表中的数据 `menu`
@@ -184,7 +191,8 @@ INSERT INTO `menu` (`id`, `code`, `group`, `name`, `url`) VALUES
 (6, '1005', '2', '1年随访', '#'),
 (7, '1006', '2', '过期随访', '#'),
 (8, '1007', '3', '数据分析', '#'),
-(9, '1008', '4', '用户管理', '/admin/user');
+(9, '1008', '4', '用户管理', '/admin/user'),
+(10, '1009', '4', '医院管理', '/admin/hospital');
 
 -- --------------------------------------------------------
 
@@ -228,7 +236,7 @@ CREATE TABLE IF NOT EXISTS `operation` (
   `shsf_qt` text NOT NULL COMMENT '术后随访 其他',
   `shsf_cs_image` text NOT NULL COMMENT '术后随访超声 图片',
   `shsf_cs_text` text NOT NULL COMMENT '术后随访超声 输入'
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='先心病介入手术';
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COMMENT='先心病介入手术';
 
 --
 -- 转存表中的数据 `operation`
@@ -237,7 +245,14 @@ CREATE TABLE IF NOT EXISTS `operation` (
 INSERT INTO `operation` (`id`, `patient_code`, `xxbjrss`, `ssbh`, `sssj`, `ssfs_jrfd`, `ssfs_jrfd_qxmc`, `ssfs_jrfd_size`, `ssfs_wkkx`, `ssfs_wxqkfd`, `ssbfz_rx`, `ssbfz_cyl`, `ssbfz_xlsc`, `ssbfz_xlsc_sxzb`, `ssbfz_xlsc_fscdzz`, `ssbfz_szcdzz`, `ssbfz_fc`, `ssbfz_Erosion`, `ssbfz_fdqtl`, `ssbfz_qt`, `shcs_image`, `shcs_text`, `shsf_date`, `shsf_rx`, `shsf_cyl`, `shsf_xlsc`, `shsf_xlsc_sxzb`, `shsf_xlsc_fscdzz`, `shsf_szcdzz`, `shsf_fc`, `shsf_Erosion`, `shsf_fdqtl`, `shsf_qt`, `shsf_cs_image`, `shsf_cs_text`) VALUES
 (3, '2015071816110472464', b'0', '3423423', 626544000, b'1', '', '', b'1', b'0', b'0', b'0', b'0', '', '1002', b'1', b'0', b'0', b'0', '', '', '', 1437494400, b'0', b'0', b'0', '', '1003', b'1', b'1', b'0', b'0', '', 'http://localhost:9999/assets/filestore/image/2015-07-19/14372760797330.jpg', ''),
 (4, '2015071400002', b'0', '', 0, b'0', '', '', b'0', b'0', b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', 'http://localhost:9999/assets/filestore/image/2015-07-19/14372878494122.jpg', '', 0, b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', 'http://localhost:9999/assets/filestore/image/2015-07-19/14372845827059.jpg   ', ''),
-(5, '2015071400001', b'0', '', 0, b'0', '', '', b'0', b'0', b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', ' ', '', 0, b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', ' ', '');
+(5, '2015071400001', b'0', '', 0, b'0', '', '', b'0', b'0', b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', '  ', '', 0, b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', '  ', ''),
+(6, '201507220001', b'0', '', 0, b'0', '', '', b'0', b'0', b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', ' ', '', 0, b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', ' ', ''),
+(7, '201507222', b'0', '', 0, b'0', '', '', b'0', b'0', b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', ' ', '', 0, b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', ' ', ''),
+(8, '201507220001', b'0', '', 0, b'0', '', '', b'0', b'0', b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', ' ', '', 0, b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', ' ', ''),
+(9, '2015072200002', b'0', '', 0, b'0', '', '', b'0', b'0', b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', ' ', '', 0, b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', ' ', ''),
+(10, '201507220002', b'0', '', 0, b'0', '', '', b'0', b'0', b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', ' ', '', 0, b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', ' ', ''),
+(11, '201507220003', b'0', '', 0, b'0', '', '', b'0', b'0', b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', ' ', '', 0, b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', ' ', ''),
+(12, '201507220004', b'0', '', 0, b'0', '', '', b'0', b'0', b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', ' ', '', 0, b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', ' ', '');
 
 -- --------------------------------------------------------
 
@@ -263,16 +278,19 @@ CREATE TABLE IF NOT EXISTS `patient` (
   `hospital_no` varchar(32) NOT NULL COMMENT '住院号',
   `follow_hospital` varchar(4) NOT NULL COMMENT '随访医院',
   `create_time` int(11) NOT NULL COMMENT '建档时间'
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='病人 基础信息表';
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COMMENT='病人 基础信息表';
 
 --
 -- 转存表中的数据 `patient`
 --
 
 INSERT INTO `patient` (`id`, `patient_code`, `name`, `sex`, `born`, `nationality`, `place`, `phone`, `address`, `has_history`, `height`, `weight`, `BMI`, `hospital`, `hospital_no`, `follow_hospital`, `create_time`) VALUES
-(1, '2015071400001', '张大炮', 2, 1436457600, '汉族', '重庆', '18985254874', '重庆市渝北区 ', b'0', '100', '30', 30, '1000', '', '', 1437287960),
+(1, '2015071400001', '张大炮', 2, 1436976000, '汉族', '重庆', '18985254874', '重庆市渝北区 ', b'0', '100', '30', 30, '1000', '', '1000', 1437526376),
 (2, '2015071400002', '周杰伦', 2, 1716998400, '汉族', '重庆', '18985254874', '重庆市渝北区 ', b'0', '110', '50', 41.3223, '1000', '0', '', 1437287859),
-(4, '2015071816110472464', '测试', 2, 1435766400, '汉族', '重庆市渝北区', '13425652435', '的简欧风机房几公分的价格', b'0', '150', '30', 13.3333, '1000', '', '', 1437209554);
+(4, '2015071816110472464', '测试', 2, 1435766400, '汉族', '重庆市渝北区', '13425652435', '的简欧风机房几公分的价格', b'0', '150', '30', 13.3333, '1002', '', '', 1437209554),
+(7, '201507220001', 'afasd', 2, 1435593600, '汉族', 'dfasd', '4871111111', 'sdfsdfsd', b'0', '', '', 0, '1001', '', '1001', 1437555970),
+(10, '201507220003', 'dfs', 2, 1436284800, '汉族', '重启过', 'sdf', 'sdfsd', b'0', '', '', 0, '1001', '', '1001', 1437556097),
+(11, '201507220004', 'xcvzxv', 1, 1436284800, '汉族', 'zcxv', 'xcvzx', 'xcvxc', b'0', '', '', 0, '1001', '', '1001', 1437556139);
 
 -- --------------------------------------------------------
 
@@ -285,16 +303,41 @@ CREATE TABLE IF NOT EXISTS `role` (
   `code` int(2) NOT NULL,
   `name` varchar(20) NOT NULL COMMENT '角色名称',
   `permission` text NOT NULL COMMENT '角色权限'
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='角色管理';
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='角色管理';
 
 --
 -- 转存表中的数据 `role`
 --
 
 INSERT INTO `role` (`id`, `code`, `name`, `permission`) VALUES
-(1, 0, '超级管理员', '1000,1001,1002,1003,1004,1005,1006,1007,1008'),
-(2, 1, '主任', '1000,1001,1002,1003,1004,1005,1006,1007'),
-(3, 2, '医生', '1000,1001,1002,1003,1004,1005,1006');
+(1, 0, '超级管理员', '1000,1001,1002,1003,1004,1005,1006,1007,1008,1009'),
+(2, 1, '管理员', '1000,1001,1002,1003,1004,1005,1006,1007'),
+(3, 2, '主任', '1000,1001,1002,1003,1004,1005,1006,1007'),
+(4, 3, '医生', '1000,1001,1002,1003,1004,1005,1006');
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `share`
+--
+
+CREATE TABLE IF NOT EXISTS `share` (
+  `id` int(11) NOT NULL COMMENT '主键ID',
+  `hospital` varchar(4) NOT NULL COMMENT '病历提供医院',
+  `target_hospital` varchar(4) NOT NULL COMMENT '病历分享到医院',
+  `permission` varchar(10) NOT NULL COMMENT '病历分享到医院所拥有权限'
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8 COMMENT='病历分享表';
+
+--
+-- 转存表中的数据 `share`
+--
+
+INSERT INTO `share` (`id`, `hospital`, `target_hospital`, `permission`) VALUES
+(11, '1001', '1001', '0,1,2'),
+(12, '1002', '1002', '0,1,2'),
+(13, '1003', '1003', '0,1,2'),
+(22, '1000', '1000', '0,1,2'),
+(23, '1000', '1001', '0,1');
 
 --
 -- Indexes for dumped tables
@@ -350,6 +393,12 @@ ALTER TABLE `role`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `share`
+--
+ALTER TABLE `share`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -362,12 +411,12 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `config`
 --
 ALTER TABLE `config`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID',AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID',AUTO_INCREMENT=27;
 --
 -- AUTO_INCREMENT for table `diagnostic`
 --
 ALTER TABLE `diagnostic`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID',AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID',AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `followup`
 --
@@ -377,22 +426,27 @@ ALTER TABLE `followup`
 -- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID',AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID',AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `operation`
 --
 ALTER TABLE `operation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID',AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID',AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `patient`
 --
 ALTER TABLE `patient`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID主键',AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID主键',AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `role`
 --
 ALTER TABLE `role`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID',AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID',AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `share`
+--
+ALTER TABLE `share`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID',AUTO_INCREMENT=24;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
