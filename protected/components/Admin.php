@@ -10,6 +10,7 @@ class Admin extends Controller
 	public $layout='admin';
 	public $username;
 	public $hospital;
+	public $role;
 	public $currentMenu = '1000'; //首先打开Home
 	public $menuGroup = array();
 	public $menus = array(); //当前用户可见的菜单项(权限控制)
@@ -49,6 +50,7 @@ class Admin extends Controller
 		$this->_userInfo = $adminModel->getInfoByUid($uid);
 		$this->username = $this->_userInfo['username'];
 		$this->hospital = $this->_userInfo['hospital'];
+		$this->role = $this->_userInfo['role'];
 		//账号错误
 		if (!$this->_userInfo)
 		{
@@ -93,30 +95,30 @@ class Admin extends Controller
 	// 	return '您';
 	// }
 
-	/**
-	 *
-	 * 通过id列表获取name列表
-	 */
-	protected function getCategoryListById($categoryIdStr)
-	{
-		$categoryList = array();
-		if ($categoryIdStr)
-		{
-			$categoryIdList = explode(',', $categoryIdStr);
-
-			foreach ($categoryIdList as $categoryId)
-			{
-
-				if (isset($this->_categoryList[$categoryId]))
-				{
-					$categoryList[$categoryId] = $this->_categoryList[$categoryId]['name'];
-				}
-			}
-		}
-
-		//var_dump($categoryList);exit;
-		return $categoryList;
-	}
+	// /**
+	//  *
+	//  * 通过id列表获取name列表
+	//  */
+	// protected function getCategoryListById($categoryIdStr)
+	// {
+	// 	$categoryList = array();
+	// 	if ($categoryIdStr)
+	// 	{
+	// 		$categoryIdList = explode(',', $categoryIdStr);
+	//
+	// 		foreach ($categoryIdList as $categoryId)
+	// 		{
+	//
+	// 			if (isset($this->_categoryList[$categoryId]))
+	// 			{
+	// 				$categoryList[$categoryId] = $this->_categoryList[$categoryId]['name'];
+	// 			}
+	// 		}
+	// 	}
+	//
+	// 	//var_dump($categoryList);exit;
+	// 	return $categoryList;
+	// }
 
 	/**
 	 * 从cookie中获取用户ID

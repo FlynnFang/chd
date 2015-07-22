@@ -14,5 +14,13 @@ class FollowupModel extends BaseModel
 			parent::__construct($this->TABLE_NAME, __CLASS__);
 	}
 
+	public function deleteByCode($code)
+	{
+		$condition = "patient_code=':code'";
+		$params = array(
+			':code' => $code,
+		);
+		return $this->deleteAll($condition,$params);
+	}
 
 }

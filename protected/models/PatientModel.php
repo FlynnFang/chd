@@ -14,12 +14,12 @@ class PatientModel extends BaseModel
 			parent::__construct($this->TABLE_NAME, __CLASS__);
 	}
 
-	// public function relations()
-	// {
-	// 	return array(
-	// 		'hospital'=>array(self::HAS_ONE, 'Config', 'hospital','on'=>'type='.Yii::app()->params['configType']['hospital'],),
-	// 	);
-	// }
+	public function relations()
+	{
+		return array(
+			'operation'=>array(self::HAS_ONE, 'OperationModel', 'patient_code',),
+		);
+	}
 
 	public function getRowByCode($code)
 	{
@@ -27,6 +27,23 @@ class PatientModel extends BaseModel
 		$c->addCondition("patient_code='".$code."'");
 		return $this->getRow($c);
 	}
+
+	public function getMaxPatientCode()
+	{
+		$c =  new CDbCriteria();
+		$c->order = ('patient_code desc');
+		return $this->getRow($c);
+	}
+
+	public function deleteByCode($code)
+	{
+		$condition = "patient_code=:code";
+		$params = array(
+			':code' => $code,
+		);
+		return $this->deleteAll($condition,$params);
+	}
+
 
 
 }

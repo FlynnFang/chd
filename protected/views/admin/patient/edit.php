@@ -55,7 +55,7 @@
             <div class="form-group ">
               <label for="phone" class="col-sm-2 control-label">联系电话</label>
               <div class="col-sm-2">
-                <input type="text" class="form-control" name="phone" placeholder="联系电话" value="<?php echo $patient['phone'];?>" required>
+                <input type="text" class="form-control" id="phone" name="phone" placeholder="联系电话" value="<?php echo $patient['phone'];?>" required>
               </div>
             </div>
             <div class="form-group ">
@@ -109,12 +109,12 @@
                 </select>
               </div>
             </div>
-            <div class="form-group ">
+            <!-- <div class="form-group ">
               <label for="hospital_no" class="col-sm-2 control-label">住院号</label>
               <div class="col-sm-2">
                 <input type="text" class="form-control" name="hospital_no" placeholder="住院号" value="<?php echo $patient['hospital_no'];?>">
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
 
@@ -266,7 +266,7 @@
                     </div>
 
                     <div class="form-group ">
-                      <div class="col-sm-2 col-sm-offset-1">
+                      <div class="col-sm-2 col-sm-offset-2">
                         <div class="input-group">
                           <input type="number" class="form-control" name="kyzx_hxjc_ext"  aria-describedby="basic-addon-ci" value="<?php echo $diagnostic['kyzx_hxjc_ext'];?>">
                           <span class="input-group-addon" id="basic-addon-ci">次/分</span>
@@ -518,7 +518,7 @@
                     </div>
 
                     <div class="form-group ">
-                      <div class="col-sm-2 col-sm-offset-1">
+                      <div class="col-sm-2 col-sm-offset-2">
                         <input type="text" class="form-control" name="xzcc_qt_ext" placeholder="" value="<?php echo $diagnostic['xzcc_qt_ext'];?>" >
                       </div>
                     </div>
@@ -548,7 +548,7 @@
                     </div>
 
                     <div class="form-group ">
-                      <div class="col-sm-10 col-sm-offset-1">
+                      <div class="col-sm-10 col-sm-offset-2">
                         <?php foreach ($qtjx as $key => $value) { ?>
                         <label class="checkbox-inline">
                           <input type="checkbox" name="qtjx_ext[]" value="<?php echo $key; ?>" <?php echo $diagnostic['qtjx_ext'] && in_array($key,$diagnostic['qtjx_ext']) ? 'checked' : '';?>><?php echo $value; ?>
@@ -1088,6 +1088,12 @@
       $('#submit').attr('type','submit');
       return false;
     }
+    var re = /^1\d{10}$/;
+   if (!re.test($('#phone').val())){
+     alert('手机号验证失败');
+     return false;
+   }
+
   });
 
   $('#main-tablist a').click(function (e) {

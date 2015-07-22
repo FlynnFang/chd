@@ -27,12 +27,26 @@ class PatientController extends Admin
 		$hospital = Yii::app()->request->getParam("hospital", '');
 		$page = Yii::app()->request->getParam("page", 1);
 
+		// 限制医院权限
+		$mHospital = $this->_userInfo['hospital'];
+		$shareModel = new ShareModel();
+		$shareSet = $shareModel->getTargetSetByCode($mHospital);
+		$inArray = array_keys($shareSet);
 
-		//分页
-		$start = ($page - 1) * $this->_pagesize;
+		$hospitalModel = new ConfigModel();
+		$allHos = $hospitalModel->getSetByType(Yii::app()->params['configType']['hospital']);
 
+		$hospitals = $allHos;
 		//查询
 		$c =  new CDbCriteria();
+		if ($this->_userInfo['role'] > 0) {
+			$c->addInCondition('hospital', $inArray);
+			$hospitals = array();
+			foreach ($inArray as $value) {
+				$hospitals[$value] = $allHos[$value];
+			}
+		}
+
 		if ($name) {
 			$c->addSearchCondition('name',$name);
 		}
@@ -40,8 +54,8 @@ class PatientController extends Admin
 			$c->addCondition('hospital='.$hospital);
 		}
 
-		$hospitalModel = new ConfigModel();
-		$hospitals = $hospitalModel->getSetByType(Yii::app()->params['configType']['hospital']);
+		//分页
+		$start = ($page - 1) * $this->_pagesize;
 
 		$patientModel = new PatientModel();
 		//总数
@@ -52,15 +66,18 @@ class PatientController extends Admin
 		$pages->pageSize = Yii::app()->params['paginavtion']['pagesize'];
 		$pages->route = '/admin/patient/list';
 		$pages->applyLimit($c);
+		$c->select = "`t`.*, `operation`.`xxbjrss`";
+		$c->join = "left outer join `operation` `operation` ON (`operation`.`patient_code`=`t`.`patient_code`)";
 		$c->order = "create_time desc";
 
 
-		$list = $patientModel->getRows($c);
-
+		$list = $patientModel->findAll($c);
+		var_dump($list);
+		exit;
 
 		// var_dump($list, $total);exit;
 		$this->setPageTitle('病历列表');
-		$this->render('list', array('list'=>$list, 'pages'=>$pages, 'hospitals' =>$hospitals));
+		$this->render('list', array('list'=>$list, 'pages'=>$pages, 'hospitals' =>$hospitals,'shareSet'=>$shareSet));
 	}
 
 	public function actionAdd()
@@ -388,18 +405,6 @@ class PatientController extends Admin
 
 	}
 
-	/**
-	 * 删除
-	 *
-	 */
-	public function actionDel()
-	{
-		$id = Yii::app()->request->getParam("id", 0);
-		$articleModel = new ArticleModel();
-		$articleModel->del($id);
-		$this->_output(0, '操作成功');
-	}
-
 
 	//上传图片
 	public function actionUpload()
@@ -428,28 +433,26 @@ class PatientController extends Admin
 		echo json_encode(array('code' => 0,'url' => $url));
 		Yii::app()->end();
 	}
-	//
-	// //保存文章封面图到本地(360*200 200*200 200*150)
-	// private function uploadCoverPic($tag)
-	// {
-	// 	$face = "";
-	// 	$file = CUploadedFile::getInstanceByName($tag);
-	// 	if ($file)
-	// 	{
-	// 		$path = Yii::app()->BasePath."/../assets/filestore/article/";
-	// 		$realname = Yii::app()->filestore->createRealName($path, $file->getName());
-	// 		if(!$file->saveAs($realname))
-	// 		{
-	// 			$errmsg = $file->getErrorMessage();
-	// 			$this->_output(-5, $errmsg);
-	// 		}
-	//
-	// 		$face = Yii::app()->filestore->getUrl($realname);
-	// 	}
-	//
-	// 	return $face;
-	// }
 
+	public function actionDel()
+	{
+		$code = Yii::app()->request->getParam('code', '');
+		if (!isset($code)) {
+
+			exit;
+		}
+		$operationModel = new OperationModel();
+		$diagnosticModel = new DiagnosticModel();
+		$patientModel = new PatientModel();
+
+		$operationModel->deleteByCode($code);
+		$diagnosticModel->deleteByCode($code);
+		$patientModel->deleteByCode($code);
+
+		$this->redirect(Yii::app()->getBaseUrl()."/admin/patient/list");
+	}
+
+	// 删除图片
 	public function actionUploadDel()
 	{
 
@@ -458,7 +461,31 @@ class PatientController extends Admin
 	// 生成病人编号
 	private function getPatientCode()
 	{
-		return date('YmdHis',time()).rand(1001,9999);
+		$code = $_SESSION['pid'];
+		if (!isset($code)) {
+			// 获取数据库中最大的patientid
+			$patientModel = new PatientModel();
+			$patient = $patientModel->getMaxPatientCode();
+			if($patient){
+				$code = $patient['patient_code'];
+			}
+		}
+		if (!isset($code)) {
+			$code = date('Ymd',time()).'0001';
+		} else {
+			// echo $code;
+			// exit;
+			$date = substr($code,0,8);
+			if ($date == date('Ymd',time())) {
+				$sequence = intval(substr($code,9));
+				$sequence += 10001;
+				$code = $date.substr(strval($sequence),1);
+			} else {
+				$code = date('Ymd',time()).'0001';
+			}
+		}
+		$_SESSION['pid'] = $code;
+		return $code;
 	}
 
 }

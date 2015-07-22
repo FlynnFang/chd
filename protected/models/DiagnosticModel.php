@@ -21,4 +21,13 @@ class DiagnosticModel extends BaseModel
 		return $this->getRow($c);
 	}
 
+	public function deleteByCode($code)
+	{
+		$condition = "patient_code=:code";
+		$params = array(
+			':code' => $code,
+		);
+		return $this->deleteAll($condition,$params);
+	}
+
 }

@@ -285,7 +285,7 @@ CREATE TABLE IF NOT EXISTS `role` (
   `code` int(2) NOT NULL,
   `name` varchar(20) NOT NULL COMMENT '角色名称',
   `permission` text NOT NULL COMMENT '角色权限'
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='角色管理';
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='角色管理';
 
 --
 -- 转存表中的数据 `role`
