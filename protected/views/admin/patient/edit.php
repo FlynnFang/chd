@@ -1,6 +1,6 @@
 <!-- page顶部 -->
 <?php include(Yii::app()->basePath."/views/layouts/top.php");?>
-<form class="form-horizontal" action="<?php echo Yii::app()->request->baseUrl; ?>/admin/patient/update?op=<?php echo $op;?>" method="post">
+<form id="patientForm" class="form-horizontal" action="<?php echo Yii::app()->request->baseUrl; ?>/admin/patient/update?op=<?php echo $op;?>" method="post">
   <ul class="nav nav-tabs" role="tablist" id="main-tablist">
       <li role="presentation" class="active"><a href="#patient" aria-controls="home" role="tab" data-toggle="tab">基本信息</a></li>
       <li role="presentation"><a href="#diagnostic" aria-controls="profile" role="tab" data-toggle="tab">诊断信息</a></li>
@@ -13,8 +13,8 @@
           <div class="panel-body">
             <div class="form-group">
               <label for="name" class="col-sm-2 control-label">姓名</label>
-              <div class="col-sm-2">
-                <input type="text" class="form-control" name="name" placeholder="姓名" value="<?php echo $patient['name'];?>" required autofocus>
+              <div class="col-sm-2" >
+                <input type="text" class="form-control" id="name" name="name" placeholder="姓名" value="<?php echo $patient['name'];?>" required autofocus>
               </div>
             </div>
             <div class="form-group">
@@ -49,7 +49,7 @@
             <div class="form-group ">
               <label for="place" class="col-sm-2 control-label">籍贯</label>
               <div class="col-sm-2">
-                <input type="text" class="form-control" name="place" placeholder="籍贯" value="<?php echo $patient['place'];?>" required>
+                <input type="text" class="form-control" id="place" name="place" placeholder="籍贯" value="<?php echo $patient['place'];?>" required>
               </div>
             </div>
             <div class="form-group ">
@@ -61,7 +61,7 @@
             <div class="form-group ">
               <label for="address" class="col-sm-2 control-label">详细地址</label>
               <div class="col-sm-4">
-                <input type="text" class="form-control" name="address" placeholder="详细地址" value="<?php echo $patient['address'];?>" required>
+                <input type="text" class="form-control" id="address" name="address" placeholder="详细地址" value="<?php echo $patient['address'];?>" required>
               </div>
             </div>
             <div class="form-group">
@@ -73,13 +73,13 @@
                   <?php } ?>
                 </select>
               </div>
-              <p class="form-control-static">说明：先心病家族史，指三代以内直系亲属有先心病患者</p>
+              <span class="help-block">说明：先心病家族史，指三代以内直系亲属有先心病患者</span>
             </div>
             <div class="form-group ">
               <label for="height" class="col-sm-2 control-label">身高</label>
               <div class="col-sm-2">
                 <div class="input-group">
-                  <input type="number" class="form-control" name="height" placeholder="身高" aria-describedby="basic-addon-height" value="<?php echo $patient['height'];?>">
+                  <input type="number" class="form-control" id="height" name="height" placeholder="身高" aria-describedby="basic-addon-height" value="<?php echo $patient['height'];?>">
                   <span class="input-group-addon" id="basic-addon-height">cm</span>
                 </div>
               </div>
@@ -88,15 +88,15 @@
               <label for="weight" class="col-sm-2 control-label">体重</label>
               <div class="col-sm-2">
                 <div class="input-group">
-                  <input type="number" class="form-control" name="weight" placeholder="体重" aria-describedby="basic-addon-weight" value="<?php echo $patient['weight'];?>">
+                  <input type="number" class="form-control" id="weight" name="weight" placeholder="体重" aria-describedby="basic-addon-weight" value="<?php echo $patient['weight'];?>">
                   <span class="input-group-addon" id="basic-addon-weight">kg</span>
                 </div>
               </div>
             </div>
-            <div class="form-group" style="<?php if( $op == 'add' || $op == 'edit') echo 'display:none;';?>">
+            <div class="form-group">
               <label for="BMI" class="col-sm-2 control-label">BMI</label>
               <div class="col-sm-2">
-                <input type="number" class="form-control" name="BMI" placeholder="BMI" value="<?php echo $patient['BMI'];?>" readonly>
+                <input type="number" class="form-control" id="BMI" name="BMI" placeholder="BMI" value="<?php echo $patient['BMI'];?>" readonly>
               </div>
             </div>
             <div class="form-group ">
@@ -302,18 +302,18 @@
                       <label for="jpcysz_shou_1" class="col-sm-2 control-label">手(1)</label>
                       <div class="col-sm-2">
                         <div class="input-group">
-                          <input type="number" class="form-control" name="jpcysz_shou_1" placeholder="" aria-describedby="basic-addon-shou1" value="<?php echo $diagnostic['jpcysz_shou_1'];?>" required>
+                          <input type="number" class="form-control" id="jpcysz_shou_1" name="jpcysz_shou_1" placeholder="" aria-describedby="basic-addon-shou1" value="<?php echo $diagnostic['jpcysz_shou_1'];?>" required>
                           <span class="input-group-addon" id="basic-addon-shou1">%</span>
                         </div>
                       </div>
-                      <p class="form-control-static">说明：新生儿出生24小时后测一次，如不正常（小于95%或上下肢差值大于3%），则应该还有有两次测量（每隔1小时测一次，一共3次都不正常做超声）</p>
+                      <span class="help-block">说明：新生儿出生24小时后测一次，如不正常（小于95%或上下肢差值大于3%），则应该还有有两次测量（每隔1小时测一次，一共3次都不正常做超声）</span>
                     </div>
 
                     <div class="form-group ">
                       <label for="jpcysz_shou_1" class="col-sm-2 control-label">右足(1)</label>
                       <div class="col-sm-2">
                         <div class="input-group">
-                          <input type="number" class="form-control" name="jpcysz_yz_1" placeholder="" aria-describedby="basic-addon-yz1" value="<?php echo $diagnostic['jpcysz_yz_1'];?>" required>
+                          <input type="number" class="form-control" id="jpcysz_yz_1" name="jpcysz_yz_1" placeholder="" aria-describedby="basic-addon-yz1" value="<?php echo $diagnostic['jpcysz_yz_1'];?>" required>
                           <span class="input-group-addon" id="basic-addon-yz1">%</span>
                         </div>
                       </div>
@@ -996,7 +996,67 @@
 <button id="back" class="btn btn-default" onclick="javascript:history.back(-1);">返回</button>
 
 <script type="text/javascript">
+
+  $.validator.setDefaults({
+		submitHandler: function(form) {
+			// alert("submitted!");
+      form.submit();
+		}
+	});
+  $.validator.addMethod("isPhone", function(value, element) {
+    var tel = /^1\d{10}$/;
+    return this.optional(element) || (tel.test(value));
+  }, "请正确填写您的手机号码");
+
+  var validator;
+
   $(document).ready(function(){
+    // 验证
+    validator = $('#patientForm').validate({
+     rules: {
+       name: "required",
+       born: {
+         required: true,
+         date: true
+       },
+       place: "required",
+       phone: {
+         required: true,
+         isPhone: true
+       },
+       address: "required",
+       height: {
+         number: true
+       },
+       weight: {
+         number: true
+       },
+       jpcysz_shou_1: {
+         required: true,
+         number: true
+       },
+       jpcysz_yz_1: {
+         required: true,
+         number: true
+       }
+     },
+     errorPlacement: function(error, element) {
+        error.addClass('form-control-static');
+        error.addClass('text-danger');
+        error.appendTo(element.parents('.form-group:first'));
+			},
+      success: function(label,element) {
+				// set &nbsp; as text for IE
+				label.html("&nbsp;");
+			},
+      // highlight: function(element, errorClass, validClass) {
+      //   $(element).parent().parent().addClass('has-error');
+      // },
+      // unhighlight: function(element, errorClass, validClass) {
+      //   $(element).parent().parent().removeClass('has-error');
+      // }
+   });
+
     //查看模式
     $('#back').hide();
     var op = '<?php echo $op;?>';
@@ -1008,7 +1068,23 @@
       $('#back').show();
     }
 
+    $('#height').bind('keyup',function(){
+      var height = $(this).val();
+      var weight = $('#weight').val();
+
+      $('#BMI').val(getBMI(height,weight));
+    });
+
+    $('#weight').bind('keyup',function(){
+      var weight = $(this).val();
+      var height = $('#height').val();
+
+      $('#BMI').val(getBMI(height,weight));
+    });
+
   });
+
+
   $('#born').datepicker({
     format: "yyyy-mm-dd",
     clearBtn: true,
@@ -1078,23 +1154,24 @@
   $('#submit').click(function(){
     var href = $('#main-tablist li[class="active"] a').attr('href');
     if (href == '#patient') {
+      //验证元素
+      if(!validator.element('#name') || !validator.element('#born') || !validator.element('#place') || !validator.element('#phone') || !validator.element('#address') || !validator.element('#height')){
+        return true;
+      }
       $('#submit').text('下一步');
       $('#submit').attr('type','button');
       $('#main-tablist a[href="#diagnostic"]').tab('show');
       return false;
     }
     if (href == '#diagnostic') {
-
+      if( !validator.element('#jpcysz_shou_1') || !validator.element('#jpcysz_yz_1')){
+        return true;
+      }
       $('#main-tablist a[href="#operation"]').tab('show');
       $('#submit').text('提交');
       $('#submit').attr('type','submit');
       return false;
     }
-    var re = /^1\d{10}$/;
-   if (!re.test($('#phone').val())){
-     alert('手机号验证失败');
-     return false;
-   }
 
   });
 
@@ -1114,6 +1191,16 @@
       $('#submit').text('提交');
       $('#submit').attr('type','submit');
     }
-
   });
+
+  //计算BMI
+  function getBMI(height,weight){
+    if (!isNaN(height) && !isNaN(weight) && height != 0) {
+      // toFixed
+      return weight / Math.pow(height/100,2);
+    }
+    return 0;
+  }
+
+
 </script>

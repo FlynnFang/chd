@@ -27,7 +27,8 @@
 
     <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/common/jquery/jquery.cookie.js?<?php echo $this->version;?>" charset="gb2312"></script>
     <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/common/jquery/jquery.form.js" charset="gb2312"></script>
-    <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/common/jquery/jquery.validate.min.js" charset="gb2312"></script>
+    <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/common/jquery/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/common/jquery/localization/messages_zh.js"></script>
     <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/common/jquery/jQuery.md5.js"></script>
     <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/bootstrap/bootstrap.min.js?<?php echo $this->version;?>"></script>
     <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/bootstrap/datepicker/bootstrap-datepicker.js?<?php echo $this->version;?>"></script>
