@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: 2015-07-22 15:13:09
+-- Generation Time: 2015-07-24 07:42:43
 -- 服务器版本： 5.6.24
 -- PHP Version: 5.6.8
 
@@ -33,16 +33,17 @@ CREATE TABLE IF NOT EXISTS `admin` (
   `hospital` varchar(4) NOT NULL COMMENT '所属医院',
   `role` varchar(4) NOT NULL COMMENT '角色',
   `create_time` int(11) NOT NULL COMMENT '创建时间',
-  `parent_id` int(11) NOT NULL COMMENT '创建者ID'
+  `parent_id` int(11) NOT NULL COMMENT '创建者ID',
+  `last_login_time` int(11) NOT NULL COMMENT '最近一次登录时间'
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='管理员表';
 
 --
 -- 转存表中的数据 `admin`
 --
 
-INSERT INTO `admin` (`id`, `username`, `password`, `hospital`, `role`, `create_time`, `parent_id`) VALUES
-(1, 'admin', 'e10adc3949ba59abbe56e057f20f883e', '1000', '0', 0, 0),
-(4, 'herbre', 'e10adc3949ba59abbe56e057f20f883e', '1001', '1', 1437401873, 0);
+INSERT INTO `admin` (`id`, `username`, `password`, `hospital`, `role`, `create_time`, `parent_id`, `last_login_time`) VALUES
+(1, 'admin', 'e10adc3949ba59abbe56e057f20f883e', '1000', '0', 0, 0, 1437716129),
+(4, 'herbre', 'e10adc3949ba59abbe56e057f20f883e', '1001', '1', 1437401873, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -131,7 +132,7 @@ CREATE TABLE IF NOT EXISTS `diagnostic` (
   `xzcc_qt_ext` text NOT NULL COMMENT '心脏彩超 其他 扩展内容',
   `qtjx` int(1) NOT NULL COMMENT '其他畸形  有-无   ',
   `qtjx_ext` text NOT NULL COMMENT '其他畸形 有 扩展内容：耳聋 先天性白内障 兔唇 21三体 溶血 贫血 骨关节畸形 内脏发育异常   '
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COMMENT='诊断信息表';
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COMMENT='诊断信息表';
 
 --
 -- 转存表中的数据 `diagnostic`
@@ -147,7 +148,8 @@ INSERT INTO `diagnostic` (`id`, `patient_code`, `xztz_zy`, `xztz_bw`, `xztz_sq`,
 (9, '2015072200002', b'0', '', '', b'0', b'0', b'0', b'0', b'0', b'0', b'0', b'0', 0, 0, -4, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, ''),
 (10, '201507220002', b'0', '', '', b'0', b'0', b'0', b'0', b'0', b'0', b'0', b'0', 0, 0, -5, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, ''),
 (11, '201507220003', b'0', '', '', b'0', b'0', b'0', b'0', b'0', b'0', b'0', b'0', 0, 0, -4, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, ''),
-(12, '201507220004', b'0', '', '', b'0', b'0', b'0', b'0', b'0', b'0', b'0', b'0', 0, 0, -5, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, '');
+(12, '201507220004', b'0', '', '', b'0', b'0', b'0', b'0', b'0', b'0', b'0', b'0', 0, 0, -5, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, ''),
+(13, '201507230001', b'0', '', '', b'0', b'0', b'0', b'0', b'0', b'0', b'0', b'0', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, '');
 
 -- --------------------------------------------------------
 
@@ -183,7 +185,7 @@ CREATE TABLE IF NOT EXISTS `menu` (
 --
 
 INSERT INTO `menu` (`id`, `code`, `group`, `name`, `url`) VALUES
-(1, '1000', '0', 'Home', '/admin/dashboard'),
+(1, '1000', '0', '总览', '/admin/dashboard'),
 (2, '1001', '1', '病历列表', '/admin/patient'),
 (3, '1002', '1', '新增病例', '/admin/patient/add'),
 (4, '1003', '2', '3月随访', '#'),
@@ -235,7 +237,7 @@ CREATE TABLE IF NOT EXISTS `operation` (
   `shsf_qt` text NOT NULL COMMENT '术后随访 其他',
   `shsf_cs_image` text NOT NULL COMMENT '术后随访超声 图片',
   `shsf_cs_text` text NOT NULL COMMENT '术后随访超声 输入'
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COMMENT='先心病介入手术';
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COMMENT='先心病介入手术';
 
 --
 -- 转存表中的数据 `operation`
@@ -251,7 +253,8 @@ INSERT INTO `operation` (`id`, `patient_code`, `ssbh`, `sssj`, `ssfs_jrfd`, `ssf
 (9, '2015072200002', '', 0, b'0', '', '', b'0', b'0', b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', ' ', '', 0, b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', ' ', ''),
 (10, '201507220002', '', 0, b'0', '', '', b'0', b'0', b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', ' ', '', 0, b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', ' ', ''),
 (11, '201507220003', '', 0, b'0', '', '', b'0', b'0', b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', ' ', '', 0, b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', ' ', ''),
-(12, '201507220004', '', 0, b'0', '', '', b'0', b'0', b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', '  ', '', 0, b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', '  ', '');
+(12, '201507220004', '', 0, b'0', '', '', b'0', b'0', b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', '  ', '', 0, b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', '  ', ''),
+(13, '201507230001', '', 0, b'0', '', '', b'0', b'0', b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', ' ', '', 0, b'0', b'0', b'0', '', '', b'0', b'0', b'0', b'0', '', ' ', '');
 
 -- --------------------------------------------------------
 
@@ -277,7 +280,7 @@ CREATE TABLE IF NOT EXISTS `patient` (
   `follow_hospital` varchar(4) NOT NULL COMMENT '随访医院',
   `xxbjrss` bit(1) NOT NULL COMMENT '先心病介入手术 是-否',
   `create_time` int(11) NOT NULL COMMENT '建档时间'
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COMMENT='病人 基础信息表';
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COMMENT='病人 基础信息表';
 
 --
 -- 转存表中的数据 `patient`
@@ -288,7 +291,8 @@ INSERT INTO `patient` (`id`, `patient_code`, `name`, `sex`, `born`, `nationality
 (2, '2015071400002', '周杰伦', 2, 1716998400, '汉族', '重庆', '18985254874', '重庆市渝北区 ', b'0', '110', '50', 41.3223, '1000', '', b'0', 1437287859),
 (7, '201507220001', 'afasd', 2, 1435593600, '汉族', 'dfasd', '4871111111', 'sdfsdfsd', b'0', '', '', 0, '1001', '1001', b'0', 1437555970),
 (10, '201507220003', 'dfs', 2, 1436284800, '汉族', '重启过', 'sdf', 'sdfsd', b'0', '', '', 0, '1001', '1001', b'0', 1437556097),
-(11, '201507220004', 'xcvzxv', 1, 1436284800, '汉族', 'zcxv', '13245673232', 'xcvxc', b'0', '', '', 0, '1001', '1001', b'1', 1437569664);
+(11, '201507220004', 'xcvzxv', 1, 1436284800, '汉族', 'zcxv', '13245673232', 'xcvxc', b'0', '', '', 0, '1001', '1001', b'1', 1437569664),
+(12, '201507230001', 'sdfsdf', 1, 1436371200, '汉族', 'sdfs', '18983260059', 'dfsdf', b'0', '', '', 0, '1000', '1000', b'0', 1437639065);
 
 -- --------------------------------------------------------
 
@@ -414,7 +418,7 @@ ALTER TABLE `config`
 -- AUTO_INCREMENT for table `diagnostic`
 --
 ALTER TABLE `diagnostic`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID',AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID',AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT for table `followup`
 --
@@ -429,12 +433,12 @@ ALTER TABLE `menu`
 -- AUTO_INCREMENT for table `operation`
 --
 ALTER TABLE `operation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID',AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID',AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT for table `patient`
 --
 ALTER TABLE `patient`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID主键',AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID主键',AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `role`
 --
