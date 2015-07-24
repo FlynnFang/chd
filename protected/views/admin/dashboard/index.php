@@ -21,14 +21,15 @@
 
 
 <script type="text/javascript">
-  var data = [
-    {
-        value: <?php echo $total; ?>,
-        color:"#F7464A",
-        highlight: "#FF5A5E",
-        label: "总病历数"
-    }
-  ];
+  // var data = [
+  //   {
+  //       value: <?php echo $total; ?>,
+  //       color:"#F7464A",
+  //       highlight: "#FF5A5E",
+  //       label: "总病历数"
+  //   }
+  // ];
+  var data = <?php echo $data; ?>;
   var options = {
     //Boolean - Whether we should show a stroke on each segment
     segmentShowStroke : true,
