@@ -911,3 +911,39 @@ Stack trace:
 REQUEST_URI=/css/fonts/glyphicons-halflings-regular.woff2
 HTTP_REFERER=http://localhost:9999/css/bootstrap/bootstrap.min.css
 ---
+2015/07/24 07:35:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/fonts/glyphicons-halflings-regular.woff2".' in /data/php/projects/yii/web/CWebApplication.php:286
+Stack trace:
+#0 /data/php/projects/yii/web/CWebApplication.php(141): CWebApplication->runController('css/fonts/glyph...')
+#1 /data/php/projects/yii/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /data/php/projects/chd/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/css/fonts/glyphicons-halflings-regular.woff2
+HTTP_REFERER=http://localhost:9999/css/bootstrap/bootstrap.min.css
+---
+2015/07/24 07:35:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/fonts/glyphicons-halflings-regular.woff2".' in /data/php/projects/yii/web/CWebApplication.php:286
+Stack trace:
+#0 /data/php/projects/yii/web/CWebApplication.php(141): CWebApplication->runController('css/fonts/glyph...')
+#1 /data/php/projects/yii/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /data/php/projects/chd/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/css/fonts/glyphicons-halflings-regular.woff2
+HTTP_REFERER=http://localhost:9999/css/bootstrap/bootstrap.min.css
+---
+2015/07/24 07:35:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/fonts/glyphicons-halflings-regular.woff2".' in /data/php/projects/yii/web/CWebApplication.php:286
+Stack trace:
+#0 /data/php/projects/yii/web/CWebApplication.php(141): CWebApplication->runController('css/fonts/glyph...')
+#1 /data/php/projects/yii/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /data/php/projects/chd/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/css/fonts/glyphicons-halflings-regular.woff2
+HTTP_REFERER=http://localhost:9999/css/bootstrap/bootstrap.min.css
+---
+2015/07/24 07:35:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "css/fonts/glyphicons-halflings-regular.woff2".' in /data/php/projects/yii/web/CWebApplication.php:286
+Stack trace:
+#0 /data/php/projects/yii/web/CWebApplication.php(141): CWebApplication->runController('css/fonts/glyph...')
+#1 /data/php/projects/yii/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /data/php/projects/chd/index.php(14): CApplication->run()
+#3 {main}
+REQUEST_URI=/css/fonts/glyphicons-halflings-regular.woff2
+HTTP_REFERER=http://localhost:9999/css/bootstrap/bootstrap.min.css
+---

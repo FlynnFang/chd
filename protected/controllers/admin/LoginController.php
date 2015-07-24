@@ -47,6 +47,7 @@ class LoginController extends Admin
 
 		if ($info && ($password == $info['password']))
 		{
+			$adminModel->upateLastLoginTime($info['id'],time());
 			$this->setAdmin($info['id']);
 			$this->_output(0, "登陆成功");
 		}

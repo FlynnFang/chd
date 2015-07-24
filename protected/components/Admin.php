@@ -71,54 +71,8 @@ class Admin extends Controller
 			header("HTTP/1.1 401");exit;
 		}
 
-
-		// //权限控
-		// if ($this->_userInfo['role'] == "normal")
-		// {
-		// 	$controllerName = strtolower(Yii::app()->getController()->id);
-		// 	$controllerName = substr($controllerName, strrpos($controllerName, "/") + 1);
-		//
-		// 	if (in_array($controllerName, array("member")) || (!array_key_exists($categoryId, $this->_categoryMenuList)))
-		// 	{
-		// 		header("HTTP/1.1 401");exit;
-		// 	}
-		// }
-
 		$filterChain->run();
 	}
-
-	// public function getUserName()
-	// {
-	// 	if ($this->_userInfo) {
-	// 		return $this->_userInfo['username'];
-	// 	}
-	// 	return '您';
-	// }
-
-	// /**
-	//  *
-	//  * 通过id列表获取name列表
-	//  */
-	// protected function getCategoryListById($categoryIdStr)
-	// {
-	// 	$categoryList = array();
-	// 	if ($categoryIdStr)
-	// 	{
-	// 		$categoryIdList = explode(',', $categoryIdStr);
-	//
-	// 		foreach ($categoryIdList as $categoryId)
-	// 		{
-	//
-	// 			if (isset($this->_categoryList[$categoryId]))
-	// 			{
-	// 				$categoryList[$categoryId] = $this->_categoryList[$categoryId]['name'];
-	// 			}
-	// 		}
-	// 	}
-	//
-	// 	//var_dump($categoryList);exit;
-	// 	return $categoryList;
-	// }
 
 	/**
 	 * 从cookie中获取用户ID

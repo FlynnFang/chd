@@ -42,6 +42,12 @@ class AdminModel extends BaseModel
 		return $this->getRows($criteria);
 	}
 
+	public function upateLastLoginTime($uid, $time)
+	{
+		$sql = 'update '.$this->TABLE_NAME.' set last_login_time='.$time.' where id='.$uid;
+		return $this->queryBySql($sql);
+	}
+
 	public function deleteById($uid)
 	{
 		$sql = 'delete from '.$this->TABLE_NAME.' where id='.$uid;

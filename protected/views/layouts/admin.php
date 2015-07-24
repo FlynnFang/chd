@@ -35,6 +35,7 @@
     <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/bootstrap/locales/bootstrap-datepicker.zh-CN.min.js?<?php echo $this->version;?>" charset="UTF-8"></script>
     <script type="text/javascript" src="/js/bootstrap/fileinput/fileinput.min.js" ></script>
     <script type="text/javascript" src="/js/bootstrap/fileinput/fileinput_locale_zh.js"></script>
+    <script type="text/javascript" src="/js/bootstrap/chart/Chart.js"></script>
 
 
 </head>
