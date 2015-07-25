@@ -3,7 +3,7 @@ define('CONFIG_PATH', dirname(__FILE__));
 
 return array(
 	'basePath'=>CONFIG_PATH.DIRECTORY_SEPARATOR.'..',
-	'name'=>'先心病患者出院管理系统',
+	'name'=>'云南省先天性心脏病筛查项目管理系统',
 
 	//preloading 'log' component
 	'preload'=>array('log'),

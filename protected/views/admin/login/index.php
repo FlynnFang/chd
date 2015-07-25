@@ -1,9 +1,9 @@
 
 <!-- content -->
 <div class="container">
-
+  <h2 class="form-signin-heading text-center"><?php $this->launch(Yii::app()->name); ?></h2>
   <form id="loginform" class="form-signin" method="POST" action="<?php echo Yii::app()->request->baseUrl; ?>/admin/login/login" success="<?php echo Yii::app()->request->baseUrl; ?>/admin/dashboard/" autocomplete="off">
-    <h2 class="form-signin-heading"><?php $this->launch(Yii::app()->name); ?></h2>
+
     <label for="username" class="sr-only">用户名</label>
     <input type="text" class="form-control" value="" autocomplete="off" id="username" name="username" tabindex="1" placeholder="用户名" required autofocus/>
     <label for="password" class="sr-only">密  码</label>
@@ -11,11 +11,11 @@
 
     <label for="captcha" class="sr-only">验证码</label>
     <div class="row" style="margin-bottom:10px;">
-      <div class="col-md-3">
-        <input type="text" class="form-control" tabindex="3" id="captcha" name="captcha" placeholder="验证码" style="width:124px" required/>
+      <div class="col-md-4">
+        <input type="text" class="form-control" tabindex="3" id="captcha" name="captcha" placeholder="验证码" required/>
       </div>
-      <div class="col-md-6" >
-        <img id="vcode" style="vertical-align:middle;margin:5px;" src="<?php echo Yii::app()->request->baseUrl; ?>/admin/login/captcha?r=<?php echo rand(1000, 9999); ?>" alt="验证码" />
+      <div class="col-md-8" >
+        <img id="vcode" style="vertical-align:middle;margin:5px 5px 0 -10px;" src="<?php echo Yii::app()->request->baseUrl; ?>/admin/login/captcha?r=<?php echo rand(1000, 9999); ?>" alt="验证码" />
         <a id="vcodeTip"  href="javascript:void(0)">看不清？换一张</a>
       </div>
     </div>

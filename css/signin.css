@@ -6,7 +6,7 @@ body {
 }
 
 .form-signin {
-  max-width: 500px;
+  max-width: 330px;
   padding: 15px;
   margin: 0 auto;
 }
@@ -56,8 +56,9 @@ body {
 .container {
   width: auto;
   max-width: 680px;
-  padding: 0 15px;
+  padding: 15px;
 }
 .text-muted {
+
   margin: 20px 0;
 }

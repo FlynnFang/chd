@@ -1,7 +1,7 @@
 <!-- footer -->
 <footer class="footer">
   <div class="container">
-    <p class="text-muted">技术支持：腾讯大渝网 Copyright &copy; 2014-2020</p>
+    <p class="text-muted text-center">技术支持：重庆市芯动光电有限公司 Copyright &copy; 2015</p>
   </div>
 </footer>
 <!-- footer end -->
