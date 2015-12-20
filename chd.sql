@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: 2015-07-24 07:42:43
+-- Generation Time: 2015-12-20 13:31:42
 -- 服务器版本： 5.6.24
 -- PHP Version: 5.6.8
 
@@ -42,8 +42,8 @@ CREATE TABLE IF NOT EXISTS `admin` (
 --
 
 INSERT INTO `admin` (`id`, `username`, `password`, `hospital`, `role`, `create_time`, `parent_id`, `last_login_time`) VALUES
-(1, 'admin', 'e10adc3949ba59abbe56e057f20f883e', '1000', '0', 0, 0, 1437716129),
-(4, 'herbre', 'e10adc3949ba59abbe56e057f20f883e', '1001', '1', 1437401873, 0, 0);
+(1, 'admin', 'e10adc3949ba59abbe56e057f20f883e', '1000', '0', 0, 0, 1450611038),
+(4, 'herbre', 'e10adc3949ba59abbe56e057f20f883e', '1001', '1', 1437401873, 0, 1437791124);
 
 -- --------------------------------------------------------
 
@@ -178,7 +178,7 @@ CREATE TABLE IF NOT EXISTS `menu` (
   `group` varchar(4) NOT NULL COMMENT '父级菜单code',
   `name` varchar(50) NOT NULL COMMENT '菜单显示名称',
   `url` text NOT NULL COMMENT '菜单链接'
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 --
 -- 转存表中的数据 `menu`
@@ -186,15 +186,152 @@ CREATE TABLE IF NOT EXISTS `menu` (
 
 INSERT INTO `menu` (`id`, `code`, `group`, `name`, `url`) VALUES
 (1, '1000', '0', '总览', '/admin/dashboard'),
-(2, '1001', '1', '病历列表', '/admin/patient'),
-(3, '1002', '1', '新增病例', '/admin/patient/add'),
-(4, '1003', '2', '3月随访', '#'),
-(5, '1004', '2', '6月随访', '#'),
-(6, '1005', '2', '1年随访', '#'),
+(2, '1001', '1', '大儿童病例列表', '/admin/patient'),
+(3, '1002', '1', '大儿童病例新增', '/admin/patient/add'),
+(4, '1003', '2', '随访列表', '#'),
+(5, '1004', '2', '到期已填写', '#'),
+(6, '1005', '2', '到期未填写', '#'),
 (7, '1006', '2', '过期随访', '#'),
 (8, '1007', '3', '数据分析', '#'),
 (9, '1008', '4', '用户管理', '/admin/user'),
-(10, '1009', '4', '医院管理', '/admin/hospital');
+(10, '1009', '4', '医院管理', '/admin/hospital'),
+(11, '1010', '1', '新生儿病例列表', ''),
+(12, '1011', '1', '新生儿病例新增', '');
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `newborn_diagnostic`
+--
+
+CREATE TABLE IF NOT EXISTS `newborn_diagnostic` (
+  `id` int(11) NOT NULL COMMENT '主键ID',
+  `info_code` varchar(32) NOT NULL COMMENT '新生儿ID',
+  `KYZX` tinyint(1) NOT NULL COMMENT '可疑征象 1.无  2.有',
+  `KYZX_OPTION` varchar(255) NOT NULL COMMENT '不定项选择A.青紫、B.呼吸急促、C.上呼吸道感染或肺炎、D.特殊面容、E.喂养困难、F.输入',
+  `XWJX` tinyint(1) NOT NULL COMMENT '心外畸形或出生缺陷1.无  2.有  ',
+  `XWJX_OPTION` varchar(255) NOT NULL COMMENT '不定项选择A.耳聋B.先天性白内障、C.兔唇、D.21三体、E.骨关 节畸形、F.溶血、G.贫血、H.内脏发育异常 I.输入',
+  `XZTZ` tinyint(1) NOT NULL COMMENT '心脏听诊（杂音）1.无  2.有  ',
+  `XZTZ_BW_OPTION` varchar(255) NOT NULL COMMENT '部位 不定项选择 A心尖区、B肺动脉瓣区、C主动脉瓣第一听诊区、D主动脉瓣第二听诊区、E三尖瓣区',
+  `XZTZ_SQ_OPTION` varchar(255) NOT NULL COMMENT '时期 不定项选择 1.收缩期、2.舒张期、3.连续性',
+  `XYBHD_CSS_YS` varchar(10) NOT NULL COMMENT '血氧饱和度出生24小时  右手：___%',
+  `XYBHD_CSS_YJ` varchar(10) NOT NULL COMMENT '出生24小时  右脚：___%',
+  `XYBHD_CYQ_YS` varchar(10) NOT NULL COMMENT '出院前 右手：___%  ',
+  `XYBHD_CYQ_YJ` varchar(10) NOT NULL COMMENT '出院前 右脚：___%  ',
+  `XZTZFZJG` tinyint(1) NOT NULL COMMENT '心脏听诊复诊结果 1.正常 2.异常',
+  `XZTZFZJG_ZYBW_OPTION` varchar(255) NOT NULL COMMENT '杂音部位 不定项选择 A心尖区、B肺动脉瓣区、C主动脉瓣第一听诊区、D主动脉瓣第二听诊区、E三尖瓣区',
+  `XZTZFZJG_SQ_OPTION` varchar(255) NOT NULL COMMENT '时期 不定项选择 1.收缩期、2.舒张期、3.连续性',
+  `XZCC` tinyint(1) NOT NULL COMMENT '心脏彩超检查结果 1.正常 2.异常',
+  `XZCC_OPTION` varchar(255) NOT NULL COMMENT '不定项选择 A.PDA 、B.VSD 、C.ASD 、D.TFO 、E.PS 、F.Ebstein畸形 、G.输入',
+  `QTJC` tinyint(1) NOT NULL COMMENT '其它检查 1.正常 2.异常',
+  `QTJC_INPUT` text NOT NULL COMMENT '其它检查 输入',
+  `CSZD_OPTION` varchar(255) NOT NULL COMMENT '出生诊断 不定项选择 A.正常足月儿、B.早产儿、C.新生儿黄疸、D.新生儿肺炎、E.新生儿窒息、F.先天性心脏病',
+  `CSZD_INPUT` text NOT NULL COMMENT '出生诊断 输入',
+  `BZ_INPUT` text NOT NULL COMMENT '备注 输入',
+  `KYZX_INPUT` text NOT NULL COMMENT '可疑征象 输入',
+  `XWJX_INPUT` text NOT NULL COMMENT '心外畸形或出生缺陷 输入',
+  `XZCC_INPUT` text NOT NULL COMMENT '心脏彩超 输入'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='新生儿诊断信息';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `newborn_father`
+--
+
+CREATE TABLE IF NOT EXISTS `newborn_father` (
+  `id` int(11) NOT NULL COMMENT '主键ID',
+  `info_code` int(11) NOT NULL,
+  `CSNY` int(11) NOT NULL COMMENT '出生年月',
+  `MZ` varchar(255) NOT NULL COMMENT '民族	单项勾选	1.汉族 2.回族 3.傣族 4.彝族 5.白族 6.苗族 7.哈尼族8.瑶族9.输入 ',
+  `MZ_INPUT` varchar(255) NOT NULL COMMENT '民族 输入',
+  `ZY` varchar(255) NOT NULL COMMENT '职业	单项勾选	1.工人 2.农民 3.进城务工 4.公司职员 5.公务员或事业单位工作人员 6.个体经营者 7.无业人员 8.输入',
+  `ZY_INPUT` varchar(255) NOT NULL COMMENT '职业		输入',
+  `WHCD` varchar(255) NOT NULL COMMENT '文化程度（学历）	单项勾选	1.小学以下 2.小学 3.初中 4.高中 5.中专 6.大专 7.本科及以上',
+  `CZD` text NOT NULL COMMENT '常住地	输入',
+  `BLXG` tinyint(1) NOT NULL COMMENT '不良生活习惯	下拉框选择	1.无  2.有  ',
+  `BLXG_OPTION` varchar(255) NOT NULL COMMENT '不良生活习惯 1.无  2.有  ',
+  `BLXG_INPUT` text NOT NULL COMMENT 'A.主动吸烟 B.被动吸烟 C.饮酒 D.吸毒 E.赌博 F.输入	不定项勾选',
+  `YHWZJC` tinyint(1) NOT NULL COMMENT '有害物质接触	下拉框选择	1.无  2.有  ',
+  `YHWZJC_OPTION` varchar(255) NOT NULL COMMENT '有害物质接触 "A.噪声 B.微波 C.电脑辐射 D.X线 E.铅汞等重金属 F.苯 G. 农药 H.油漆 I.涂料 J.空气污染 K.水污染 L.输入 "	不定项勾选',
+  `YHWZJC_INPUT` text NOT NULL COMMENT '有害物质接触 输入',
+  `JWBS` tinyint(1) NOT NULL COMMENT '既往病史	下拉框选择	1.无  2.有  ',
+  `JWBS_INPUT` text NOT NULL COMMENT '既往病史 输入',
+  `JZYCBS` tinyint(1) NOT NULL COMMENT '家族遗传病史及先心病家族史	下拉框选择	1.无  2.有  ',
+  `JZYCBS_INPUT` text NOT NULL COMMENT '家族遗传病史及先心病家族史	输入'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `newborn_info`
+--
+
+CREATE TABLE IF NOT EXISTS `newborn_info` (
+  `id` int(11) NOT NULL COMMENT '主键ID',
+  `code` varchar(32) NOT NULL COMMENT '新生儿ID',
+  `name` varchar(255) NOT NULL COMMENT '姓名',
+  `sex` int(1) NOT NULL COMMENT '性别',
+  `TL` int(11) NOT NULL COMMENT '胎龄',
+  `TS` int(11) NOT NULL COMMENT '胎数',
+  `CSTZ` varchar(5) NOT NULL COMMENT '出生体重（单位克）',
+  `CSRQ` int(11) NOT NULL COMMENT '出生时间',
+  `TCFS` int(1) NOT NULL COMMENT '胎产方式 1.顺产 2.剖宫产',
+  `XSEPF` varchar(5) NOT NULL COMMENT '新生儿评分 单位：分',
+  `hospital` varchar(4) NOT NULL COMMENT '所属医院ID',
+  `fllow_hospital` varchar(4) NOT NULL COMMENT '随访医院ID',
+  `create_time` int(11) NOT NULL COMMENT '记录创建时间'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='新生儿基础信息';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `newborn_monther`
+--
+
+CREATE TABLE IF NOT EXISTS `newborn_monther` (
+  `id` int(11) NOT NULL COMMENT '主键ID',
+  `info_code` varchar(32) NOT NULL COMMENT '新生儿ID',
+  `CSNY` int(11) NOT NULL COMMENT '出生年月',
+  `MZ` varchar(255) NOT NULL COMMENT '民族 1.汉族 2.回族 3.傣族 4.彝族 5.白族 6.苗族 7.哈尼族8.瑶族',
+  `ZY` varchar(255) NOT NULL COMMENT '职业 1.工人 2.农民 3.进城务工 4.公司职员 5.公务员或事业单位工作人员 6.个体经营者 7.无业人员',
+  `WHCD` varchar(255) NOT NULL COMMENT '文化程度（学历） 1.小学以下 2.小学 3.初中 4.高中 5.中专 6.大专 7.本科及以上',
+  `JTNSR` varchar(255) NOT NULL COMMENT '家庭年收入 1.五千以下 2.五千以上一万以下 3.一万以上五万以下 4.五万--十万 5.十万以上',
+  `CZD` text NOT NULL COMMENT '常住地',
+  `YZ` varchar(10) NOT NULL COMMENT '孕周',
+  `HYNN` varchar(10) NOT NULL COMMENT '此次怀孕时年龄',
+  `YCCS` int(11) NOT NULL COMMENT '孕次产次 1~20',
+  `YWRSJJ` varchar(255) NOT NULL COMMENT '以往妊娠结局 A.早产 B.活产正常儿 C.自然流产 D.死胎 E.死产 F.新生儿死亡 G.生育畸形儿',
+  `CSQXYYS` int(11) NOT NULL COMMENT '出生缺陷孕育史（含先心病）',
+  `MZ_INPUT` int(11) NOT NULL COMMENT '民族 输入',
+  `ZY_INTPUT` int(11) NOT NULL COMMENT '职业 输入',
+  `CSQXYYS_INPUT` int(11) NOT NULL COMMENT '出生缺陷孕育史（含先心病） 输入',
+  `SJQSNXXBS` int(11) NOT NULL COMMENT '三级亲属内先心病史 1.无  2.有  ',
+  `SJQSNXXBS_INPUT` int(11) NOT NULL COMMENT '三级亲属内先心病史 输入',
+  `JZYCBS` int(11) NOT NULL COMMENT '家族遗传病史  1.无  2.有  ',
+  `JZYCBS_INPUT` int(11) NOT NULL COMMENT '家族遗传病史 输入',
+  `JQHPS` int(11) NOT NULL COMMENT '近亲婚配史 1.无  2.有  ',
+  `JQHPS_INPUT` int(11) NOT NULL COMMENT '近亲婚配史 输入'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='新生儿母亲信息';
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `newborn_ survey`
+--
+
+CREATE TABLE IF NOT EXISTS `newborn_ survey` (
+  `id` int(11) NOT NULL COMMENT '主键ID',
+  `info_code` varchar(32) NOT NULL COMMENT '新生儿ID',
+  `YYMC` varchar(255) NOT NULL COMMENT '医院名称',
+  `YYKS` tinyint(1) NOT NULL COMMENT '科室 单项选择	心内科，产科，儿科',
+  `ZYH` varchar(255) NOT NULL COMMENT '住院号',
+  `CHXM` varchar(255) NOT NULL COMMENT '产妇姓名',
+  `JTZZ` varchar(500) NOT NULL COMMENT '家庭住址',
+  `LXDH_FQ` varchar(20) NOT NULL COMMENT '联系电话（新生儿父亲）',
+  `LXDH_MQ` varchar(20) NOT NULL COMMENT '联系电话（新生儿母亲）',
+  `DCBTP` text NOT NULL COMMENT '调查表图片 文件上传 下载'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='新生儿调查表';
 
 -- --------------------------------------------------------
 
@@ -312,10 +449,10 @@ CREATE TABLE IF NOT EXISTS `role` (
 --
 
 INSERT INTO `role` (`id`, `code`, `name`, `permission`) VALUES
-(1, 0, '超级管理员', '1000,1001,1002,1003,1004,1005,1006,1007,1008,1009'),
-(2, 1, '管理员', '1000,1001,1002,1003,1004,1005,1006,1007'),
-(3, 2, '主任', '1000,1001,1002,1003,1004,1005,1006,1007'),
-(4, 3, '医生', '1000,1001,1002,1003,1004,1005,1006');
+(1, 0, '超级管理员', '1000,1001,1002,1003,1004,1005,1006,1007,1008,1009,1010,1011'),
+(2, 1, '管理员', '1000,1001,1002,1003,1004,1005,1006,1007,1010,1011'),
+(3, 2, '主任', '1000,1001,1002,1003,1004,1005,1006,1007,1010,1011'),
+(4, 3, '医生', '1000,1001,1002,1003,1004,1005,1006,1010,1011');
 
 -- --------------------------------------------------------
 
@@ -376,6 +513,36 @@ ALTER TABLE `menu`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `newborn_diagnostic`
+--
+ALTER TABLE `newborn_diagnostic`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `newborn_father`
+--
+ALTER TABLE `newborn_father`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `newborn_info`
+--
+ALTER TABLE `newborn_info`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `newborn_monther`
+--
+ALTER TABLE `newborn_monther`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `newborn_ survey`
+--
+ALTER TABLE `newborn_ survey`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `operation`
 --
 ALTER TABLE `operation`
@@ -428,7 +595,32 @@ ALTER TABLE `followup`
 -- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID',AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID',AUTO_INCREMENT=13;
+--
+-- AUTO_INCREMENT for table `newborn_diagnostic`
+--
+ALTER TABLE `newborn_diagnostic`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID';
+--
+-- AUTO_INCREMENT for table `newborn_father`
+--
+ALTER TABLE `newborn_father`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID';
+--
+-- AUTO_INCREMENT for table `newborn_info`
+--
+ALTER TABLE `newborn_info`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID';
+--
+-- AUTO_INCREMENT for table `newborn_monther`
+--
+ALTER TABLE `newborn_monther`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID';
+--
+-- AUTO_INCREMENT for table `newborn_ survey`
+--
+ALTER TABLE `newborn_ survey`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID';
 --
 -- AUTO_INCREMENT for table `operation`
 --

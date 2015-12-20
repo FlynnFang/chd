@@ -5,13 +5,13 @@
  * @author flynn
  *
  */
-class PatientController extends Admin
+class NewbornController extends Admin
 {
 
 	public function init()
 	{
 			parent::init();
-			$this->currentMenu = '1001';
+			$this->currentMenu = '1010';
 	}
 
 	public function actionIndex()
