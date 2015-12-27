@@ -64,7 +64,7 @@ class NewbornController extends Admin
 		//分页
 		$pages = new CPagination($total);
 		$pages->pageSize = Yii::app()->params['paginavtion']['pagesize'];
-		$pages->route = '/admin/patient/list';
+		$pages->route = '/admin/newborn/list';
 		$pages->applyLimit($c);
 
 		$c->order = "create_time desc";
@@ -75,28 +75,28 @@ class NewbornController extends Admin
 		// exit;
 
 		// var_dump($list, $total);exit;
-		$this->setPageTitle('大儿童病例列表');
+		$this->setPageTitle('新生儿病例列表');
 		$this->render('list', array('list'=>$list, 'pages'=>$pages, 'hospitals' =>$hospitals,'shareSet'=>$shareSet));
 	}
 
 	public function actionAdd()
 	{
 		$configModel = new ConfigModel();
-		$bw = $configModel->getSetByType(Yii::app()->params['configType']['xztz_bw']);
+		$tcfs = $configModel->getSetByType(Yii::app()->params['configType']['tcfs']);
 		$sq = $configModel->getSetByType(Yii::app()->params['configType']['xztz_sq']);
 		$qtjx = $configModel->getSetByType(Yii::app()->params['configType']['qtjx']);
 		$xlsc = $configModel->getSetByType(Yii::app()->params['configType']['xlsc']);
 		$hospitals = $configModel->getSetByType(Yii::app()->params['configType']['hospital']);
 
 
-		$this->setPageTitle('大儿童新增病例');
-		$this->currentMenu = '1002';
+		$this->setPageTitle('新生儿新增病例');
+		$this->currentMenu = '1011';
 		$this->render('edit',array(
 			'nationality' => Yii::app()->params['nationality'],
 			'have' => Yii::app()->params['have'],
 			'boolean' => Yii::app()->params['boolean'],
 			'notquite' => Yii::app()->params['notquite'],
-			'bw' => $bw,
+			'tcfs' => $tcfs,
 			'sq' => $sq,
 			'qtjx' => $qtjx,
 			'xlsc' => $xlsc,
@@ -163,88 +163,92 @@ class NewbornController extends Admin
 
 		$name= Yii::app()->request->getPost("name", '');
 		$sex = Yii::app()->request->getPost("sex", 2);
-		$born = Yii::app()->request->getPost("born",'');
-		$nationality = Yii::app()->request->getPost("nationality", '');
-		$place = Yii::app()->request->getPost("place", '');
-		$phone = Yii::app()->request->getPost("phone", '');
-		$address = Yii::app()->request->getPost("address", '');
-		$has_history = Yii::app()->request->getPost('$has_history',0);
-		$height = Yii::app()->request->getPost('height', '');
-		$weight = Yii::app()->request->getPost('weight', '');
-		$BMI = Yii::app()->request->getPost('BMI', 0.0);
-		$xxbjrss = Yii::app()->request->getPost('xxbjrss', 0);
-		$follow_hospital = Yii::app()->request->getPost('follow_hospital', '');
+		$TL = Yii::app()->request->getPost("TL",'');
+		$TS = Yii::app()->request->getPost("TS", '');
+		$CSTZ = Yii::app()->request->getPost("CSTZ", '');
+		$CSRQ = Yii::app()->request->getPost("CSRQ", '');
+		$TCFS = Yii::app()->request->getPost("TCFS", '');
+		$XSEPF = Yii::app()->request->getPost('XSEPF',0);
+		$hospital = Yii::app()->request->getPost('hospital', '');
+		$fllow_hospital = Yii::app()->request->getPost('fllow_hospital', '');
+
+		//monther
+		$CSNY = Yii::app()->request->getPost('CSNY', "");
+		$MZ = Yii::app()->request->getPost('MZ', '');
+		$ZY = Yii::app()->request->getPost('ZY');
+		$WHCD = Yii::app()->request->getPost('WHCD');
+		$JTNSR = Yii::app()->request->getPost('JTNSR');
+		$CZD = Yii::app()->request->getPost('CZD');
+		$YZ = Yii::app()->request->getPost('YZ');
+		$HYNN = Yii::app()->request->getPost('HYNN');
+		$YCCS = Yii::app()->request->getPost('YCCS');
+		$YWRSJJ = Yii::app()->request->getPost('YWRSJJ');
+		$CSQXYYS = Yii::app()->request->getPost('CSQXYYS');
+		$MZ_INPUT = Yii::app()->request->getPost('MZ_INPUT');
+		$ZY_INTPUT = Yii::app()->request->getPost('ZY_INTPUT');
+		$CSQXYYS_INPUT = Yii::app()->request->getPost('CSQXYYS_INPUT');
+		$SJQSNXXBS = Yii::app()->request->getPost('SJQSNXXBS');
+		$SJQSNXXBS_INPUT = Yii::app()->request->getPost('SJQSNXXBS_INPUT');
+		$JZYCBS = Yii::app()->request->getPost('JZYCBS');
+		$JZYCBS_INPUT = Yii::app()->request->getPost('JZYCBS_INPUT');
+		$JQHPS = Yii::app()->request->getPost('JQHPS');
+		$JQHPS_INPUT = Yii::app()->request->getPost('JQHPS_INPUT');
+
+		//father
+		$CSNY = Yii::app()->request->getPost('CSNY');
+		$MZ = Yii::app()->request->getPost('MZ');
+		$MZ_INPUT = Yii::app()->request->getPost('MZ_INPUT');
+		$ZY = Yii::app()->request->getPost('ZY');
+		$ZY_INPUT = Yii::app()->request->getPost('ZY_INPUT');
+		$WHCD = Yii::app()->request->getPost('WHCD');
+		$CZD = Yii::app()->request->getPost('CZD');
+		$BLXG = Yii::app()->request->getPost('BLXG');
+		$BLXG_OPTION = Yii::app()->request->getPost('BLXG_OPTION');
+		$BLXG_INPUT = Yii::app()->request->getPost('BLXG_INPUT');
+		$YHWZJC = Yii::app()->request->getPost('YHWZJC');
+		$YHWZJC_OPTION = Yii::app()->request->getPost('YHWZJC_OPTION');
+		$YHWZJC_INPUT = Yii::app()->request->getPost('YHWZJC_INPUT');
+		$JWBS = Yii::app()->request->getPost('JWBS');
+		$JWBS_INPUT = Yii::app()->request->getPost('JWBS_INPUT');
+		$JZYCBS = Yii::app()->request->getPost('JZYCBS');
+		$JZYCBS_INPUT = Yii::app()->request->getPost('JZYCBS_INPUT');
 
 
-
-		$xztz_zy = Yii::app()->request->getPost('xztz_zy', 0);
-		$xztz_bw = Yii::app()->request->getPost('xztz_bw', ''); //数组
-		$xztz_sq = Yii::app()->request->getPost('xztz_sq'); //数组
-		$kyzx_wykn = Yii::app()->request->getPost('kyzx_wykn', 0);
-		$kyzx_ffgm = Yii::app()->request->getPost('kyzx_ffgm', 0);
-		$kyzx_tsmr = Yii::app()->request->getPost('kyzx_tsmr', 0);
-		$kyzx_hdnlc = Yii::app()->request->getPost('kyzx_hdnlc', 0);
-		$kyzx_xxqlq = Yii::app()->request->getPost('kyzx_xxqlq', 0);
-		$kyzx_fg = Yii::app()->request->getPost('kyzx_fg', 0);
-		$kyzx_szfych = Yii::app()->request->getPost('kyzx_szfych', 0);
-		$kyzx_hxjc = Yii::app()->request->getPost('kyzx_hxjc', 0);
-		$kyzx_hxjc_ext = Yii::app()->request->getPost('kyzx_hxjc_ext', 0);
-		$kyzx_xdj = Yii::app()->request->getPost('kyzx_xdj', 0);
-		$jpcysz_shou_1 = Yii::app()->request->getPost('jpcysz_shou_1', 0.0);
-		$jpcysz_yz_1 = Yii::app()->request->getPost('jpcysz_yz_1', 0.0);
-		$jpcysz_shou_2 = Yii::app()->request->getPost('jpcysz_shou_2', 0.0);
-		$jpcysz_yz_2 = Yii::app()->request->getPost('jpcysz_yz_2', 0.0);
-		$jpcysz_shou_3 = Yii::app()->request->getPost('jpcysz_shou_3', 0.0);
-		$jpcysz_yz_3 = Yii::app()->request->getPost('jpcysz_yz_3', 0.0);
-		$fmwycqblsj_yzqgr = Yii::app()->request->getPost('fmwycqblsj_yzqgr', 0);
-		$fmwycqblsj_xy = Yii::app()->request->getPost('fmwycqblsj_xy', 0);
-		$fmwycqblsj_dwjc = Yii::app()->request->getPost('fmwycqblsj_dwjc', 0);
-		$fmwycqblsj_xj = Yii::app()->request->getPost('fmwycqblsj_xj', 0);
-		$fmwycqblsj_sxjc = Yii::app()->request->getPost('fmwycqblsj_sxjc', 0);
-		$xzcc_PDA = Yii::app()->request->getPost('xzcc_PDA', 0);
-		$xzcc_VSD = Yii::app()->request->getPost('xzcc_VSD', 0);
-		$xzcc_ASD = Yii::app()->request->getPost('xzcc_ASD', 0);
-		$xzcc_TFO = Yii::app()->request->getPost('xzcc_TFO', 0);
-		$xzcc_PS = Yii::app()->request->getPost('xzcc_PS', 0);
-		$xzcc_Ebstein = Yii::app()->request->getPost('xzcc_Ebstein', 0);
-		$xzcc_qt = Yii::app()->request->getPost('xzcc_qt', 0);
-		$xzcc_qt_ext = Yii::app()->request->getPost('xzcc_qt_ext', '');
-		$qtjx = Yii::app()->request->getPost('qtjx', 0);
-		$qtjx_ext = Yii::app()->request->getPost('qtjx_ext', '');
+		//调查表
+		$KYZX = Yii::app()->request->getPost('KYZX');
+		$KYZX_OPTION = Yii::app()->request->getPost('KYZX_OPTION');
+		$XWJX = Yii::app()->request->getPost('XWJX');
+		$XWJX_OPTION = Yii::app()->request->getPost('XWJX_OPTION');
+		$XZTZ = Yii::app()->request->getPost('XZTZ');
+		$XZTZ_BW_OPTION = Yii::app()->request->getPost('XZTZ_BW_OPTION');
+		$XZTZ_SQ_OPTION = Yii::app()->request->getPost('XZTZ_SQ_OPTION');
+		$XYBHD_CSS_YS = Yii::app()->request->getPost('XYBHD_CSS_YS');
+		$XYBHD_CSS_YJ = Yii::app()->request->getPost('XYBHD_CSS_YJ');
+		$XYBHD_CYQ_YS = Yii::app()->request->getPost('XYBHD_CYQ_YS');
+		$XYBHD_CYQ_YJ = Yii::app()->request->getPost('XYBHD_CYQ_YJ');
+		$XZTZFZJG = Yii::app()->request->getPost('XZTZFZJG');
+		$XZTZFZJG_ZYBW_OPTION = Yii::app()->request->getPost('XZTZFZJG_ZYBW_OPTION');
+		$XZTZFZJG_SQ_OPTION = Yii::app()->request->getPost('XZTZFZJG_SQ_OPTION');
+		$XZCC = Yii::app()->request->getPost('XZCC');
+		$XZCC_OPTION = Yii::app()->request->getPost('XZCC_OPTION');
+		$QTJC = Yii::app()->request->getPost('QTJC');
+		$QTJC_INPUT = Yii::app()->request->getPost('QTJC_INPUT');
+		$CSZD_OPTION = Yii::app()->request->getPost('CSZD_OPTION');
+		$CSZD_INPUT = Yii::app()->request->getPost('CSZD_INPUT');
+		$BZ_INPUT = Yii::app()->request->getPost('BZ_INPUT');
+		$KYZX_INPUT = Yii::app()->request->getPost('KYZX_INPUT');
+		$XWJX_INPUT = Yii::app()->request->getPost('XWJX_INPUT');
+		$XZCC_INPUT = Yii::app()->request->getPost('XZCC_INPUT');
 
 
-		$ssbh = Yii::app()->request->getPost('ssbh', '');
-		$sssj = Yii::app()->request->getPost('sssj', 0);
-		$ssfs_jrfd = Yii::app()->request->getPost('ssfs_jrfd', 0);
-		$ssfs_jrfd_qxmc = Yii::app()->request->getPost('ssfs_jrfd_qxmc', '');
-		$ssfs_jrfd_size = Yii::app()->request->getPost('ssfs_jrfd_size', '');
-		$ssfs_wkkx = Yii::app()->request->getPost('ssfs_wkkx', 0);
-		$ssfs_wxqkfd = Yii::app()->request->getPost('ssfs_wxqkfd', 0);
-		$ssbfz_rx = Yii::app()->request->getPost('ssbfz_rx', 0);
-		$ssbfz_cyl = Yii::app()->request->getPost('ssbfz_cyl', 0);
-		$ssbfz_xlsc = Yii::app()->request->getPost('ssbfz_xlsc', 0);
-		$ssbfz_xlsc_sxzb = Yii::app()->request->getPost('ssbfz_xlsc_sxzb', '');
-		$ssbfz_xlsc_fscdzz = Yii::app()->request->getPost('ssbfz_xlsc_fscdzz', '');
-		$ssbfz_szcdzz = Yii::app()->request->getPost('ssbfz_szcdzz', 0);
-		$ssbfz_fc = Yii::app()->request->getPost('ssbfz_fc', 0);
-		$ssbfz_Erosion = Yii::app()->request->getPost('ssbfz_Erosion', 0);
-		$ssbfz_fdqtl = Yii::app()->request->getPost('ssbfz_fdqtl', 0);
-		$ssbfz_qt = Yii::app()->request->getPost('ssbfz_qt', '');
-		$shcs_image = Yii::app()->request->getPost('shcs_image', '');
-		$shcs_text = Yii::app()->request->getPost('shcs_text', '');
-		$shsf_date = Yii::app()->request->getPost('shsf_date', 0);
-		$shsf_rx = Yii::app()->request->getPost('shsf_rx', 0);
-		$shsf_cyl = Yii::app()->request->getPost('shsf_cyl', 0);
-		$shsf_xlsc = Yii::app()->request->getPost('shsf_xlsc', 0);
-		$shsf_xlsc_sxzb = Yii::app()->request->getPost('shsf_xlsc_sxzb', '');
-		$shsf_xlsc_fscdzz = Yii::app()->request->getPost('shsf_xlsc_fscdzz', '');
-		$shsf_szcdzz = Yii::app()->request->getPost('shsf_szcdzz', 0);
-		$shsf_fc = Yii::app()->request->getPost('shsf_fc', 0);
-		$shsf_Erosion = Yii::app()->request->getPost('shsf_Erosion', 0);
-		$shsf_fdqtl = Yii::app()->request->getPost('shsf_fdqtl', 0);
-		$shsf_qt = Yii::app()->request->getPost('shsf_qt', '');
-		$shsf_cs_image = Yii::app()->request->getPost('shsf_cs_image', '');
-		$shsf_cs_text = Yii::app()->request->getPost('shsf_cs_text', '');
+		$YYMC = Yii::app()->request->getPost('YYMC');
+		$YYKS = Yii::app()->request->getPost('YYKS');
+		$ZYH = Yii::app()->request->getPost('ZYH');
+		$CHXM = Yii::app()->request->getPost('CHXM');
+		$JTZZ = Yii::app()->request->getPost('JTZZ');
+		$LXDH_FQ = Yii::app()->request->getPost('LXDH_FQ');
+		$LXDH_MQ = Yii::app()->request->getPost('LXDH_MQ');
+		$DCBTP = Yii::app()->request->getPost('DCBTP');
 
 
 		// echo '$name'.!$name;

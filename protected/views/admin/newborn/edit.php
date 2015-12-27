@@ -1,20 +1,21 @@
 <!-- page顶部 -->
 <?php include(Yii::app()->basePath."/views/layouts/top.php");?>
-<form id="patientForm" class="form-horizontal" action="<?php echo Yii::app()->request->baseUrl; ?>/admin/patient/update?op=<?php echo $op;?>" method="post">
+<form id="patientForm" class="form-horizontal" action="<?php echo Yii::app()->request->baseUrl; ?>/admin/newborn/update?op=<?php echo $op;?>" method="post">
   <ul class="nav nav-tabs" role="tablist" id="main-tablist">
-      <li role="presentation" class="active"><a href="#patient" aria-controls="home" role="tab" data-toggle="tab">基本信息</a></li>
-      <li role="presentation"><a href="#diagnostic" aria-controls="profile" role="tab" data-toggle="tab">诊断信息</a></li>
-      <li role="presentation"><a href="#operation" aria-controls="messages" role="tab" data-toggle="tab">先心病介入手术</a></li>
+      <li role="presentation" class="active"><a href="#info" aria-controls="info" role="tab" data-toggle="tab">新生儿信息</a></li>
+      <li role="presentation"><a href="#monther" aria-controls="monther" role="tab" data-toggle="tab">母亲信息</a></li>
+      <li role="presentation"><a href="#father" aria-controls="father" role="tab" data-toggle="tab">父亲信息</a></li>
+      <li role="presentation"><a href="#survey" aria-controls="survey" role="tab" data-toggle="tab">调查表信息</a></li>
   </ul>
   <!-- Tab panes -->
   <div class="tab-content">
-      <div role="tabpanel" class="tab-pane active" id="patient">
-        <div class="panel panel-default">
+      <div role="tabpanel" class="tab-pane active" id="info">
+        <div id="operationCollapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="operationHeadingOne">
           <div class="panel-body">
             <div class="form-group">
               <label for="name" class="col-sm-2 control-label">姓名</label>
               <div class="col-sm-2" >
-                <input type="text" class="form-control" id="name" name="name" placeholder="姓名" value="<?php echo $patient['name'];?>" required autofocus>
+                <input type="text" class="form-control" id="name" name="name" placeholder="姓名" value="<?php echo $info['name'];?>" required autofocus>
               </div>
             </div>
             <div class="form-group">
@@ -22,82 +23,59 @@
               <div class="col-sm-2">
                 <?php foreach (Yii::app()->params['sex'] as $key => $value) { ?>
                 <label class="radio-inline">
-                  <input type="radio" name="sex" id="sex" value="<?php echo $key;?>" <?php echo $patient['sex'] == $key || (!$patient['sex'] && $key=='1') ? 'checked' : '';?>> <?php echo $value;?>
+                  <input type="radio" name="sex" id="sex" value="<?php echo $key;?>" <?php echo $info['sex'] == $key || (!$info['sex'] && $key=='1') ? 'checked' : '';?>> <?php echo $value;?>
                 </label>
                 <?php } ?>
               </div>
             </div>
             <div class="form-group ">
-              <label for="born" class="col-sm-2 control-label">出生日期</label>
+              <label for="TL" class="col-sm-2 control-label">胎龄</label>
               <div class="col-sm-3">
                 <div class="input-group date">
-                  <input class="form-control" type="text"  name="born" id="born" value="<?php echo $patient['born'] ? date('Y-m-d',$patient['born']) :'';?>" required >
+                  <input class="form-control" type="number"  name="TL" id="TL" value="<?php echo $info['TL'];?>" required >
                   <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
                 </div>
               </div>
             </div>
             <div class="form-group ">
-              <label for="nationality" class="col-sm-2 control-label">民族</label>
+              <label for="TS" class="col-sm-2 control-label">胎数</label>
               <div class="col-sm-2">
-                <select class="form-control" id="nationality" name="nationality" required>
-                  <?php foreach ($nationality as $key => $value) { ?>
-                  <option value="<?php echo $value;?>" <?php echo $patient['nationality']==$key ? 'selected' : "";?>><?php echo $key;?></option>
+                <select class="form-control" id="nationality" name="TS" required>
+                  <?php for($i=1; $i <= 10; $i++) { ?>
+                  <option value="<?php echo $i;?>" <?php echo $info['TS']==$i ? 'selected' : "";?>><?php echo $i;?></option>
                   <?php } ?>
                 </select>
               </div>
             </div>
             <div class="form-group ">
-              <label for="place" class="col-sm-2 control-label">籍贯</label>
+              <label for="CSTZ" class="col-sm-2 control-label">出生体重</label>
               <div class="col-sm-2">
-                <input type="text" class="form-control" id="place" name="place" placeholder="籍贯" value="<?php echo $patient['place'];?>" required>
+                <input type="text" class="form-control" id="CSTZ" name="CSTZ" placeholder="出生体重" value="<?php echo $info['CSTZ'];?>" required>
               </div>
             </div>
             <div class="form-group ">
-              <label for="phone" class="col-sm-2 control-label">联系电话</label>
+              <label for="CSRQ" class="col-sm-2 control-label">出生时间</label>
               <div class="col-sm-2">
-                <input type="text" class="form-control" id="phone" name="phone" placeholder="联系电话" value="<?php echo $patient['phone'];?>" required>
+                <input class="form-control" type="text"  name="CSRQ" id="CSRQ" value="<?php echo $info['CSRQ'] ? date('Y-m-d',$info['CSRQ']) :'';?>" required >
+                <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
               </div>
             </div>
             <div class="form-group ">
-              <label for="address" class="col-sm-2 control-label">详细地址</label>
+              <label for="address" class="col-sm-2 control-label">胎产方式</label>
               <div class="col-sm-4">
-                <input type="text" class="form-control" id="address" name="address" placeholder="详细地址" value="<?php echo $patient['address'];?>" required>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="sex" class="col-sm-2 control-label">家族病史</label>
-              <div class="col-sm-1">
-                <select class="form-control" id="has_history" name="has_history">
-                  <?php foreach ($have as $key => $value) { ?>
-                  <option value="<?php echo $key;?>" <?php echo $patient['has_history'] == $key ? 'selected' : '';?> ><?php echo $value;?></option>
+                <select class="form-control" id="TCFS" name="TCFS">
+                  <?php foreach ($tcfs as $key => $value) { ?>
+                  <option value="<?php echo $key;?>" <?php echo $info['TCFS'] == $key ? 'selected' : "";?>><?php echo $value;?></option>
                   <?php } ?>
                 </select>
               </div>
-              <span class="help-block">说明：先心病家族史，指三代以内直系亲属有先心病患者</span>
-            </div>
-            <div class="form-group ">
-              <label for="height" class="col-sm-2 control-label">身高</label>
-              <div class="col-sm-2">
-                <div class="input-group">
-                  <input type="number" class="form-control" id="height" name="height" placeholder="身高" aria-describedby="basic-addon-height" value="<?php echo $patient['height'];?>">
-                  <span class="input-group-addon" id="basic-addon-height">cm</span>
-                </div>
-              </div>
-            </div>
-            <div class="form-group ">
-              <label for="weight" class="col-sm-2 control-label">体重</label>
-              <div class="col-sm-2">
-                <div class="input-group">
-                  <input type="number" class="form-control" id="weight" name="weight" placeholder="体重" aria-describedby="basic-addon-weight" value="<?php echo $patient['weight'];?>">
-                  <span class="input-group-addon" id="basic-addon-weight">kg</span>
-                </div>
-              </div>
             </div>
             <div class="form-group">
-              <label for="BMI" class="col-sm-2 control-label">BMI</label>
-              <div class="col-sm-2">
-                <input type="number" class="form-control" id="BMI" name="BMI" placeholder="BMI" value="<?php echo $patient['BMI'];?>" readonly>
+              <label for="XSEPF" class="col-sm-2 control-label">新生儿评分</label>
+              <div class="col-sm-1">
+                <input type="text" class="form-control" id="XSEPF" name="XSEPF" placeholder="新生儿评分" value="<?php echo $info['XSEPF'];?>" required>
               </div>
+              <span class="help-block">单位：分</span>
             </div>
             <div class="form-group ">
               <label for="follow_hospital" class="col-sm-2 control-label">随访医院</label>
@@ -112,12 +90,143 @@
             <!-- <div class="form-group ">
               <label for="hospital_no" class="col-sm-2 control-label">住院号</label>
               <div class="col-sm-2">
-                <input type="text" class="form-control" name="hospital_no" placeholder="住院号" value="<?php echo $patient['hospital_no'];?>">
+                <input type="text" class="form-control" name="hospital_no" placeholder="住院号" value="<?php //echo $patient['hospital_no'];?>">
               </div>
             </div> -->
+
+
           </div>
         </div>
+        <div id="operationCollapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="operationHeadingTwo">
+          <div class="panel-body">
+            <div class="form-group">
+              <label for="name" class="col-sm-2 control-label">可疑征象</label>
+              <div class="col-sm-2" >
+                <select class="form-control" id="KYZX" name="KYZX">
+                  <?php foreach ($have as $key => $value) { ?>
+                  <option value="<?php echo $key;?>" <?php echo $diagnostic['KYZX'] == $key ? 'selected' : '';?> ><?php echo $value;?></option>
+                  <?php } ?>
+                </select>
+              </div>
+            </div>
+            <div class="form-group ">
+              <div class="col-sm-10 col-sm-offset-2">
+                <?php foreach ($kyzx as $key => $value) { ?>
+                <label class="checkbox-inline">
+                  <input type="checkbox" name="KYZX_OPTION[]" value="<?php echo $key; ?>" <?php echo $diagnostic['KYZX_OPTION'] && in_array($key,$diagnostic['KYZX_OPTION']) ? 'checked' : '';?>><?php echo $value; ?>
+                </label>
+                <?php } ?>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="XWJX" class="col-sm-2 control-label">心外畸形或出生缺陷</label>
+              <div class="col-sm-2">
+                <select class="form-control" id="XWJX" name="XWJX">
+                  <?php foreach ($have as $key => $value) { ?>
+                  <option value="<?php echo $key;?>" <?php echo $diagnostic['XWJX'] == $key ? 'selected' : '';?> ><?php echo $value;?></option>
+                  <?php } ?>
+                </select>
+              </div>
+            </div>
+            <div class="form-group ">
+              <div class="col-sm-10 col-sm-offset-2">
+                <?php foreach ($xwjx as $key => $value) { ?>
+                <label class="checkbox-inline">
+                  <input type="checkbox" name="XWJX_OPTION[]" value="<?php echo $key; ?>" <?php echo $diagnostic['XWJX_OPTION'] && in_array($key,$diagnostic['XWJX_OPTION']) ? 'checked' : '';?>><?php echo $value; ?>
+                </label>
+                <?php } ?>
+              </div>
+            </div>
+            <div class="form-group ">
+              <label for="XZTZ" class="col-sm-2 control-label">心脏听诊（杂音）</label>
+              <div class="col-sm-3">
+                <select class="form-control" id="XZTZ" name="XZTZ">
+                  <?php foreach ($have as $key => $value) { ?>
+                  <option value="<?php echo $key;?>" <?php echo $diagnostic['XZTZ'] == $key ? 'selected' : '';?> ><?php echo $value;?></option>
+                  <?php } ?>
+                </select>
+              </div>
+            </div>
+            <div class="form-group ">
+              <label for="XZTZ_BW_OPTION" class="col-sm-2 control-label">部位</label>
+              <div class="col-sm-10 col-sm-offset-2">
+                <?php foreach ($xwjx_bw as $key => $value) { ?>
+                <label class="checkbox-inline">
+                  <input type="checkbox" name="XZTZ_BW_OPTION[]" value="<?php echo $key; ?>" <?php echo $diagnostic['XZTZ_BW_OPTION'] && in_array($key,$diagnostic['XZTZ_BW_OPTION']) ? 'checked' : '';?>><?php echo $value; ?>
+                </label>
+                <?php } ?>
+              </div>
+            </div>
+            <div class="form-group ">
+              <label for="XZTZ_SQ_OPTION" class="col-sm-2 control-label">时期</label>
+              <div class="col-sm-10 col-sm-offset-2">
+                <?php foreach ($xwjx_sq as $key => $value) { ?>
+                <label class="checkbox-inline">
+                  <input type="checkbox" name="XZTZ_SQ_OPTION[]" value="<?php echo $key; ?>" <?php echo $diagnostic['XZTZ_SQ_OPTION'] && in_array($key,$diagnostic['XZTZ_SQ_OPTION']) ? 'checked' : '';?>><?php echo $value; ?>
+                </label>
+                <?php } ?>
+              </div>
+            </div>
+            <div class="form-group ">
+              <label for="TS" class="col-sm-2 control-label">胎数</label>
+              <div class="col-sm-2">
+                <select class="form-control" id="nationality" name="TS" required>
+                  <?php for($i=1; $i <= 10; $i++) { ?>
+                  <option value="<?php echo $i;?>" <?php echo $info['TS']==$i ? 'selected' : "";?>><?php echo $i;?></option>
+                  <?php } ?>
+                </select>
+              </div>
+            </div>
+            <div class="form-group ">
+              <label for="CSTZ" class="col-sm-2 control-label">出生体重</label>
+              <div class="col-sm-2">
+                <input type="text" class="form-control" id="CSTZ" name="CSTZ" placeholder="出生体重" value="<?php echo $info['CSTZ'];?>" required>
+              </div>
+            </div>
+            <div class="form-group ">
+              <label for="CSRQ" class="col-sm-2 control-label">出生时间</label>
+              <div class="col-sm-2">
+                <input class="form-control" type="text"  name="CSRQ" id="CSRQ" value="<?php echo $info['CSRQ'] ? date('Y-m-d',$info['CSRQ']) :'';?>" required >
+                <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+              </div>
+            </div>
+            <div class="form-group ">
+              <label for="address" class="col-sm-2 control-label">胎产方式</label>
+              <div class="col-sm-4">
+                <select class="form-control" id="TCFS" name="TCFS">
+                  <?php foreach ($tcfs as $key => $value) { ?>
+                  <option value="<?php echo $key;?>" <?php echo $info['TCFS'] == $key ? 'selected' : "";?>><?php echo $value;?></option>
+                  <?php } ?>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="XSEPF" class="col-sm-2 control-label">新生儿评分</label>
+              <div class="col-sm-1">
+                <input type="text" class="form-control" id="XSEPF" name="XSEPF" placeholder="新生儿评分" value="<?php echo $info['XSEPF'];?>" required>
+              </div>
+              <span class="help-block">单位：分</span>
+            </div>
+            <div class="form-group ">
+              <label for="follow_hospital" class="col-sm-2 control-label">随访医院</label>
+              <div class="col-sm-4">
+                <select class="form-control" id="follow_hospital" name="follow_hospital">
+                  <?php foreach ($hospitals as $key => $value) { ?>
+                  <option value="<?php echo $key;?>" <?php echo $patient['follow_hospital'] == $key || (!$patient['follow_hospital'] && $this->hospital == $key) ? 'selected' : "";?>><?php echo $value;?></option>
+                  <?php } ?>
+                </select>
+              </div>
+            </div>
+            <!-- <div class="form-group ">
+              <label for="hospital_no" class="col-sm-2 control-label">住院号</label>
+              <div class="col-sm-2">
+                <input type="text" class="form-control" name="hospital_no" placeholder="住院号" value="<?php //echo $patient['hospital_no'];?>">
+              </div>
+            </div> -->
 
+
+          </div>
+        </div>
       </div>
       <div role="tabpanel" class="tab-pane" id="diagnostic">
         <div class="panel panel-default">
